@@ -1,0 +1,2111 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/25/2024 12:26:01 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAP-DSI10"
+  DTS:CreatorName="LAP-DSI10\DELL"
+  DTS:DTSID="{3D234817-EC29-4AA1-8F52-FDA932077422}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="14348"
+  DTS:ObjectName="Main"
+  DTS:PackageType="5"
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{7725BDE4-D05E-4C9C-BEA9-EC1E151F2D88}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Conteneur de séquences"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Conteneur de séquences"
+      DTS:Disabled="True"
+      DTS:DTSID="{CFC69A61-5ABE-4ABD-90F1-66D4238C32F5}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Conteneur de séquences">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences\SIEGE_T_AGENCE"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{DD34DEE7-FE72-4230-876A-B240A632D55A}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SIEGE_T_AGENCE"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>SIEGE_T_AGENCE.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences\SIEGE_T_ARTICLES"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{8901AA94-54D4-497A-B89E-D23DD7DA7B5A}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SIEGE_T_ARTICLES"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>SIEGE_T_ARTICLES.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences\SIEGE_T_FAMILLE"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{081C7994-C115-4F12-B918-E4F0FF566EB4}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SIEGE_T_FAMILLE"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>SIEGE_T_FAMILLE.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences\SIEGE_T_GAMME"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{1A5158A3-47D9-4E56-9AF2-A52C42647375}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SIEGE_T_GAMME"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>SIEGE_T_GAMME.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences\SIEGE_T_PRODUITS"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{233CE798-4FB4-452E-8534-42E78AD393F7}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SIEGE_T_PRODUITS"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>SIEGE_T_PRODUITS.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences\TANTAN_DIMS_T_BLOC"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{476938B2-0288-4C60-849E-CD7C5F53CF38}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TANTAN_DIMS_T_BLOC"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>TANTAN_DIMS_T_BLOC.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences\TANTAN_DIMS_T_CLIENTS"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{D611F24F-92C4-4227-9FE4-CB56CDC3303C}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TANTAN_DIMS_T_CLIENTS"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>TANTAN_DIMS_T_CLIENTS.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences\TANTAN_DIMS_T_SECTEUR"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{586E1EED-6FDF-4E71-A723-1FFA8800BD57}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TANTAN_DIMS_T_SECTEUR"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>TANTAN_DIMS_T_SECTEUR.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences\TANTAN_DIMS_T_SOUS_SECTEUR"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{71123744-B92D-4A18-A0A0-F52F3A1CE5F8}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TANTAN_DIMS_T_SOUS_SECTEUR"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>TANTAN_DIMS_T_SOUS_SECTEUR.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences\TANTAN_DIMS_T_TOURNEES"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{588C1D9D-4D48-45C8-80AD-88D0E7C634A7}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TANTAN_DIMS_T_TOURNEES"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>TANTAN_DIMS_T_TOURNEES.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences\TANTAN_DIMS_T_ZONE"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{2CFD85ED-AAF6-4D9D-A2F2-76BBF9FD6A88}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TANTAN_DIMS_T_ZONE"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>TANTAN_DIMS_T_ZONE.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences\TANTAN_FACT_BUDGET_MENSUEL"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{8D049AA2-88BB-4825-A603-2B18612E28A2}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TANTAN_FACT_BUDGET_MENSUEL"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>TANTAN_FACTS_BUDGET_MENSUEL.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences\TANTAN_T_CHARGEMENT"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{EC98FCBA-A9B0-407E-AF9C-E8E0B1348D4A}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TANTAN_T_CHARGEMENT"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>TANTAN_FACTS_SOURCE.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences\TANTAN_T_PRODUITS_CHARGEE"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{143743AD-1B56-43D3-AD67-237F5B94D4F4}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TANTAN_T_PRODUITS_CHARGEE"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>TANTAN_FACTS_PRODUITS_CHARGEE.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences\TATA_DIMS_T_BLOC"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{F1EC1ED9-C884-44ED-81A9-AEA7471999CE}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TATA_DIMS_T_BLOC"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>TATA_DIMS_T_BLOC.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences\TATA_DIMS_T_CLIENTS"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{94C8FF12-24FC-4C38-91D9-213A0A79FB7E}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TATA_DIMS_T_CLIENTS"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>TATA_DIMS_T_CLIENTS.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences\TATA_DIMS_T_SECTEUR"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{D5B4ADE8-9209-44EB-BFAE-2D4120B47808}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TATA_DIMS_T_SECTEUR"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>TATA_DIMS_T_SECTEUR.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences\TATA_DIMS_T_SOUS_SECTEUR"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{CD031366-442F-4C42-9478-52C3824B1D0A}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TATA_DIMS_T_SOUS_SECTEUR"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>TATA_DIMS_T_SOUS_SECTEUR.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences\TATA_DIMS_T_TOURNEES"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{24AE9034-6658-4BD1-9254-5AAAD0BD6400}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TATA_DIMS_T_TOURNEES"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>TATA_DIMS_T_TOURNEES.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences\TATA_DIMS_T_ZONE"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{6624F7D8-130E-47EA-95EA-E7A9B4D21C20}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TATA_DIMS_T_ZONE"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>TATA_DIMS_T_ZONE.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences\TATA_FACT_T_BUDGET_MENSUEL"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{64AEC44E-4E87-4A6F-96EC-190C84ADC8E0}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TATA_FACT_T_BUDGET_MENSUEL"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>TATA_FACTS_BUDGET_MENSUEL.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences\TATA_FACT_T_CHARGEMENET"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{503D7E3A-6650-44A9-AA03-BF2BFCF686E3}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TATA_FACT_T_CHARGEMENET"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>TATA_FACT_T_CHARGEMENT.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences\TATA_FACT_T_PROJETS_CHARGEE"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{B73F5958-F48A-4AD8-91F4-129A0E709AA6}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TATA_FACT_T_PROJETS_CHARGEE"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>TATA_FACTS_PRODUITS_CHARGEE.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte]"
+          DTS:CreationName=""
+          DTS:DTSID="{E64FD6CE-C4A3-4BE9-BAF6-47ADDF59CC05}"
+          DTS:From="Package\Conteneur de séquences\SIEGE_T_AGENCE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte"
+          DTS:To="Package\Conteneur de séquences\SIEGE_T_ARTICLES" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{4660137D-9F17-42EE-A9AB-E70AB77504F1}"
+          DTS:From="Package\Conteneur de séquences\SIEGE_T_ARTICLES"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 1"
+          DTS:To="Package\Conteneur de séquences\SIEGE_T_FAMILLE" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 10]"
+          DTS:CreationName=""
+          DTS:DTSID="{E0808B31-BD95-435A-A7A2-7D6A683EFFF3}"
+          DTS:From="Package\Conteneur de séquences\TANTAN_DIMS_T_ZONE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 10"
+          DTS:To="Package\Conteneur de séquences\TANTAN_FACT_BUDGET_MENSUEL" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 11]"
+          DTS:CreationName=""
+          DTS:DTSID="{EFF8FA9F-4C89-45A4-BD58-D9291DDF06A9}"
+          DTS:From="Package\Conteneur de séquences\TANTAN_FACT_BUDGET_MENSUEL"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 11"
+          DTS:To="Package\Conteneur de séquences\TANTAN_T_PRODUITS_CHARGEE" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 12]"
+          DTS:CreationName=""
+          DTS:DTSID="{E38E323B-67BD-428B-972A-C860C6C1D18B}"
+          DTS:From="Package\Conteneur de séquences\TANTAN_T_PRODUITS_CHARGEE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 12"
+          DTS:To="Package\Conteneur de séquences\TANTAN_T_CHARGEMENT" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 13]"
+          DTS:CreationName=""
+          DTS:DTSID="{27DBE0D7-8AF6-4236-ABFE-168A2DA5F2AF}"
+          DTS:From="Package\Conteneur de séquences\TANTAN_T_CHARGEMENT"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 13"
+          DTS:To="Package\Conteneur de séquences\TATA_DIMS_T_BLOC" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 14]"
+          DTS:CreationName=""
+          DTS:DTSID="{BCDEFB2F-35BF-44E6-9919-6097122D5A01}"
+          DTS:From="Package\Conteneur de séquences\TATA_DIMS_T_BLOC"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 14"
+          DTS:To="Package\Conteneur de séquences\TATA_DIMS_T_CLIENTS" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 15]"
+          DTS:CreationName=""
+          DTS:DTSID="{27ACA4E0-391D-47E8-977A-988457FFFBE7}"
+          DTS:From="Package\Conteneur de séquences\TATA_DIMS_T_CLIENTS"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 15"
+          DTS:To="Package\Conteneur de séquences\TATA_DIMS_T_SOUS_SECTEUR" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 16]"
+          DTS:CreationName=""
+          DTS:DTSID="{40900B27-5389-49FC-8F5A-66EBEB38E18D}"
+          DTS:From="Package\Conteneur de séquences\TATA_DIMS_T_SOUS_SECTEUR"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 16"
+          DTS:To="Package\Conteneur de séquences\TATA_DIMS_T_SECTEUR" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 17]"
+          DTS:CreationName=""
+          DTS:DTSID="{286A78FE-4EB7-45A6-A8D9-858C7794D9CC}"
+          DTS:From="Package\Conteneur de séquences\TATA_DIMS_T_SECTEUR"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 17"
+          DTS:To="Package\Conteneur de séquences\TATA_DIMS_T_TOURNEES" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 18]"
+          DTS:CreationName=""
+          DTS:DTSID="{869E0014-38E2-4FE5-9426-61B55C2ACACE}"
+          DTS:From="Package\Conteneur de séquences\TATA_DIMS_T_TOURNEES"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 18"
+          DTS:To="Package\Conteneur de séquences\TATA_DIMS_T_ZONE" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 19]"
+          DTS:CreationName=""
+          DTS:DTSID="{57007B02-85DA-498E-A496-61B475CDFC5B}"
+          DTS:From="Package\Conteneur de séquences\TATA_DIMS_T_ZONE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 19"
+          DTS:To="Package\Conteneur de séquences\TATA_FACT_T_CHARGEMENET" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{C6CE3989-0DF8-40E7-9C36-57F1CE480A77}"
+          DTS:From="Package\Conteneur de séquences\SIEGE_T_FAMILLE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 2"
+          DTS:To="Package\Conteneur de séquences\SIEGE_T_GAMME" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 20]"
+          DTS:CreationName=""
+          DTS:DTSID="{CE797CDC-EDD6-4C47-B325-20A1B0E1F842}"
+          DTS:From="Package\Conteneur de séquences\TATA_FACT_T_CHARGEMENET"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 20"
+          DTS:To="Package\Conteneur de séquences\TATA_FACT_T_BUDGET_MENSUEL" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 21]"
+          DTS:CreationName=""
+          DTS:DTSID="{218AFC19-C577-4F0F-9F47-CB0303B6334E}"
+          DTS:From="Package\Conteneur de séquences\TATA_FACT_T_BUDGET_MENSUEL"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 21"
+          DTS:To="Package\Conteneur de séquences\TATA_FACT_T_PROJETS_CHARGEE" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{DD025101-BD90-4D1C-8BED-2FBFB00485AF}"
+          DTS:From="Package\Conteneur de séquences\SIEGE_T_GAMME"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 3"
+          DTS:To="Package\Conteneur de séquences\SIEGE_T_PRODUITS" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{90103744-96F8-42C3-9357-077816C64878}"
+          DTS:From="Package\Conteneur de séquences\SIEGE_T_PRODUITS"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 4"
+          DTS:To="Package\Conteneur de séquences\TANTAN_DIMS_T_BLOC" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{6E7E3E1B-69B5-4174-A60A-AFD80F0B661B}"
+          DTS:From="Package\Conteneur de séquences\TANTAN_DIMS_T_BLOC"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 5"
+          DTS:To="Package\Conteneur de séquences\TANTAN_DIMS_T_CLIENTS" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 6]"
+          DTS:CreationName=""
+          DTS:DTSID="{4BD1C90C-19CF-4B36-963C-CE141ECAB0A9}"
+          DTS:From="Package\Conteneur de séquences\TANTAN_DIMS_T_CLIENTS"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 6"
+          DTS:To="Package\Conteneur de séquences\TANTAN_DIMS_T_SECTEUR" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 7]"
+          DTS:CreationName=""
+          DTS:DTSID="{1A8C80AA-7BC0-4D06-8383-4C4CFFE5FB23}"
+          DTS:From="Package\Conteneur de séquences\TANTAN_DIMS_T_SECTEUR"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 7"
+          DTS:To="Package\Conteneur de séquences\TANTAN_DIMS_T_SOUS_SECTEUR" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 8]"
+          DTS:CreationName=""
+          DTS:DTSID="{BF6602C0-EE45-4053-882F-A998CDBA4D8B}"
+          DTS:From="Package\Conteneur de séquences\TANTAN_DIMS_T_SOUS_SECTEUR"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 8"
+          DTS:To="Package\Conteneur de séquences\TANTAN_DIMS_T_TOURNEES" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 9]"
+          DTS:CreationName=""
+          DTS:DTSID="{6EB0554D-9240-4994-B362-6B70C2D87E2B}"
+          DTS:From="Package\Conteneur de séquences\TANTAN_DIMS_T_TOURNEES"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 9"
+          DTS:To="Package\Conteneur de séquences\TANTAN_DIMS_T_ZONE" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Conteneur de séquences 1"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Conteneur de séquences"
+      DTS:DTSID="{93D11313-22B1-4FB7-96EA-8B20BF574CC3}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Conteneur de séquences 1">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences 1\TIZNIT PROJETS CHARGEE"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{90C9CAB1-C390-41C6-A4D2-8DCB450F9D2B}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TIZNIT PROJETS CHARGEE"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>TIZNIT_FACT_PRODUITS_CHARGEE.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences 1\TIZNIT T CLIENTS"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{D986046A-87D2-468C-A330-DE08200E394D}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TIZNIT T CLIENTS"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>TIZNIT_DIMS_T_CLIENTS.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences 1\TIZNIT T SECTEUR"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{1F1323B9-6F0B-49DD-9993-195717D8BB9F}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TIZNIT T SECTEUR"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>TIZNIT_DIMS_T_SECTEUR.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences 1\TIZNIT T SOUS SECTEUR"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{011B16B9-90F7-418A-88E6-A27D9E427ECC}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TIZNIT T SOUS SECTEUR"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>TIZNIT_DIMS_T_SOUS_SECTEUR.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences 1\TIZNIT T TOURNEE"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{EB06E91C-5814-4DA3-BF87-8B28FD1C7616}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TIZNIT T TOURNEE"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>TIZNIT_DIMS_T_TOURNEES.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences 1\TIZNIT_DIMS_T_BLOC"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{03570303-BC78-47E4-AD84-7022AFA81B53}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TIZNIT_DIMS_T_BLOC"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>TIZNIT_DIMS_T_BLOC.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences 1\TIZNIT_T_BUDGET_MENSUEL"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{D819692C-F828-4CB8-AAE8-DA603663BB4A}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TIZNIT_T_BUDGET_MENSUEL"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>TIZNIT_FACT_BUDGET_MENSUEL.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences 1\TIZNIT_T_CHARGEMENT"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{B3E8ADF9-3B9A-45C9-BC70-691220052797}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TIZNIT_T_CHARGEMENT"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>TIZNIT_FACT_T_CHARGEMET.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences 1\TIZNIT_T_ZONE"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{55788E89-D610-4E5D-8618-F0E4B07B55CC}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TIZNIT_T_ZONE"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>TIZNIT_DIMS_T_ZONE.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences 1\ZAGORA  T BLOC"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{8193A2FE-F089-4D6E-B16E-6996DA3ABD27}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ZAGORA  T BLOC"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>ZAGORA_DIMS_T_BLOC.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences 1\ZAGORA T BUDGET MENSUEL"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{25D5C6A0-4C32-4718-A191-0AD85D44E620}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ZAGORA T BUDGET MENSUEL"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>ZAGORA_FACT_T_BUDGET_MENSUEL.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences 1\ZAGORA T CHARGEMENT"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{2EAB590F-E6D0-4283-B9B0-20D66A7C7440}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ZAGORA T CHARGEMENT"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>ZAGORA_FACT_T_CHARGEMENT.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences 1\ZAGORA T CLIENTS"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{AFEAE50D-16F5-4688-BB8C-AFAA4320522B}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ZAGORA T CLIENTS"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>ZAGORA_DIMS_T_CLIENTS.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences 1\ZAGORA T PRODUITS CHARGEE"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{BA9B130E-8F7C-4835-979C-A7D6513DBCF9}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ZAGORA T PRODUITS CHARGEE"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>ZAGORA_FACT_PRODUITS_CHARGEE.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences 1\ZAGORA T SECTEUR"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{ADE4EC63-FDDC-4BA4-BF9F-77A42E876B73}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ZAGORA T SECTEUR"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>ZAGORA_DIMS_T_SECTEUR.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences 1\ZAGORA T SOUS SECTEUR"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{48B5F860-1AC9-4A2D-B8DF-7B00A05BA845}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ZAGORA T SOUS SECTEUR"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>ZAGORA_DIMS_T_SOUS_SECTEUR.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences 1\ZAGORA T TOURNEES"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{3A9BBFCF-6915-45E3-A3B3-D92C7CEC64BD}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ZAGORA T TOURNEES"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>ZAGORA_DIMS_T_TOURNEES.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Conteneur de séquences 1\ZAGORA T ZONE"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{432DD16B-FCC1-4C50-B2E3-2633EC90AAB8}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ZAGORA T ZONE"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>ZAGORA_DIMS_T_ZONE.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte]"
+          DTS:CreationName=""
+          DTS:DTSID="{A096BE9D-6110-4EFC-8B3D-B852B4916AAC}"
+          DTS:From="Package\Conteneur de séquences 1\TIZNIT_DIMS_T_BLOC"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte"
+          DTS:To="Package\Conteneur de séquences 1\TIZNIT_T_ZONE" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{7481DF43-B804-428A-8551-7BBB6903D1DD}"
+          DTS:From="Package\Conteneur de séquences 1\TIZNIT_T_ZONE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 1"
+          DTS:To="Package\Conteneur de séquences 1\TIZNIT_T_BUDGET_MENSUEL" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte 10]"
+          DTS:CreationName=""
+          DTS:DTSID="{3A64F413-9256-4E01-8884-72FBB488D6EB}"
+          DTS:From="Package\Conteneur de séquences 1\ZAGORA T CLIENTS"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 10"
+          DTS:To="Package\Conteneur de séquences 1\ZAGORA T SECTEUR" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte 11]"
+          DTS:CreationName=""
+          DTS:DTSID="{0214B4A1-D1C9-4638-9E8E-CD356A6B203C}"
+          DTS:From="Package\Conteneur de séquences 1\ZAGORA T SECTEUR"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 11"
+          DTS:To="Package\Conteneur de séquences 1\ZAGORA T SOUS SECTEUR" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte 12]"
+          DTS:CreationName=""
+          DTS:DTSID="{2191F796-671A-4634-A167-20670AF550E7}"
+          DTS:From="Package\Conteneur de séquences 1\ZAGORA T SOUS SECTEUR"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 12"
+          DTS:To="Package\Conteneur de séquences 1\ZAGORA T TOURNEES" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte 13]"
+          DTS:CreationName=""
+          DTS:DTSID="{B1B8130D-7EF8-4312-8E5C-D8B48428C9C7}"
+          DTS:From="Package\Conteneur de séquences 1\ZAGORA T TOURNEES"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 13"
+          DTS:To="Package\Conteneur de séquences 1\ZAGORA T ZONE" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte 14]"
+          DTS:CreationName=""
+          DTS:DTSID="{F686F933-B330-4AD2-89A2-66D27A6DFA57}"
+          DTS:From="Package\Conteneur de séquences 1\ZAGORA T ZONE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 14"
+          DTS:To="Package\Conteneur de séquences 1\ZAGORA T BUDGET MENSUEL" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte 15]"
+          DTS:CreationName=""
+          DTS:DTSID="{A4FB4DFD-B9C7-4668-9F38-6F42FC6D7F21}"
+          DTS:From="Package\Conteneur de séquences 1\ZAGORA T BUDGET MENSUEL"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 15"
+          DTS:To="Package\Conteneur de séquences 1\ZAGORA T PRODUITS CHARGEE" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte 16]"
+          DTS:CreationName=""
+          DTS:DTSID="{1A8AE918-6B43-431B-84F4-3A8B3EEF7499}"
+          DTS:From="Package\Conteneur de séquences 1\ZAGORA T PRODUITS CHARGEE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 16"
+          DTS:To="Package\Conteneur de séquences 1\ZAGORA T CHARGEMENT" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{13CAED13-63C6-4200-83A2-825EFA29B63D}"
+          DTS:From="Package\Conteneur de séquences 1\TIZNIT_T_BUDGET_MENSUEL"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 2"
+          DTS:To="Package\Conteneur de séquences 1\TIZNIT_T_CHARGEMENT" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{D1DA2BB3-EFC2-4156-8955-A2B023676ABC}"
+          DTS:From="Package\Conteneur de séquences 1\TIZNIT_T_CHARGEMENT"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 3"
+          DTS:To="Package\Conteneur de séquences 1\TIZNIT PROJETS CHARGEE" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{D0095195-77CB-4378-9A1B-6A4991CC8960}"
+          DTS:From="Package\Conteneur de séquences 1\TIZNIT PROJETS CHARGEE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 4"
+          DTS:To="Package\Conteneur de séquences 1\TIZNIT T TOURNEE" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{C3BE8347-14D9-4FC7-B37E-BB6A02109B7F}"
+          DTS:From="Package\Conteneur de séquences 1\TIZNIT T TOURNEE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 5"
+          DTS:To="Package\Conteneur de séquences 1\TIZNIT T CLIENTS" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte 6]"
+          DTS:CreationName=""
+          DTS:DTSID="{2B6A8985-F6B5-4A7F-ABC6-57FB4B17F133}"
+          DTS:From="Package\Conteneur de séquences 1\TIZNIT T CLIENTS"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 6"
+          DTS:To="Package\Conteneur de séquences 1\TIZNIT T SOUS SECTEUR" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte 7]"
+          DTS:CreationName=""
+          DTS:DTSID="{9C3FC547-A0A8-49B2-B86F-D1B7C8E02221}"
+          DTS:From="Package\Conteneur de séquences 1\TIZNIT T SOUS SECTEUR"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 7"
+          DTS:To="Package\Conteneur de séquences 1\TIZNIT T SECTEUR" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte 8]"
+          DTS:CreationName=""
+          DTS:DTSID="{4046B1E8-A64A-48EC-81DA-3422DB7FC77B}"
+          DTS:From="Package\Conteneur de séquences 1\TIZNIT T SECTEUR"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 8"
+          DTS:To="Package\Conteneur de séquences 1\ZAGORA  T BLOC" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte 9]"
+          DTS:CreationName=""
+          DTS:DTSID="{78E66298-8473-420F-BE2F-1A47C60C0456}"
+          DTS:From="Package\Conteneur de séquences 1\ZAGORA  T BLOC"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 9"
+          DTS:To="Package\Conteneur de séquences 1\ZAGORA T CLIENTS" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="128" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="172,41.6"
+          Id="Package\Conteneur de séquences\SIEGE_T_AGENCE"
+          TopLeft="49.9,5.50000000000018" />
+        <NodeLayout
+          Size="179.2,41.6"
+          Id="Package\Conteneur de séquences\SIEGE_T_ARTICLES"
+          TopLeft="46.3,107.100000000001" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Conteneur de séquences\SIEGE_T_FAMILLE"
+          TopLeft="50.3,208.700000000001" />
+        <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\Conteneur de séquences\SIEGE_T_GAMME"
+          TopLeft="52.3,310.300000000001" />
+        <NodeLayout
+          Size="181.6,41.6"
+          Id="Package\Conteneur de séquences\SIEGE_T_PRODUITS"
+          TopLeft="45.1000000000001,411.900000000002" />
+        <NodeLayout
+          Size="197.6,41.6"
+          Id="Package\Conteneur de séquences\TANTAN_DIMS_T_BLOC"
+          TopLeft="37.1000000000001,513.500000000002" />
+        <NodeLayout
+          Size="213.6,41.6"
+          Id="Package\Conteneur de séquences\TANTAN_DIMS_T_CLIENTS"
+          TopLeft="29.1000000000001,615.100000000002" />
+        <NodeLayout
+          Size="219.2,41.6"
+          Id="Package\Conteneur de séquences\TANTAN_DIMS_T_SECTEUR"
+          TopLeft="26.3000000000001,716.700000000003" />
+        <NodeLayout
+          Size="254.4,41.6"
+          Id="Package\Conteneur de séquences\TANTAN_DIMS_T_SOUS_SECTEUR"
+          TopLeft="8.70000000000012,818.300000000003" />
+        <NodeLayout
+          Size="227.2,41.6"
+          Id="Package\Conteneur de séquences\TANTAN_DIMS_T_TOURNEES"
+          TopLeft="22.3000000000001,919.900000000003" />
+        <NodeLayout
+          Size="198.4,41.6"
+          Id="Package\Conteneur de séquences\TANTAN_DIMS_T_ZONE"
+          TopLeft="36.7000000000001,1021.5" />
+        <NodeLayout
+          Size="257.6,41.6"
+          Id="Package\Conteneur de séquences\TANTAN_FACT_BUDGET_MENSUEL"
+          TopLeft="7.10000000000014,1123.1" />
+        <NodeLayout
+          Size="212,41.6"
+          Id="Package\Conteneur de séquences\TANTAN_T_CHARGEMENT"
+          TopLeft="29.9000000000002,1326.3" />
+        <NodeLayout
+          Size="248.8,41.6"
+          Id="Package\Conteneur de séquences\TANTAN_T_PRODUITS_CHARGEE"
+          TopLeft="11.5000000000001,1224.7" />
+        <NodeLayout
+          Size="183.2,41.6"
+          Id="Package\Conteneur de séquences\TATA_DIMS_T_BLOC"
+          TopLeft="44.3000000000002,1427.9" />
+        <NodeLayout
+          Size="198.4,41.6"
+          Id="Package\Conteneur de séquences\TATA_DIMS_T_CLIENTS"
+          TopLeft="36.7000000000002,1529.5" />
+        <NodeLayout
+          Size="204,41.6"
+          Id="Package\Conteneur de séquences\TATA_DIMS_T_SECTEUR"
+          TopLeft="33.9000000000002,1732.7" />
+        <NodeLayout
+          Size="239.2,41.6"
+          Id="Package\Conteneur de séquences\TATA_DIMS_T_SOUS_SECTEUR"
+          TopLeft="16.3000000000002,1631.1" />
+        <NodeLayout
+          Size="212,41.6"
+          Id="Package\Conteneur de séquences\TATA_DIMS_T_TOURNEES"
+          TopLeft="29.9000000000002,1834.3" />
+        <NodeLayout
+          Size="183.2,41.6"
+          Id="Package\Conteneur de séquences\TATA_DIMS_T_ZONE"
+          TopLeft="44.3000000000002,1935.9" />
+        <NodeLayout
+          Size="255.2,41.6"
+          Id="Package\Conteneur de séquences\TATA_FACT_T_BUDGET_MENSUEL"
+          TopLeft="8.30000000000027,2139.1" />
+        <NodeLayout
+          Size="236.8,41.6"
+          Id="Package\Conteneur de séquences\TATA_FACT_T_CHARGEMENET"
+          TopLeft="17.5000000000003,2037.5" />
+        <NodeLayout
+          Size="260.8,41.6"
+          Id="Package\Conteneur de séquences\TATA_FACT_T_PROJETS_CHARGEE"
+          TopLeft="5.50000000000028,2240.7" />
+        <EdgeLayout
+          Id="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte]"
+          TopLeft="135.9,47.1000000000002">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000004"
+              Start="0,0"
+              End="0,52.5000000000004">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000004" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 1]"
+          TopLeft="135.9,148.700000000001">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000003"
+              Start="0,0"
+              End="0,52.5000000000003">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000003" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 10]"
+          TopLeft="135.9,1063.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 11]"
+          TopLeft="135.9,1164.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 12]"
+          TopLeft="135.9,1266.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 13]"
+          TopLeft="135.9,1367.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 14]"
+          TopLeft="135.9,1469.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 15]"
+          TopLeft="135.9,1571.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 16]"
+          TopLeft="135.9,1672.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 17]"
+          TopLeft="135.9,1774.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000002"
+              Start="0,0"
+              End="0,52.5000000000002">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000002" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 18]"
+          TopLeft="135.9,1875.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 19]"
+          TopLeft="135.9,1977.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 2]"
+          TopLeft="135.9,250.300000000001">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000004"
+              Start="0,0"
+              End="0,52.5000000000004">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000004" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 20]"
+          TopLeft="135.9,2079.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 21]"
+          TopLeft="135.9,2180.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 3]"
+          TopLeft="135.9,351.900000000001">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000003"
+              Start="0,0"
+              End="0,52.5000000000003">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000003" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 4]"
+          TopLeft="135.9,453.500000000002">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000004"
+              Start="0,0"
+              End="0,52.5000000000004">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000004" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 5]"
+          TopLeft="135.9,555.100000000002">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000003"
+              Start="0,0"
+              End="0,52.5000000000003">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000003" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 6]"
+          TopLeft="135.9,656.700000000002">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000003"
+              Start="0,0"
+              End="0,52.5000000000003">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000003" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 7]"
+          TopLeft="135.9,758.300000000003">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 8]"
+          TopLeft="135.9,859.900000000003">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences.PrecedenceConstraints[Contrainte 9]"
+          TopLeft="135.9,961.500000000003">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="272,2337.6"
+          Size="272,2380.8"
+          Id="Package\Conteneur de séquences"
+          TopLeft="5.50000000000023,5.5" />
+        <NodeLayout
+          Size="216,41.6"
+          Id="Package\Conteneur de séquences 1\TIZNIT PROJETS CHARGEE"
+          TopLeft="18.7000000000001,411.900000000001" />
+        <NodeLayout
+          Size="166.4,41.6"
+          Id="Package\Conteneur de séquences 1\TIZNIT T CLIENTS"
+          TopLeft="43.5000000000001,615.100000000001" />
+        <NodeLayout
+          Size="172,41.6"
+          Id="Package\Conteneur de séquences 1\TIZNIT T SECTEUR"
+          TopLeft="40.7000000000001,818.3" />
+        <NodeLayout
+          Size="204.8,41.6"
+          Id="Package\Conteneur de séquences 1\TIZNIT T SOUS SECTEUR"
+          TopLeft="24.3000000000001,716.700000000001" />
+        <NodeLayout
+          Size="173.6,41.6"
+          Id="Package\Conteneur de séquences 1\TIZNIT T TOURNEE"
+          TopLeft="39.9000000000001,513.500000000001" />
+        <NodeLayout
+          Size="188.8,41.6"
+          Id="Package\Conteneur de séquences 1\TIZNIT_DIMS_T_BLOC"
+          TopLeft="32.3,5.50000000000018" />
+        <NodeLayout
+          Size="228,41.6"
+          Id="Package\Conteneur de séquences 1\TIZNIT_T_BUDGET_MENSUEL"
+          TopLeft="12.7,208.700000000001" />
+        <NodeLayout
+          Size="202.4,41.6"
+          Id="Package\Conteneur de séquences 1\TIZNIT_T_CHARGEMENT"
+          TopLeft="25.5,310.300000000001" />
+        <NodeLayout
+          Size="157.6,41.6"
+          Id="Package\Conteneur de séquences 1\TIZNIT_T_ZONE"
+          TopLeft="47.9,107.100000000001" />
+        <EdgeLayout
+          Id="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte]"
+          TopLeft="126.7,47.1000000000002">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000004"
+              Start="0,0"
+              End="0,52.5000000000004">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000004" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte 1]"
+          TopLeft="126.7,148.700000000001">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000003"
+              Start="0,0"
+              End="0,52.5000000000003">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000003" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte 2]"
+          TopLeft="126.7,250.300000000001">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte 3]"
+          TopLeft="126.7,351.900000000001">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte 4]"
+          TopLeft="126.7,453.500000000001">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte 5]"
+          TopLeft="126.7,555.100000000001">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte 6]"
+          TopLeft="126.7,656.700000000001">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte 7]"
+          TopLeft="126.7,758.300000000001">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="165.6,41.6"
+          Id="Package\Conteneur de séquences 1\ZAGORA  T BLOC"
+          TopLeft="43.9000000000001,919.9" />
+        <NodeLayout
+          Size="178.4,41.6"
+          Id="Package\Conteneur de séquences 1\ZAGORA T CLIENTS"
+          TopLeft="37.5000000000001,1021.5" />
+        <NodeLayout
+          Size="184,41.6"
+          Id="Package\Conteneur de séquences 1\ZAGORA T SECTEUR"
+          TopLeft="34.7000000000001,1123.1" />
+        <NodeLayout
+          Size="216,41.6"
+          Id="Package\Conteneur de séquences 1\ZAGORA T SOUS SECTEUR"
+          TopLeft="18.7000000000002,1224.7" />
+        <EdgeLayout
+          Id="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte 8]"
+          TopLeft="126.7,859.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte 9]"
+          TopLeft="126.7,961.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte 10]"
+          TopLeft="126.7,1063.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte 11]"
+          TopLeft="126.7,1164.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="192,41.6"
+          Id="Package\Conteneur de séquences 1\ZAGORA T TOURNEES"
+          TopLeft="30.7000000000002,1326.3" />
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\Conteneur de séquences 1\ZAGORA T ZONE"
+          TopLeft="45.1000000000002,1427.9" />
+        <EdgeLayout
+          Id="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte 12]"
+          TopLeft="126.7,1266.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte 13]"
+          TopLeft="126.7,1367.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="230.4,41.6"
+          Id="Package\Conteneur de séquences 1\ZAGORA T BUDGET MENSUEL"
+          TopLeft="11.5000000000002,1529.5" />
+        <NodeLayout
+          Size="242.4,41.6"
+          Id="Package\Conteneur de séquences 1\ZAGORA T PRODUITS CHARGEE"
+          TopLeft="5.50000000000021,1631.1" />
+        <NodeLayout
+          Size="208,41.6"
+          Id="Package\Conteneur de séquences 1\ZAGORA T CHARGEMENT"
+          TopLeft="22.7000000000002,1732.7" />
+        <EdgeLayout
+          Id="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte 14]"
+          TopLeft="126.7,1469.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte 15]"
+          TopLeft="126.7,1571.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000005"
+              Start="0,0"
+              End="0,52.5000000000005">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000005" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Conteneur de séquences 1.PrecedenceConstraints[Contrainte 16]"
+          TopLeft="126.7,1672.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="253.6,1829.6"
+          Size="253.6,1872.8"
+          Id="Package\Conteneur de séquences 1"
+          TopLeft="303.533335200118,14.2333350388872" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

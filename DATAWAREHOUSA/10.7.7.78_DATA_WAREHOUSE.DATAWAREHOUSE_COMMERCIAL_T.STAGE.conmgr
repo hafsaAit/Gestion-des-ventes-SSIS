@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="10.7.7.78_DATA_WAREHOUSE.DATAWAREHOUSE_COMMERCIAL_T.STAGE"
+  DTS:DTSID="{AAB8CEBE-9412-42DF-9438-6B4C7C5590E7}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=10.7.7.78\DATA_WAREHOUSE;User ID=STAGE;Initial Catalog=DATAWAREHOUSE_COMMERCIAL_T;Provider=SQLNCLI11.1;Persist Security Info=True;Application Name=SSIS-DATAWAREHOUSA-{AAB8CEBE-9412-42DF-9438-6B4C7C5590E7}10.7.7.78\DATA_WAREHOUSE.DATAWAREHOUSE_COMMERCIAL_T.STAGE;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAsK7CncP7nkuqpYhlG2/yhgAAAAACAAAAAAAQZgAAAAEAACAAAABOgY1ZgjpfBYc31vbYEhlABR3nd8FyggniEvEs6TX55gAAAAAOgAAAAAIAACAAAAD403FhW+A7ibQ6KniLyAVUTw131atlXqK0tP8kdWMI2YAAAAA2/6tXPCbZAZDGAaCcSpdbKJHbhC8CC52Mo/mKZc2BQVsfEJuMSVxiWT1I2yySylgjBcs+mhLcS4dQD3RT3XyvZFsyq5Bf8UNd6+6eQ1yAGkN9s5SzjaavxjxkUQYmlmVGG3yMBDjAwb9ZVnkNUaaPXsnqSxccN1CA0H70kW7bX0AAAACq/McJE9NS8hHmmnslbUchz2h7AiMmwshUUBqEKPMzUnOJnwT9RMWViVRkpgaDIzXFUhf7t3CZgOeWSHQ8oXHf</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

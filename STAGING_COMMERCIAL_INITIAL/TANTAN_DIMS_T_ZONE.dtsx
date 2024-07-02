@@ -1,0 +1,1805 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/22/2024 10:09:04 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAP-DSI10"
+  DTS:CreatorName="LAP-DSI10\DELL"
+  DTS:DTSID="{17BD2D8C-A19A-467C-973E-F58E9CF76148}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="14348"
+  DTS:ObjectName="TANTAN_DIMS_T_ZONE"
+  DTS:PackageType="5"
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{E3EE1E82-08D2-428A-BE99-45423C8A5ED4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\T ZONE CDC"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Conteneur de séquences"
+      DTS:DTSID="{D15CEEDC-8AFA-49F2-AA19-CAEE32078B60}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="T ZONE CDC">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{03266317-0108-40A5-96AA-B8D00AE7595C}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="CDC_State_T_ZONE">
+          <DTS:VariableValue
+            DTS:DataType="8"
+            xml:space="preserve"></DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\T ZONE CDC\CDC GET PROCESSING"
+          DTS:CreationName="Attunity.CdcControlTask"
+          DTS:Description="CDC Control Task"
+          DTS:DTSID="{595C896C-B2CE-43C0-B267-2EE789C11A6C}"
+          DTS:ExecutableType="Attunity.CdcControlTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="CDC GET PROCESSING"
+          DTS:TaskContact="Attunity Ltd.; All Rights Reserved; http://www.attunity.com;"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <CDCControlTask
+              Connection="SOURCE_COM_ADO"
+              TaskOperation="GetProcessingRange"
+              OperationParameter=""
+              StateConnection="STAGING_COM_ADO"
+              StateVariable="User::CDC_State_T_ZONE"
+              AutomaticStatePersistence="True"
+              StateName="CDC_State_T_ZONE"
+              StateTable="[dbo].[cdc_states]"
+              CommandTimeout="30"
+              ChangeDetectionRetryInterval="10"
+              ChangeDetectionTimeout="60" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\T ZONE CDC\END"
+          DTS:CreationName="Attunity.CdcControlTask"
+          DTS:Description="CDC Control Task"
+          DTS:DTSID="{6CA01C75-FAE1-4936-81F8-06416D2F25A2}"
+          DTS:ExecutableType="Attunity.CdcControlTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="END"
+          DTS:TaskContact="Attunity Ltd.; All Rights Reserved; http://www.attunity.com;"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <CDCControlTask
+              Connection="SOURCE_COM_ADO"
+              TaskOperation="MarkProcessedRange"
+              OperationParameter=""
+              StateConnection="STAGING_COM_ADO"
+              StateVariable="User::CDC_State_T_ZONE"
+              AutomaticStatePersistence="True"
+              StateName="CDC_State_T_ZONE"
+              StateTable="[dbo].[cdc_states]"
+              CommandTimeout="30"
+              ChangeDetectionRetryInterval="10"
+              ChangeDetectionTimeout="60" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\T ZONE CDC\Tâche de flux de données"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Tâche de flux de données"
+          DTS:DTSID="{E1E38C58-1EB5-4089-97E9-013F6466DC97}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Tâche de flux de données"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Attunity Ltd.; All Rights Reserved; http://www.attunity.com;"
+                  description="Reads change data from a SQL Server change table making it available for processing by downstream data-flow components. Only changes within the current processing range determined by the CDC Control task are read"
+                  name="CDC Source"
+                  usesDispositions="true"
+                  version="9">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="An SSIS string package variable to store the CDC state of the current CDC state."
+                      expressionType="Notify"
+                      name="StateVariable"
+                      typeConverter="Attunity.SqlServer.CDCSrc.PackageVariablesTypeConverter">User::CDC_State_T_ZONE</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the content of the metadata columns and the rows returned. Modes starting with ‘All’ return all changes and modes starting with ‘Net’ return net changes."
+                      expressionType="Notify"
+                      name="CDCProcessingMode"
+                      typeConverter="Attunity.SqlServer.CDCSrc.CdcProcessingMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The name of the CDC capture instance. By default the capture instance name is in the form of &quot;&lt;owner&gt;_&lt;table&gt;&quot;. The actual table that stores the changes is the CDC table named &quot;cdc&quot;.&quot;&lt;capture-instance&gt;_CT&quot;"
+                      expressionType="Notify"
+                      name="CaptureInstance">TANTAN_T_ZONE</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time out."
+                      expressionType="Notify"
+                      name="CommandTimeout">30</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="If true, a special output column called ‘__$reprocessing ’ is added. This output column is true for each data row during the initial processing range, or when the previous CDC run&#xA;was stopped without finishing. The default value is false (the __$reprocessing output column is not generated). This special output column allows the SSIS developer to handle consistency errors differently when working on the Initial Processing Range or the previous CDC run was stopped."
+                      expressionType="Notify"
+                      name="ReprocessingIndication">true</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Attunity.CdcSourceComponent</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Connections[Connection]"
+                      connectionManagerID="{74DAC0D4-3333-4C9F-AD15-387F88B5E97A}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[SOURCE_COM_ADO]"
+                      name="Connection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output]"
+                      name="Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[__$start_lsn]"
+                          dataType="bytes"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].ExternalColumns[__$start_lsn]"
+                          length="10"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[__$start_lsn]"
+                          name="__$start_lsn"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[__$operation]"
+                          dataType="i4"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].ExternalColumns[__$operation]"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[__$operation]"
+                          name="__$operation"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[__$update_mask]"
+                          dataType="bytes"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].ExternalColumns[__$update_mask]"
+                          length="128"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[__$update_mask]"
+                          name="__$update_mask"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[CODE_ZONE]"
+                          dataType="i4"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].ExternalColumns[CODE_ZONE]"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[CODE_ZONE]"
+                          name="CODE_ZONE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[NOM_ZONE]"
+                          dataType="wstr"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].ExternalColumns[NOM_ZONE]"
+                          length="255"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[NOM_ZONE]"
+                          name="NOM_ZONE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[CODE_AGCE]"
+                          dataType="i4"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].ExternalColumns[CODE_AGCE]"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[CODE_AGCE]"
+                          name="CODE_AGCE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[CODE_SUPERVISEUR]"
+                          dataType="i4"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].ExternalColumns[CODE_SUPERVISEUR]"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[CODE_SUPERVISEUR]"
+                          name="CODE_SUPERVISEUR"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[RESP_VENTE]"
+                          dataType="i4"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].ExternalColumns[RESP_VENTE]"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[RESP_VENTE]"
+                          name="RESP_VENTE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[__$command_id]"
+                          dataType="i4"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].ExternalColumns[__$command_id]"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[__$command_id]"
+                          name="__$command_id"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[__$reprocessing]"
+                          dataType="bool"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].ExternalColumns[__$reprocessing]"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[__$reprocessing]"
+                          name="__$reprocessing"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].ExternalColumns[__$start_lsn]"
+                          dataType="bytes"
+                          length="10"
+                          name="__$start_lsn" />
+                        <externalMetadataColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].ExternalColumns[__$operation]"
+                          dataType="i4"
+                          name="__$operation" />
+                        <externalMetadataColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].ExternalColumns[__$update_mask]"
+                          dataType="bytes"
+                          length="128"
+                          name="__$update_mask" />
+                        <externalMetadataColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].ExternalColumns[CODE_ZONE]"
+                          dataType="i4"
+                          name="CODE_ZONE" />
+                        <externalMetadataColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].ExternalColumns[NOM_ZONE]"
+                          dataType="wstr"
+                          length="255"
+                          name="NOM_ZONE" />
+                        <externalMetadataColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].ExternalColumns[CODE_AGCE]"
+                          dataType="i4"
+                          name="CODE_AGCE" />
+                        <externalMetadataColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].ExternalColumns[CODE_SUPERVISEUR]"
+                          dataType="i4"
+                          name="CODE_SUPERVISEUR" />
+                        <externalMetadataColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].ExternalColumns[RESP_VENTE]"
+                          dataType="i4"
+                          name="RESP_VENTE" />
+                        <externalMetadataColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].ExternalColumns[__$command_id]"
+                          dataType="i4"
+                          name="__$command_id" />
+                        <externalMetadataColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].ExternalColumns[__$reprocessing]"
+                          dataType="bool"
+                          name="__$reprocessing" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[ErrorOutput]"
+                      isErrorOut="true"
+                      name="ErrorOutput">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[ErrorOutput].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[ErrorOutput].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[ErrorOutput].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[ErrorOutput].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                        <outputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[ErrorOutput].Columns[__$start_lsn]"
+                          dataType="bytes"
+                          length="10"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[ErrorOutput].Columns[__$start_lsn]"
+                          name="__$start_lsn" />
+                        <outputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[ErrorOutput].Columns[__$operation]"
+                          dataType="i4"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[ErrorOutput].Columns[__$operation]"
+                          name="__$operation" />
+                        <outputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[ErrorOutput].Columns[__$update_mask]"
+                          dataType="bytes"
+                          length="128"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[ErrorOutput].Columns[__$update_mask]"
+                          name="__$update_mask" />
+                        <outputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[ErrorOutput].Columns[CODE_ZONE]"
+                          dataType="i4"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[ErrorOutput].Columns[CODE_ZONE]"
+                          name="CODE_ZONE" />
+                        <outputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[ErrorOutput].Columns[NOM_ZONE]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[ErrorOutput].Columns[NOM_ZONE]"
+                          name="NOM_ZONE" />
+                        <outputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[ErrorOutput].Columns[CODE_AGCE]"
+                          dataType="i4"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[ErrorOutput].Columns[CODE_AGCE]"
+                          name="CODE_AGCE" />
+                        <outputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[ErrorOutput].Columns[CODE_SUPERVISEUR]"
+                          dataType="i4"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[ErrorOutput].Columns[CODE_SUPERVISEUR]"
+                          name="CODE_SUPERVISEUR" />
+                        <outputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[ErrorOutput].Columns[RESP_VENTE]"
+                          dataType="i4"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[ErrorOutput].Columns[RESP_VENTE]"
+                          name="RESP_VENTE" />
+                        <outputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[ErrorOutput].Columns[__$command_id]"
+                          dataType="i4"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[ErrorOutput].Columns[__$command_id]"
+                          name="__$command_id" />
+                        <outputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[ErrorOutput].Columns[__$reprocessing]"
+                          dataType="bool"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[ErrorOutput].Columns[__$reprocessing]"
+                          name="__$reprocessing" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\T ZONE CDC\Tâche de flux de données\CDC Splitter"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Attunity Ltd.; All Rights Reserved; http://www.attunity.com;"
+                  description="Directs a stream of net change records into different outputs based on the type of the change (Insert, Delete and Update). This allows specific handling for different types of change records."
+                  name="CDC Splitter"
+                  usesDispositions="true"
+                  version="9">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Attunity.CdcSplitterComponent</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\T ZONE CDC\Tâche de flux de données\CDC Splitter.Inputs[Input]"
+                      errorOrTruncationOperation="Operation of the changed row is not a valid one"
+                      errorRowDisposition="FailComponent"
+                      name="Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Splitter.Inputs[Input].Columns[__$start_lsn]"
+                          cachedDataType="bytes"
+                          cachedLength="10"
+                          cachedName="__$start_lsn"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[__$start_lsn]" />
+                        <inputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Splitter.Inputs[Input].Columns[__$operation]"
+                          cachedDataType="i4"
+                          cachedName="__$operation"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[__$operation]" />
+                        <inputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Splitter.Inputs[Input].Columns[__$update_mask]"
+                          cachedDataType="bytes"
+                          cachedLength="128"
+                          cachedName="__$update_mask"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[__$update_mask]" />
+                        <inputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Splitter.Inputs[Input].Columns[CODE_ZONE]"
+                          cachedDataType="i4"
+                          cachedName="CODE_ZONE"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[CODE_ZONE]" />
+                        <inputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Splitter.Inputs[Input].Columns[NOM_ZONE]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="NOM_ZONE"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[NOM_ZONE]" />
+                        <inputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Splitter.Inputs[Input].Columns[CODE_AGCE]"
+                          cachedDataType="i4"
+                          cachedName="CODE_AGCE"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[CODE_AGCE]" />
+                        <inputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Splitter.Inputs[Input].Columns[CODE_SUPERVISEUR]"
+                          cachedDataType="i4"
+                          cachedName="CODE_SUPERVISEUR"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[CODE_SUPERVISEUR]" />
+                        <inputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Splitter.Inputs[Input].Columns[RESP_VENTE]"
+                          cachedDataType="i4"
+                          cachedName="RESP_VENTE"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[RESP_VENTE]" />
+                        <inputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Splitter.Inputs[Input].Columns[__$command_id]"
+                          cachedDataType="i4"
+                          cachedName="__$command_id"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[__$command_id]" />
+                        <inputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Splitter.Inputs[Input].Columns[__$reprocessing]"
+                          cachedDataType="bool"
+                          cachedName="__$reprocessing"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[__$reprocessing]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\T ZONE CDC\Tâche de flux de données\CDC Splitter.Outputs[InsertOutput]"
+                      exclusionGroup="1"
+                      name="InsertOutput"
+                      synchronousInputId="Package\T ZONE CDC\Tâche de flux de données\CDC Splitter.Inputs[Input]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Output type - Insert."
+                          name="OutputType"
+                          typeConverter="Attunity.SqlServer.CDCSplit.OutputType">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\T ZONE CDC\Tâche de flux de données\CDC Splitter.Outputs[DeleteOutput]"
+                      exclusionGroup="1"
+                      name="DeleteOutput"
+                      synchronousInputId="Package\T ZONE CDC\Tâche de flux de données\CDC Splitter.Inputs[Input]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Output type - Delete."
+                          name="OutputType"
+                          typeConverter="Attunity.SqlServer.CDCSplit.OutputType">2</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\T ZONE CDC\Tâche de flux de données\CDC Splitter.Outputs[UpdateOutput]"
+                      exclusionGroup="1"
+                      name="UpdateOutput"
+                      synchronousInputId="Package\T ZONE CDC\Tâche de flux de données\CDC Splitter.Inputs[Input]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Output type - Update."
+                          name="OutputType"
+                          typeConverter="Attunity.SqlServer.CDCSplit.OutputType">1</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\T ZONE CDC\Tâche de flux de données\CDC Splitter.Outputs[ErrorOutput]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="ErrorOutput"
+                      synchronousInputId="Package\T ZONE CDC\Tâche de flux de données\CDC Splitter.Inputs[Input]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Output type - Error."
+                          name="OutputType"
+                          typeConverter="Attunity.SqlServer.CDCSplit.OutputType">3</property>
+                      </properties>
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Splitter.Outputs[ErrorOutput].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Splitter.Outputs[ErrorOutput].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\CDC Splitter.Outputs[ErrorOutput].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Splitter.Outputs[ErrorOutput].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\T ZONE CDC\Tâche de flux de données\DELETE"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="Commande OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+                  description="Exécute une instruction SQL pour chaque ligne d'un flux de données. Par exemple, appelez une procédure stockée 'nouvelle configuration d'employé' pour chaque ligne de la table 'nouveaux employés'. Remarque : l'exécution d'une instruction SQL pour chaque ligne d'un flux de données volumineux peut prendre beaucoup de temps."
+                  name="DELETE"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Commande SQL à exécuter."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">DELETE FROM [dbo].[TANTAN.T_ZONE]
+      WHERE [CODE_ZONE] = ?
+</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\T ZONE CDC\Tâche de flux de données\DELETE.Connections[OleDbConnection]"
+                      connectionManagerID="{863BAB60-5545-4FBD-BC54-1D0DD7698C55}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[STAGING_COM_OLEDB]"
+                      description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\T ZONE CDC\Tâche de flux de données\DELETE.Inputs[Entrée de commande OLE DB]"
+                      errorOrTruncationOperation="Exécution de commande"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="Entrée de commande OLE DB">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\DELETE.Inputs[Entrée de commande OLE DB].Columns[CODE_ZONE]"
+                          cachedDataType="i4"
+                          cachedName="CODE_ZONE"
+                          externalMetadataColumnId="Package\T ZONE CDC\Tâche de flux de données\DELETE.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[CODE_ZONE]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\DELETE.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                          dataType="i4"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\T ZONE CDC\Tâche de flux de données\DELETE.Outputs[Sortie de commande OLE DB]"
+                      exclusionGroup="1"
+                      name="Sortie de commande OLE DB"
+                      synchronousInputId="Package\T ZONE CDC\Tâche de flux de données\DELETE.Inputs[Entrée de commande OLE DB]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\T ZONE CDC\Tâche de flux de données\DELETE.Outputs[Sortie d'erreur de commande OLE DB]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Sortie d'erreur de commande OLE DB"
+                      synchronousInputId="Package\T ZONE CDC\Tâche de flux de données\DELETE.Inputs[Entrée de commande OLE DB]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\DELETE.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\DELETE.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\DELETE.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\DELETE.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\T ZONE CDC\Tâche de flux de données\Destination ADO NET"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+                  description="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC."
+                  name="Destination ADO NET"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Nom de la table de base de données de destination."
+                      expressionType="Notify"
+                      name="TableOrViewName"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."TANTAN.T_ZONE"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifiez le nombre de lignes par lot. La taille par défaut, 0, utilise la même taille que la mémoire tampon interne SSIS. "
+                      expressionType="Notify"
+                      name="BatchSize">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Nombre de secondes avant qu'une commande n'expire. Une valeur égale à 0 indique un délai infini. "
+                      expressionType="Notify"
+                      name="CommandTimeout">30</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Spécifie si l'interface SqlBulkCopy doit être utilisée pour améliorer les performances des opérations d'insertion en bloc. Cette interface n'est prise en charge que par certains fournisseurs."
+                      expressionType="Notify"
+                      name="UseBulkInsertWhenPossible">true</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\T ZONE CDC\Tâche de flux de données\Destination ADO NET.Connections[IDbConnection]"
+                      connectionManagerID="{E6EC689B-5D06-438A-B3D2-B75CA9EECC94}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[STAGING_COM_ADO]"
+                      description="Gestionnaire de connexions managées"
+                      name="IDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\T ZONE CDC\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET]"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="Entrée de destination ADO NET">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[CODE_ZONE]"
+                          cachedDataType="i4"
+                          cachedName="CODE_ZONE"
+                          externalMetadataColumnId="Package\T ZONE CDC\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[CODE_ZONE]"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[CODE_ZONE]" />
+                        <inputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[NOM_ZONE]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="NOM_ZONE"
+                          externalMetadataColumnId="Package\T ZONE CDC\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[NOM_ZONE]"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[NOM_ZONE]" />
+                        <inputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[CODE_AGCE]"
+                          cachedDataType="i4"
+                          cachedName="CODE_AGCE"
+                          externalMetadataColumnId="Package\T ZONE CDC\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[CODE_AGCE]"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[CODE_AGCE]" />
+                        <inputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[CODE_SUPERVISEUR]"
+                          cachedDataType="i4"
+                          cachedName="CODE_SUPERVISEUR"
+                          externalMetadataColumnId="Package\T ZONE CDC\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[CODE_SUPERVISEUR]"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[CODE_SUPERVISEUR]" />
+                        <inputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[RESP_VENTE]"
+                          cachedDataType="i4"
+                          cachedName="RESP_VENTE"
+                          externalMetadataColumnId="Package\T ZONE CDC\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[RESP_VENTE]"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[RESP_VENTE]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[CODE_ZONE]"
+                          dataType="i4"
+                          name="CODE_ZONE" />
+                        <externalMetadataColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[NOM_ZONE]"
+                          dataType="wstr"
+                          length="255"
+                          name="NOM_ZONE" />
+                        <externalMetadataColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[CODE_AGCE]"
+                          dataType="i4"
+                          name="CODE_AGCE" />
+                        <externalMetadataColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[CODE_SUPERVISEUR]"
+                          dataType="i4"
+                          name="CODE_SUPERVISEUR" />
+                        <externalMetadataColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[RESP_VENTE]"
+                          dataType="i4"
+                          name="RESP_VENTE" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\T ZONE CDC\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Sortie d'erreur de destination ADO NET"
+                      synchronousInputId="Package\T ZONE CDC\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\T ZONE CDC\Tâche de flux de données\update"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="Commande OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+                  description="Exécute une instruction SQL pour chaque ligne d'un flux de données. Par exemple, appelez une procédure stockée 'nouvelle configuration d'employé' pour chaque ligne de la table 'nouveaux employés'. Remarque : l'exécution d'une instruction SQL pour chaque ligne d'un flux de données volumineux peut prendre beaucoup de temps."
+                  name="update"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Commande SQL à exécuter."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[TANTAN.T_ZONE]
+   SET [NOM_ZONE] =?
+      ,[CODE_AGCE] = ?
+      ,[CODE_SUPERVISEUR] = ?
+      ,[RESP_VENTE] = ?
+ WHERE  [CODE_ZONE] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\T ZONE CDC\Tâche de flux de données\update.Connections[OleDbConnection]"
+                      connectionManagerID="{863BAB60-5545-4FBD-BC54-1D0DD7698C55}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[STAGING_COM_OLEDB]"
+                      description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\T ZONE CDC\Tâche de flux de données\update.Inputs[Entrée de commande OLE DB]"
+                      errorOrTruncationOperation="Exécution de commande"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="Entrée de commande OLE DB">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\update.Inputs[Entrée de commande OLE DB].Columns[NOM_ZONE]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="NOM_ZONE"
+                          externalMetadataColumnId="Package\T ZONE CDC\Tâche de flux de données\update.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[NOM_ZONE]" />
+                        <inputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\update.Inputs[Entrée de commande OLE DB].Columns[CODE_AGCE]"
+                          cachedDataType="i4"
+                          cachedName="CODE_AGCE"
+                          externalMetadataColumnId="Package\T ZONE CDC\Tâche de flux de données\update.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_1]"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[CODE_AGCE]" />
+                        <inputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\update.Inputs[Entrée de commande OLE DB].Columns[CODE_SUPERVISEUR]"
+                          cachedDataType="i4"
+                          cachedName="CODE_SUPERVISEUR"
+                          externalMetadataColumnId="Package\T ZONE CDC\Tâche de flux de données\update.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_2]"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[CODE_SUPERVISEUR]" />
+                        <inputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\update.Inputs[Entrée de commande OLE DB].Columns[RESP_VENTE]"
+                          cachedDataType="i4"
+                          cachedName="RESP_VENTE"
+                          externalMetadataColumnId="Package\T ZONE CDC\Tâche de flux de données\update.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_3]"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[RESP_VENTE]" />
+                        <inputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\update.Inputs[Entrée de commande OLE DB].Columns[CODE_ZONE]"
+                          cachedDataType="i4"
+                          cachedName="CODE_ZONE"
+                          externalMetadataColumnId="Package\T ZONE CDC\Tâche de flux de données\update.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_4]"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output].Columns[CODE_ZONE]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\update.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                          dataType="wstr"
+                          length="255"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\update.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_1]"
+                          dataType="i4"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\update.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_2]"
+                          dataType="i4"
+                          name="Param_2">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\update.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_3]"
+                          dataType="i4"
+                          name="Param_3">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\update.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_4]"
+                          dataType="i4"
+                          name="Param_4">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\T ZONE CDC\Tâche de flux de données\update.Outputs[Sortie de commande OLE DB]"
+                      exclusionGroup="1"
+                      name="Sortie de commande OLE DB"
+                      synchronousInputId="Package\T ZONE CDC\Tâche de flux de données\update.Inputs[Entrée de commande OLE DB]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\T ZONE CDC\Tâche de flux de données\update.Outputs[Sortie d'erreur de commande OLE DB]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Sortie d'erreur de commande OLE DB"
+                      synchronousInputId="Package\T ZONE CDC\Tâche de flux de données\update.Inputs[Entrée de commande OLE DB]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\update.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\update.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\T ZONE CDC\Tâche de flux de données\update.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\T ZONE CDC\Tâche de flux de données\update.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\T ZONE CDC\Tâche de flux de données.Paths[DeleteOutput]"
+                  endId="Package\T ZONE CDC\Tâche de flux de données\DELETE.Inputs[Entrée de commande OLE DB]"
+                  name="DeleteOutput"
+                  startId="Package\T ZONE CDC\Tâche de flux de données\CDC Splitter.Outputs[DeleteOutput]" />
+                <path
+                  refId="Package\T ZONE CDC\Tâche de flux de données.Paths[InsertOutput]"
+                  endId="Package\T ZONE CDC\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET]"
+                  name="InsertOutput"
+                  startId="Package\T ZONE CDC\Tâche de flux de données\CDC Splitter.Outputs[InsertOutput]" />
+                <path
+                  refId="Package\T ZONE CDC\Tâche de flux de données.Paths[Output]"
+                  endId="Package\T ZONE CDC\Tâche de flux de données\CDC Splitter.Inputs[Input]"
+                  name="Output"
+                  startId="Package\T ZONE CDC\Tâche de flux de données\CDC Source.Outputs[Output]" />
+                <path
+                  refId="Package\T ZONE CDC\Tâche de flux de données.Paths[UpdateOutput]"
+                  endId="Package\T ZONE CDC\Tâche de flux de données\update.Inputs[Entrée de commande OLE DB]"
+                  name="UpdateOutput"
+                  startId="Package\T ZONE CDC\Tâche de flux de données\CDC Splitter.Outputs[UpdateOutput]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\T ZONE CDC.PrecedenceConstraints[Contrainte]"
+          DTS:CreationName=""
+          DTS:DTSID="{CA0DAF55-E280-47B9-BE2E-AD12F081386A}"
+          DTS:From="Package\T ZONE CDC\CDC GET PROCESSING"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte"
+          DTS:To="Package\T ZONE CDC\Tâche de flux de données" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\T ZONE CDC.PrecedenceConstraints[Contrainte 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{85A6F851-1042-4977-B9FE-585CCC23354C}"
+          DTS:From="Package\T ZONE CDC\Tâche de flux de données"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 1"
+          DTS:To="Package\T ZONE CDC\END" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\T_ZONE INITIAL"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Conteneur de séquences"
+      DTS:Disabled="True"
+      DTS:DTSID="{6042CD2F-B75F-4035-83FD-EF2578868554}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="T_ZONE INITIAL">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{C0CAEEA7-B0B3-42DB-A651-C172AA650981}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="CDC_State_T_ZONE">
+          <DTS:VariableValue
+            DTS:DataType="8"
+            xml:space="preserve"></DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\T_ZONE INITIAL\END"
+          DTS:CreationName="Attunity.CdcControlTask"
+          DTS:Description="CDC Control Task"
+          DTS:DTSID="{80E65FD1-5BD3-4EDD-BBB8-907BBE803FE6}"
+          DTS:ExecutableType="Attunity.CdcControlTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="END"
+          DTS:TaskContact="Attunity Ltd.; All Rights Reserved; http://www.attunity.com;"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <CDCControlTask
+              Connection="SOURCE_COM_ADO"
+              TaskOperation="MarkInitialLoadEnd"
+              OperationParameter=""
+              StateConnection="STAGING_COM_ADO"
+              StateVariable="User::CDC_State_T_ZONE"
+              AutomaticStatePersistence="True"
+              StateName="CDC_State_T_ZONE"
+              StateTable="[dbo].[cdc_states]"
+              CommandTimeout="30"
+              ChangeDetectionRetryInterval="10"
+              ChangeDetectionTimeout="60" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\T_ZONE INITIAL\START"
+          DTS:CreationName="Attunity.CdcControlTask"
+          DTS:Description="CDC Control Task"
+          DTS:DTSID="{F8F8A142-32B9-41D0-9B87-D255F929C234}"
+          DTS:ExecutableType="Attunity.CdcControlTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="START"
+          DTS:TaskContact="Attunity Ltd.; All Rights Reserved; http://www.attunity.com;"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <CDCControlTask
+              Connection="SOURCE_COM_ADO"
+              TaskOperation="MarkInitialLoadStart"
+              OperationParameter=""
+              StateConnection="SOURCE_COM_ADO"
+              StateVariable="User::CDC_State_T_ZONE"
+              AutomaticStatePersistence="True"
+              StateName="CDC_State_T_ZONE"
+              StateTable="[dbo].[cdc_states]"
+              CommandTimeout="30"
+              ChangeDetectionRetryInterval="10"
+              ChangeDetectionTimeout="60" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\T_ZONE INITIAL\Tâche d'exécution de requêtes SQL"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Tâche d'exécution de requêtes SQL"
+          DTS:DTSID="{C7C5F043-AC3C-49F2-8019-2E138E04C6C4}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Tâche d'exécution de requêtes SQL"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{863BAB60-5545-4FBD-BC54-1D0DD7698C55}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [dbo].[TANTAN.T_ZONE]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\T_ZONE INITIAL\Tâche de flux de données"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Tâche de flux de données"
+          DTS:DTSID="{64F398FE-CC38-418A-B384-EEE67704C682}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Tâche de flux de données"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\T_ZONE INITIAL\Tâche de flux de données\Destination ADO NET"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+                  description="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC."
+                  name="Destination ADO NET"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Nom de la table de base de données de destination."
+                      expressionType="Notify"
+                      name="TableOrViewName"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."TATA.T_ZONE"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifiez le nombre de lignes par lot. La taille par défaut, 0, utilise la même taille que la mémoire tampon interne SSIS. "
+                      expressionType="Notify"
+                      name="BatchSize">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Nombre de secondes avant qu'une commande n'expire. Une valeur égale à 0 indique un délai infini. "
+                      expressionType="Notify"
+                      name="CommandTimeout">30</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Spécifie si l'interface SqlBulkCopy doit être utilisée pour améliorer les performances des opérations d'insertion en bloc. Cette interface n'est prise en charge que par certains fournisseurs."
+                      expressionType="Notify"
+                      name="UseBulkInsertWhenPossible">true</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\T_ZONE INITIAL\Tâche de flux de données\Destination ADO NET.Connections[IDbConnection]"
+                      connectionManagerID="{E6EC689B-5D06-438A-B3D2-B75CA9EECC94}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[STAGING_COM_ADO]"
+                      description="Gestionnaire de connexions managées"
+                      name="IDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\T_ZONE INITIAL\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET]"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="Entrée de destination ADO NET">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\T_ZONE INITIAL\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[CODE_ZONE]"
+                          cachedDataType="i4"
+                          cachedName="CODE_ZONE"
+                          externalMetadataColumnId="Package\T_ZONE INITIAL\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[CODE_ZONE]"
+                          lineageId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CODE_ZONE]" />
+                        <inputColumn
+                          refId="Package\T_ZONE INITIAL\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[NOM_ZONE]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="NOM_ZONE"
+                          externalMetadataColumnId="Package\T_ZONE INITIAL\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[NOM_ZONE]"
+                          lineageId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NOM_ZONE]" />
+                        <inputColumn
+                          refId="Package\T_ZONE INITIAL\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[CODE_AGCE]"
+                          cachedDataType="i4"
+                          cachedName="CODE_AGCE"
+                          externalMetadataColumnId="Package\T_ZONE INITIAL\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[CODE_AGCE]"
+                          lineageId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CODE_AGCE]" />
+                        <inputColumn
+                          refId="Package\T_ZONE INITIAL\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[CODE_SUPERVISEUR]"
+                          cachedDataType="i4"
+                          cachedName="CODE_SUPERVISEUR"
+                          externalMetadataColumnId="Package\T_ZONE INITIAL\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[CODE_SUPERVISEUR]"
+                          lineageId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CODE_SUPERVISEUR]" />
+                        <inputColumn
+                          refId="Package\T_ZONE INITIAL\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[RESP_VENTE]"
+                          cachedDataType="i4"
+                          cachedName="RESP_VENTE"
+                          externalMetadataColumnId="Package\T_ZONE INITIAL\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[RESP_VENTE]"
+                          lineageId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[RESP_VENTE]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\T_ZONE INITIAL\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[CODE_ZONE]"
+                          dataType="i4"
+                          name="CODE_ZONE" />
+                        <externalMetadataColumn
+                          refId="Package\T_ZONE INITIAL\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[NOM_ZONE]"
+                          dataType="wstr"
+                          length="255"
+                          name="NOM_ZONE" />
+                        <externalMetadataColumn
+                          refId="Package\T_ZONE INITIAL\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[CODE_AGCE]"
+                          dataType="i4"
+                          name="CODE_AGCE" />
+                        <externalMetadataColumn
+                          refId="Package\T_ZONE INITIAL\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[CODE_SUPERVISEUR]"
+                          dataType="i4"
+                          name="CODE_SUPERVISEUR" />
+                        <externalMetadataColumn
+                          refId="Package\T_ZONE INITIAL\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[RESP_VENTE]"
+                          dataType="i4"
+                          name="RESP_VENTE" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\T_ZONE INITIAL\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Sortie d'erreur de destination ADO NET"
+                      synchronousInputId="Package\T_ZONE INITIAL\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\T_ZONE INITIAL\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\T_ZONE INITIAL\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\T_ZONE INITIAL\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\T_ZONE INITIAL\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+                  description="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server."
+                  name="Source ADO NET"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Spécifie l'instruction SQL utilisée par le composant pour extraire des données."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                      name="CommandTimeout">30</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indique si les colonnes externes qui ne sont pas des chaînes peuvent ou non être converties implicitement en chaînes dans les colonnes de sortie."
+                      name="AllowImplicitStringConversion">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Nom de la table de base de données source."
+                      expressionType="Notify"
+                      name="TableOrViewName"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"TANTAN"."T_ZONE"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifier le mode de récupération des informations de colonne externe"
+                      name="AccessMode"
+                      typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Connections[IDbConnection]"
+                      connectionManagerID="{74DAC0D4-3333-4C9F-AD15-387F88B5E97A}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[SOURCE_COM_ADO]"
+                      description="Gestionnaire de connexions managées"
+                      name="IDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET]"
+                      name="Sortie de source ADO NET">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CODE_ZONE]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_ZONE]"
+                          lineageId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CODE_ZONE]"
+                          name="CODE_ZONE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NOM_ZONE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[NOM_ZONE]"
+                          length="255"
+                          lineageId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NOM_ZONE]"
+                          name="NOM_ZONE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CODE_AGCE]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_AGCE]"
+                          lineageId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CODE_AGCE]"
+                          name="CODE_AGCE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CODE_SUPERVISEUR]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_SUPERVISEUR]"
+                          lineageId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CODE_SUPERVISEUR]"
+                          name="CODE_SUPERVISEUR"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[RESP_VENTE]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[RESP_VENTE]"
+                          lineageId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[RESP_VENTE]"
+                          name="RESP_VENTE"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_ZONE]"
+                          dataType="i4"
+                          name="CODE_ZONE" />
+                        <externalMetadataColumn
+                          refId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[NOM_ZONE]"
+                          dataType="wstr"
+                          length="255"
+                          name="NOM_ZONE" />
+                        <externalMetadataColumn
+                          refId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_AGCE]"
+                          dataType="i4"
+                          name="CODE_AGCE" />
+                        <externalMetadataColumn
+                          refId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_SUPERVISEUR]"
+                          dataType="i4"
+                          name="CODE_SUPERVISEUR" />
+                        <externalMetadataColumn
+                          refId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[RESP_VENTE]"
+                          dataType="i4"
+                          name="RESP_VENTE" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET]"
+                      isErrorOut="true"
+                      name="Sortie d'erreur de source ADO NET">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_ZONE]"
+                          dataType="i4"
+                          lineageId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_ZONE]"
+                          name="CODE_ZONE" />
+                        <outputColumn
+                          refId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[NOM_ZONE]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[NOM_ZONE]"
+                          name="NOM_ZONE" />
+                        <outputColumn
+                          refId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_AGCE]"
+                          dataType="i4"
+                          lineageId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_AGCE]"
+                          name="CODE_AGCE" />
+                        <outputColumn
+                          refId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_SUPERVISEUR]"
+                          dataType="i4"
+                          lineageId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_SUPERVISEUR]"
+                          name="CODE_SUPERVISEUR" />
+                        <outputColumn
+                          refId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[RESP_VENTE]"
+                          dataType="i4"
+                          lineageId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[RESP_VENTE]"
+                          name="RESP_VENTE" />
+                        <outputColumn
+                          refId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\T_ZONE INITIAL\Tâche de flux de données.Paths[Sortie de source ADO NET]"
+                  endId="Package\T_ZONE INITIAL\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET]"
+                  name="Sortie de source ADO NET"
+                  startId="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\T_ZONE INITIAL.PrecedenceConstraints[Contrainte]"
+          DTS:CreationName=""
+          DTS:DTSID="{41C8877C-4CD5-4125-8BAA-CEB9DD02F493}"
+          DTS:From="Package\T_ZONE INITIAL\START"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte"
+          DTS:To="Package\T_ZONE INITIAL\Tâche d'exécution de requêtes SQL" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\T_ZONE INITIAL.PrecedenceConstraints[Contrainte 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{F4B4BA19-5113-4991-8CDB-17C2D2822188}"
+          DTS:From="Package\T_ZONE INITIAL\Tâche d'exécution de requêtes SQL"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 1"
+          DTS:To="Package\T_ZONE INITIAL\Tâche de flux de données" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\T_ZONE INITIAL.PrecedenceConstraints[Contrainte 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{FE3CC4AC-9DFE-4FE8-B898-BD990CAE3325}"
+          DTS:From="Package\T_ZONE INITIAL\Tâche de flux de données"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 2"
+          DTS:To="Package\T_ZONE INITIAL\END" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="196.8,41.6"
+          Id="Package\T ZONE CDC\CDC GET PROCESSING"
+          TopLeft="5.90000000000001,5.49999999999995" />
+        <NodeLayout
+          Size="100,41.6"
+          Id="Package\T ZONE CDC\END"
+          TopLeft="54.3,208.7" />
+        <NodeLayout
+          Size="197.6,41.6"
+          Id="Package\T ZONE CDC\Tâche de flux de données"
+          TopLeft="5.50000000000003,107.1" />
+        <EdgeLayout
+          Id="Package\T ZONE CDC.PrecedenceConstraints[Contrainte]"
+          TopLeft="104.3,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\T ZONE CDC.PrecedenceConstraints[Contrainte 1]"
+          TopLeft="104.3,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="208.8,305.6"
+          Size="208.8,348.8"
+          Id="Package\T ZONE CDC"
+          TopLeft="320.3,56.3" />
+        <NodeLayout
+          Size="100,41.6"
+          Id="Package\T_ZONE INITIAL\END"
+          TopLeft="77.1,310.3" />
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\T_ZONE INITIAL\START"
+          TopLeft="70.7,5.49999999999995" />
+        <NodeLayout
+          Size="197.6,41.6"
+          Id="Package\T_ZONE INITIAL\Tâche de flux de données"
+          TopLeft="28.3,208.7" />
+        <NodeLayout
+          Size="243.2,41.6"
+          Id="Package\T_ZONE INITIAL\Tâche d'exécution de requêtes SQL"
+          TopLeft="5.50000000000001,107.1" />
+        <EdgeLayout
+          Id="Package\T_ZONE INITIAL.PrecedenceConstraints[Contrainte]"
+          TopLeft="127.1,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\T_ZONE INITIAL.PrecedenceConstraints[Contrainte 1]"
+          TopLeft="127.1,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\T_ZONE INITIAL.PrecedenceConstraints[Contrainte 2]"
+          TopLeft="127.1,250.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="254.4,407.2"
+          Size="254.4,450.4"
+          Id="Package\T_ZONE INITIAL"
+          TopLeft="5.50000000000004,5.50000000000006" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\T ZONE CDC\Tâche de flux de données">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="119.2,41.6"
+          Id="Package\T ZONE CDC\Tâche de flux de données\DELETE"
+          TopLeft="424.999993667006,245.999996334314" />
+        <NodeLayout
+          Size="179.2,41.6"
+          Id="Package\T ZONE CDC\Tâche de flux de données\Destination ADO NET"
+          TopLeft="137.99999794364,223.99999666214" />
+        <NodeLayout
+          Size="136,41.6"
+          Id="Package\T ZONE CDC\Tâche de flux de données\CDC Splitter"
+          TopLeft="385.999994248152,124.999998137355" />
+        <NodeLayout
+          Size="110.4,41.6"
+          Id="Package\T ZONE CDC\Tâche de flux de données\update"
+          TopLeft="592.999991163612,242.999996379018" />
+        <NodeLayout
+          Size="136.8,41.6"
+          Id="Package\T ZONE CDC\Tâche de flux de données\CDC Source"
+          TopLeft="380.499994412065,24.4999997168779" />
+        <EdgeLayout
+          Id="Package\T ZONE CDC\Tâche de flux de données.Paths[UpdateOutput]"
+          TopLeft="485.999994248152,166.599998137355">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="162.19999691546,76.399998241663"
+              Start="0,0"
+              End="162.19999691546,68.899998241663">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.4461532374987" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.4461532374987"
+                    Point2="0,26.4461532374987"
+                    Point3="4,26.4461532374987" />
+                  <mssgle:LineSegment
+                    End="158.19999691546,26.4461532374987" />
+                  <mssgle:CubicBezierSegment
+                    Point1="158.19999691546,26.4461532374987"
+                    Point2="162.19999691546,26.4461532374987"
+                    Point3="162.19999691546,30.4461532374987" />
+                  <mssgle:LineSegment
+                    End="162.19999691546,68.899998241663" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="49.46966642648,31.4461532374987,63.2606640625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\T ZONE CDC\Tâche de flux de données.Paths[Output]"
+          TopLeft="451.449994330108,66.0999997168779">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.899998420477"
+              Start="0,0"
+              End="0,51.399998420477">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.399998420477" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\T ZONE CDC\Tâche de flux de données.Paths[InsertOutput]"
+          TopLeft="421.999994248152,166.599998137355">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-194.399996304512,57.399998524785"
+              Start="0,0"
+              End="-194.399996304512,49.899998524785">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.8692302585794" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.8692302585794"
+                    Point2="0,19.8692302585794"
+                    Point3="-4,19.8692302585794" />
+                  <mssgle:LineSegment
+                    End="-190.399996304512,19.8692302585794" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-190.399996304512,19.8692302585794"
+                    Point2="-194.399996304512,19.8692302585794"
+                    Point3="-194.399996304512,23.8692302585794" />
+                  <mssgle:LineSegment
+                    End="-194.399996304512,49.899998524785" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-126.177986433506,24.8692302585794,57.9559765625,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\T ZONE CDC\Tâche de flux de données.Paths[DeleteOutput]"
+          TopLeft="475.333327581485,166.599998137355">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.26666608552142,79.3999981969595"
+              Start="0,0"
+              End="9.26666608552142,71.8999981969595">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.3139527545765" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.3139527545765"
+                    Point2="0,32.3139527545765"
+                    Point3="4,32.3139527545765" />
+                  <mssgle:LineSegment
+                    End="5.26666608552142,32.3139527545765" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.26666608552142,32.3139527545765"
+                    Point2="9.26666608552142,32.3139527545765"
+                    Point3="9.26666608552142,36.3139527545765" />
+                  <mssgle:LineSegment
+                    End="9.26666608552142,71.8999981969595" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-25.3130536759893,37.3139527545765,59.8927734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\T ZONE CDC\Tâche de flux de données\Destination ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\T ZONE CDC\Tâche de flux de données\CDC Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\T_ZONE INITIAL\Tâche de flux de données">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="160,41.6"
+          Id="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET"
+          TopLeft="124.999993170301,26.8666664798392" />
+        <NodeLayout
+          Size="179.2,41.6"
+          Id="Package\T_ZONE INITIAL\Tâche de flux de données\Destination ADO NET"
+          TopLeft="122.999993580083,145.899999023676" />
+        <EdgeLayout
+          Id="Package\T_ZONE INITIAL\Tâche de flux de données.Paths[Sortie de source ADO NET]"
+          TopLeft="208.799993375192,68.4666664798392">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,77.4333325438367"
+              Start="0,0"
+              End="0,69.9333325438367">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,69.9333325438367" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\T_ZONE INITIAL\Tâche de flux de données\Destination ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\T_ZONE INITIAL\Tâche de flux de données\Source ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,2399 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/31/2024 12:13:36 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAP-DSI10"
+  DTS:CreatorName="LAP-DSI10\DELL"
+  DTS:DTSID="{4B0BD75F-F60C-4CB0-B56A-DD38EB5D2A17}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="14348"
+  DTS:ObjectName="DIMS_TOURNEES"
+  DTS:PackageType="5"
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{5E9AA2F3-8480-4E8D-ACB4-60FAB4F66C43}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[10.7.7.78\DATA_WAREHOUSE.DATAWAREHOUSE_COMMERCIAL_T.STAGE1]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{0B85A576-6DE7-4761-B556-C3073A947D53}"
+      DTS:ObjectName="10.7.7.78\DATA_WAREHOUSE.DATAWAREHOUSE_COMMERCIAL_T.STAGE1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=10.7.7.78\DATA_WAREHOUSE;User ID=STAGE;Initial Catalog=DATAWAREHOUSE_COMMERCIAL_T;Persist Security Info=True;Encrypt=False;Application Name=SSIS-DIMS_TOURNEES-{0B85A576-6DE7-4761-B556-C3073A947D53}10.7.7.78\DATA_WAREHOUSE.DATAWAREHOUSE_COMMERCIAL_T.STAGE1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAsK7CncP7nkuqpYhlG2/yhgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABFcyAn4/w8+tp1pct2omHmQuPm5B2yVKMrXzEmhB2K6AAAAAAOgAAAAAIAACAAAABRiUAwG2OZ3xlBTBvA5KI8TrFhavzVWSJAygSHqjCTiSAAAADEoiTPoFGyaduwkBrzt1UfFIGOxCP4wsTUwNCpVQR+NkAAAACPBbezibnGDsHmypekIepwQwBrzR5gjUIo8Ux6eEprVXS0dyeyqw0JyzWf9b4zl6LgnZ83Qol8tyHAUBIaOtxp</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tâche de flux de données"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{B4C9AD7A-B595-4E9F-ABF2-CEBA9C4D51A8}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche de flux de données">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tâche de flux de données\Commande OLE DB"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="Commande OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Exécute une instruction SQL pour chaque ligne d'un flux de données. Par exemple, appelez une procédure stockée 'nouvelle configuration d'employé' pour chaque ligne de la table 'nouveaux employés'. Remarque : l'exécution d'une instruction SQL pour chaque ligne d'un flux de données volumineux peut prendre beaucoup de temps."
+              name="Commande OLE DB"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DIM_TOURNEES] SET [NOM_TOURNEE] = ?,[SECTEUR_KEY] = ? WHERE [CODE_TOURNEE] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Commande OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{AAB8CEBE-9412-42DF-9438-6B4C7C5590E7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[10.7.7.78_DATA_WAREHOUSE.DATAWAREHOUSE_COMMERCIAL_T.STAGE]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB]"
+                  errorOrTruncationOperation="Exécution de commande"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de commande OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[CODE_TOURNEE]"
+                      cachedDataType="i4"
+                      cachedName="CODE_TOURNEE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_2]"
+                      lineageId="Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[CODE_TOURNEE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[NOM_TOURNEE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOM_TOURNEE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                      lineageId="Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[NOM_TOURNEE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[SECTEUR_KEY]"
+                      cachedDataType="i4"
+                      cachedName="SECTEUR_KEY"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_1]"
+                      lineageId="Package\Tâche de flux de données\FIND THE SECTEUR KEY.Outputs[Sortie de recherche avec correspondance].Columns[SECTEUR_KEY]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_2]"
+                      dataType="i4"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Commande OLE DB.Outputs[Sortie de commande OLE DB]"
+                  exclusionGroup="1"
+                  name="Sortie de commande OLE DB"
+                  synchronousInputId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de commande OLE DB"
+                  synchronousInputId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Destination d'insertion"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination d'insertion"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[DIM_TOURNEES]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Destination d'insertion.Connections[OleDbConnection]"
+                  connectionManagerID="{AAB8CEBE-9412-42DF-9438-6B4C7C5590E7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[10.7.7.78_DATA_WAREHOUSE.DATAWAREHOUSE_COMMERCIAL_T.STAGE]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].Columns[SECTEUR_KEY]"
+                      cachedDataType="i4"
+                      cachedName="SECTEUR_KEY"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[SECTEUR_KEY]"
+                      lineageId="Package\Tâche de flux de données\FIND THE SECTEUR KEY.Outputs[Sortie de recherche avec correspondance].Columns[SECTEUR_KEY]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].Columns[CODE_TOURNEE]"
+                      cachedDataType="i4"
+                      cachedName="CODE_TOURNEE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[CODE_TOURNEE]"
+                      lineageId="Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[CODE_TOURNEE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].Columns[NOM_TOURNEE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOM_TOURNEE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[NOM_TOURNEE]"
+                      lineageId="Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[NOM_TOURNEE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[TOURNEE_KEY]"
+                      dataType="i4"
+                      name="TOURNEE_KEY" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[SECTEUR_KEY]"
+                      dataType="i4"
+                      name="SECTEUR_KEY" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[CODE_TOURNEE]"
+                      dataType="i4"
+                      name="CODE_TOURNEE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[NOM_TOURNEE]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOM_TOURNEE" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Destination d'insertion.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Destination d'insertion.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Destination d'insertion.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Dimension à variation lente"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Dimension à variation lente;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;3"
+              description="Met à jour une dimension d'entrepôt de données (Data Warehouse) SQL Server Analysis Services. Mettez à jour les enregistrements de dimension qui sont déjà présents et insérez ceux qui ne le sont pas. Par exemple, mettez à jour la table DimProduct de la base de données OLAP AdventureWorksDW avec les données de la table Products dans la base de données OLTP AdventureWorks."
+              name="Dimension à variation lente"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SELECT utilisée pour créer un ensemble de lignes du schéma."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [CODE_TOURNEE], [NOM_TOURNEE], [SECTEUR_KEY] FROM [dbo].[DIM_TOURNEES]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la clause WHERE dans l'instruction SELECT qui sélectionne la ligne actuelle parmi les lignes comportant des clés de travail identiques."
+                  name="CurrentRowWhere"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les mises à jour d'attribut d'historique sont dirigées sur la sortie de la transformation pour les mises à jour d'attribut de validation."
+                  name="UpdateChangingAttributeHistory">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation échoue lorsque les colonnes comportant des attributs fixes contiennent des modifications."
+                  name="FailOnFixedAttributeChange">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de la colonne pour le membre déduit."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les mises à jour de membre déduit sont détectées."
+                  name="EnableInferredMember">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation échoue lorsque la recherche d'un enregistrement existant échoue."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie que toutes les lignes de l'entrée sont nouvelles ou que la transformation détecte le type de modification."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Dimension à variation lente.Connections[LookupConnection]"
+                  connectionManagerID="{AAB8CEBE-9412-42DF-9438-6B4C7C5590E7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[10.7.7.78_DATA_WAREHOUSE.DATAWAREHOUSE_COMMERCIAL_T.STAGE]"
+                  description="Définit la connexion à utiliser pour faire des recherches dans la table de dimension"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]"
+                  name="Entrée de dimension à variation lente">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].Columns[CODE_TOURNEE]"
+                      cachedDataType="i4"
+                      cachedName="CODE_TOURNEE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[CODE_TOURNEE]"
+                      lineageId="Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[CODE_TOURNEE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].Columns[NOM_TOURNEE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOM_TOURNEE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[NOM_TOURNEE]"
+                      lineageId="Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[NOM_TOURNEE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].Columns[SECTEUR_KEY]"
+                      cachedDataType="i4"
+                      cachedName="SECTEUR_KEY"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[SECTEUR_KEY]"
+                      lineageId="Package\Tâche de flux de données\FIND THE SECTEUR KEY.Outputs[Sortie de recherche avec correspondance].Columns[SECTEUR_KEY]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[CODE_TOURNEE]"
+                      dataType="i4"
+                      name="CODE_TOURNEE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[NOM_TOURNEE]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOM_TOURNEE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[SECTEUR_KEY]"
+                      dataType="i4"
+                      name="SECTEUR_KEY" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Dimension à variation lente.Outputs[Sortie inchangée]"
+                  description="Lignes inchangées"
+                  exclusionGroup="1"
+                  name="Sortie inchangée"
+                  synchronousInputId="Package\Tâche de flux de données\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Dimension à variation lente.Outputs[Nouvelle sortie]"
+                  description="Nouvelles lignes"
+                  exclusionGroup="1"
+                  name="Nouvelle sortie"
+                  synchronousInputId="Package\Tâche de flux de données\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Dimension à variation lente.Outputs[Sortie d'attribut fixe]"
+                  description="Lignes comportant des modifications dans les colonnes marquées FixedAttribute"
+                  exclusionGroup="1"
+                  name="Sortie d'attribut fixe"
+                  synchronousInputId="Package\Tâche de flux de données\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Dimension à variation lente.Outputs[Sortie de mises à jour d'attribut de validation]"
+                  description="Ces lignes contiennent de nouvelles informations sur les modifications de colonnes ChangingAttribute (type 1)"
+                  exclusionGroup="1"
+                  name="Sortie de mises à jour d'attribut de validation"
+                  synchronousInputId="Package\Tâche de flux de données\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Dimension à variation lente.Outputs[Sortie d'insertions d'attribut d'historique]"
+                  description="Les modifications sur HistoricalAttribute (type 2) apparaissent dans ces nouvelles lignes"
+                  exclusionGroup="2"
+                  name="Sortie d'insertions d'attribut d'historique"
+                  synchronousInputId="Package\Tâche de flux de données\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Dimension à variation lente.Outputs[Sortie de mises à jour de membre déduit]"
+                  description="Information de mise à jour de ligne de dimension initiale non remplie"
+                  exclusionGroup="1"
+                  name="Sortie de mises à jour de membre déduit"
+                  synchronousInputId="Package\Tâche de flux de données\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\FIND THE SECTEUR KEY"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="FIND THE SECTEUR KEY"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DIM_SECTEUR]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DIM_SECTEUR]) [refTable]
+where [refTable].[CODE_SECTEUR] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SECTEUR_KEY" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CODE_SECTEUR" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NOM_SECTEUR" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CODE_BLOC" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CAT_SECTEUR" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[CODE_SECTEUR]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\FIND THE SECTEUR KEY.Connections[OleDbConnection]"
+                  connectionManagerID="{AAB8CEBE-9412-42DF-9438-6B4C7C5590E7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[10.7.7.78_DATA_WAREHOUSE.DATAWAREHOUSE_COMMERCIAL_T.STAGE]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\FIND THE SECTEUR KEY.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FIND THE SECTEUR KEY.Inputs[Entrée de recherche].Columns[CODE_SECTEUR]"
+                      cachedDataType="i4"
+                      cachedName="CODE_SECTEUR"
+                      lineageId="Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[CODE_SECTEUR]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">CODE_SECTEUR</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\FIND THE SECTEUR KEY.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\Tâche de flux de données\FIND THE SECTEUR KEY.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\FIND THE SECTEUR KEY.Outputs[Sortie de recherche avec correspondance].Columns[SECTEUR_KEY]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\Tâche de flux de données\FIND THE SECTEUR KEY.Outputs[Sortie de recherche avec correspondance].Columns[SECTEUR_KEY]"
+                      name="SECTEUR_KEY"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">SECTEUR_KEY</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\FIND THE SECTEUR KEY.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\Tâche de flux de données\FIND THE SECTEUR KEY.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\FIND THE SECTEUR KEY.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\Tâche de flux de données\FIND THE SECTEUR KEY.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\FIND THE SECTEUR KEY.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\FIND THE SECTEUR KEY.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\FIND THE SECTEUR KEY.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\FIND THE SECTEUR KEY.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Fractionnement conditionnel"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Fractionnement conditionnel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Achemine des lignes de données vers différentes sorties, selon le contexte des données. Utilisez des conditions (expressions SSIS) pour spécifier les lignes qui seront acheminées. Par exemple, séparez les enregistrements qui doivent être nettoyés de ceux qui sont prêts à être chargés ou acheminez uniquement un sous-ensemble d'enregistrements."
+              name="Fractionnement conditionnel"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]"
+                  description="Entrée vers la transformation de fractionnement conditionnel"
+                  name="Entrée de fractionnement conditionnel">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel].Columns[NOM_TOURNEE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOM_TOURNEE"
+                      lineageId="Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[NOM_TOURNEE]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Fractionnement conditionnel.Outputs[REMOVE DATA]"
+                  description="Sortie 1 de la transformation de fractionnement conditionnel"
+                  errorOrTruncationOperation="Calcul"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="REMOVE DATA"
+                  synchronousInputId="Package\Tâche de flux de données\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie l'expression. Cette version d'expression utilise les identificateurs de traçabilité à la place des noms de colonnes."
+                      name="Expression">[ISNULL](#{Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[NOM_TOURNEE]}) || [LEN]([TRIM](#{Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[NOM_TOURNEE]})) &lt;= 1</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie la version claire de l'expression. Cette version d'expression utilise les noms de colonnes."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(NOM_TOURNEE) || LEN(TRIM(NOM_TOURNEE)) &lt;= 1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie la position de la condition dans la liste des conditions que la transformation évalue. L'ordre d'évaluation se fait par ordre croissant de valeur."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Fractionnement conditionnel.Outputs[Sortie par défaut de fractionnement conditionnel]"
+                  description="Sortie par défaut de la transformation de fractionnement conditionnel"
+                  exclusionGroup="1"
+                  name="Sortie par défaut de fractionnement conditionnel"
+                  synchronousInputId="Package\Tâche de flux de données\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Fractionnement conditionnel.Outputs[Sortie d'erreur de fractionnement conditionnel]"
+                  description="Sortie d'erreur de la transformation de fractionnement conditionnel"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de fractionnement conditionnel"
+                  synchronousInputId="Package\Tâche de flux de données\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Fractionnement conditionnel.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Fractionnement conditionnel.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Fractionnement conditionnel.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Fractionnement conditionnel.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\TANTAN TOURNEE"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server."
+              name="TANTAN TOURNEE"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL utilisée par le composant pour extraire des données."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes externes qui ne sont pas des chaînes peuvent ou non être converties implicitement en chaînes dans les colonnes de sortie."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données source."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."TANTAN.T_TOURNEES"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifier le mode de récupération des informations de colonne externe"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\TANTAN TOURNEE.Connections[IDbConnection]"
+                  connectionManagerID="{C369EACD-51FC-4224-B9F0-E2C39CC0C2C2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[10.7.7.78_DATA_WAREHOUSE.STAGING_COMMERCIAL_T.STAGE1]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie de source ADO NET]"
+                  name="Sortie de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie de source ADO NET].Columns[CODE_TOURNEE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_TOURNEE]"
+                      lineageId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie de source ADO NET].Columns[CODE_TOURNEE]"
+                      name="CODE_TOURNEE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie de source ADO NET].Columns[NOM_TOURNEE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[NOM_TOURNEE]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie de source ADO NET].Columns[NOM_TOURNEE]"
+                      name="NOM_TOURNEE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie de source ADO NET].Columns[CODE_SECTEUR]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_SECTEUR]"
+                      lineageId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie de source ADO NET].Columns[CODE_SECTEUR]"
+                      name="CODE_SECTEUR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie de source ADO NET].Columns[ROTATION]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[ROTATION]"
+                      lineageId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie de source ADO NET].Columns[ROTATION]"
+                      name="ROTATION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie de source ADO NET].Columns[NBRE_JOURS]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[NBRE_JOURS]"
+                      lineageId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie de source ADO NET].Columns[NBRE_JOURS]"
+                      name="NBRE_JOURS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie de source ADO NET].Columns[ACTIF]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[ACTIF]"
+                      lineageId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie de source ADO NET].Columns[ACTIF]"
+                      name="ACTIF"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_TOURNEE]"
+                      dataType="i4"
+                      name="CODE_TOURNEE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[NOM_TOURNEE]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOM_TOURNEE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_SECTEUR]"
+                      dataType="i4"
+                      name="CODE_SECTEUR" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[ROTATION]"
+                      dataType="i4"
+                      name="ROTATION" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[NBRE_JOURS]"
+                      dataType="i4"
+                      name="NBRE_JOURS" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[ACTIF]"
+                      dataType="bool"
+                      name="ACTIF" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie d'erreur de source ADO NET]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_TOURNEE]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_TOURNEE]"
+                      name="CODE_TOURNEE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[NOM_TOURNEE]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[NOM_TOURNEE]"
+                      name="NOM_TOURNEE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_SECTEUR]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_SECTEUR]"
+                      name="CODE_SECTEUR" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[ROTATION]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[ROTATION]"
+                      name="ROTATION" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[NBRE_JOURS]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[NBRE_JOURS]"
+                      name="NBRE_JOURS" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[ACTIF]"
+                      dataType="bool"
+                      lineageId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[ACTIF]"
+                      name="ACTIF" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\TIZNIT TOURNEE"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server."
+              name="TIZNIT TOURNEE"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL utilisée par le composant pour extraire des données."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes externes qui ne sont pas des chaînes peuvent ou non être converties implicitement en chaînes dans les colonnes de sortie."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données source."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."TIZNIT.T_TOURNEES"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifier le mode de récupération des informations de colonne externe"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\TIZNIT TOURNEE.Connections[IDbConnection]"
+                  connectionManagerID="{C369EACD-51FC-4224-B9F0-E2C39CC0C2C2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[10.7.7.78_DATA_WAREHOUSE.STAGING_COMMERCIAL_T.STAGE1]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie de source ADO NET]"
+                  name="Sortie de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie de source ADO NET].Columns[CODE_TOURNEE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_TOURNEE]"
+                      lineageId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie de source ADO NET].Columns[CODE_TOURNEE]"
+                      name="CODE_TOURNEE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie de source ADO NET].Columns[NOM_TOURNEE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[NOM_TOURNEE]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie de source ADO NET].Columns[NOM_TOURNEE]"
+                      name="NOM_TOURNEE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie de source ADO NET].Columns[CODE_SECTEUR]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_SECTEUR]"
+                      lineageId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie de source ADO NET].Columns[CODE_SECTEUR]"
+                      name="CODE_SECTEUR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie de source ADO NET].Columns[ROTATION]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[ROTATION]"
+                      lineageId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie de source ADO NET].Columns[ROTATION]"
+                      name="ROTATION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie de source ADO NET].Columns[NBRE_JOURS]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[NBRE_JOURS]"
+                      lineageId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie de source ADO NET].Columns[NBRE_JOURS]"
+                      name="NBRE_JOURS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie de source ADO NET].Columns[ACTIF]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[ACTIF]"
+                      lineageId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie de source ADO NET].Columns[ACTIF]"
+                      name="ACTIF"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_TOURNEE]"
+                      dataType="i4"
+                      name="CODE_TOURNEE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[NOM_TOURNEE]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOM_TOURNEE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_SECTEUR]"
+                      dataType="i4"
+                      name="CODE_SECTEUR" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[ROTATION]"
+                      dataType="i4"
+                      name="ROTATION" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[NBRE_JOURS]"
+                      dataType="i4"
+                      name="NBRE_JOURS" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[ACTIF]"
+                      dataType="bool"
+                      name="ACTIF" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie d'erreur de source ADO NET]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_TOURNEE]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_TOURNEE]"
+                      name="CODE_TOURNEE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[NOM_TOURNEE]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[NOM_TOURNEE]"
+                      name="NOM_TOURNEE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_SECTEUR]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_SECTEUR]"
+                      name="CODE_SECTEUR" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[ROTATION]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[ROTATION]"
+                      name="ROTATION" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[NBRE_JOURS]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[NBRE_JOURS]"
+                      name="NBRE_JOURS" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[ACTIF]"
+                      dataType="bool"
+                      lineageId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[ACTIF]"
+                      name="ACTIF" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\TOURNEE TATA"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server."
+              name="TOURNEE TATA"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL utilisée par le composant pour extraire des données."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes externes qui ne sont pas des chaînes peuvent ou non être converties implicitement en chaînes dans les colonnes de sortie."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données source."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."TATA.T_TOURNEES"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifier le mode de récupération des informations de colonne externe"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\TOURNEE TATA.Connections[IDbConnection]"
+                  connectionManagerID="{C369EACD-51FC-4224-B9F0-E2C39CC0C2C2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[10.7.7.78_DATA_WAREHOUSE.STAGING_COMMERCIAL_T.STAGE1]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie de source ADO NET]"
+                  name="Sortie de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie de source ADO NET].Columns[CODE_TOURNEE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_TOURNEE]"
+                      lineageId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie de source ADO NET].Columns[CODE_TOURNEE]"
+                      name="CODE_TOURNEE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie de source ADO NET].Columns[NOM_TOURNEE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie de source ADO NET].ExternalColumns[NOM_TOURNEE]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie de source ADO NET].Columns[NOM_TOURNEE]"
+                      name="NOM_TOURNEE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie de source ADO NET].Columns[CODE_SECTEUR]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_SECTEUR]"
+                      lineageId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie de source ADO NET].Columns[CODE_SECTEUR]"
+                      name="CODE_SECTEUR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie de source ADO NET].Columns[ROTATION]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie de source ADO NET].ExternalColumns[ROTATION]"
+                      lineageId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie de source ADO NET].Columns[ROTATION]"
+                      name="ROTATION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie de source ADO NET].Columns[NBRE_JOURS]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie de source ADO NET].ExternalColumns[NBRE_JOURS]"
+                      lineageId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie de source ADO NET].Columns[NBRE_JOURS]"
+                      name="NBRE_JOURS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie de source ADO NET].Columns[ACTIF]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie de source ADO NET].ExternalColumns[ACTIF]"
+                      lineageId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie de source ADO NET].Columns[ACTIF]"
+                      name="ACTIF"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_TOURNEE]"
+                      dataType="i4"
+                      name="CODE_TOURNEE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie de source ADO NET].ExternalColumns[NOM_TOURNEE]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOM_TOURNEE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_SECTEUR]"
+                      dataType="i4"
+                      name="CODE_SECTEUR" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie de source ADO NET].ExternalColumns[ROTATION]"
+                      dataType="i4"
+                      name="ROTATION" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie de source ADO NET].ExternalColumns[NBRE_JOURS]"
+                      dataType="i4"
+                      name="NBRE_JOURS" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie de source ADO NET].ExternalColumns[ACTIF]"
+                      dataType="bool"
+                      name="ACTIF" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie d'erreur de source ADO NET]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_TOURNEE]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_TOURNEE]"
+                      name="CODE_TOURNEE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie d'erreur de source ADO NET].Columns[NOM_TOURNEE]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie d'erreur de source ADO NET].Columns[NOM_TOURNEE]"
+                      name="NOM_TOURNEE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_SECTEUR]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_SECTEUR]"
+                      name="CODE_SECTEUR" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie d'erreur de source ADO NET].Columns[ROTATION]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie d'erreur de source ADO NET].Columns[ROTATION]"
+                      name="ROTATION" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie d'erreur de source ADO NET].Columns[NBRE_JOURS]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie d'erreur de source ADO NET].Columns[NBRE_JOURS]"
+                      name="NBRE_JOURS" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie d'erreur de source ADO NET].Columns[ACTIF]"
+                      dataType="bool"
+                      lineageId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie d'erreur de source ADO NET].Columns[ACTIF]"
+                      name="ACTIF" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Unir tout"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Unir tout;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Combine des lignes de plusieurs flux de données sans effectuer de tri. Par exemple, rajoutez des lignes à un flux de données après correction des erreurs. Si le tri est important, nous recommandons l'utilisation de la transformation de fusion."
+              name="Unir tout"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Unir tout.Inputs[Unir tout entrée 1]"
+                  name="Unir tout entrée 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Unir tout.Inputs[Unir tout entrée 1].Columns[CODE_TOURNEE]"
+                      cachedDataType="i4"
+                      cachedName="CODE_TOURNEE"
+                      lineageId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie de source ADO NET].Columns[CODE_TOURNEE]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[CODE_TOURNEE]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Unir tout.Inputs[Unir tout entrée 1].Columns[NOM_TOURNEE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOM_TOURNEE"
+                      lineageId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie de source ADO NET].Columns[NOM_TOURNEE]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[NOM_TOURNEE]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Unir tout.Inputs[Unir tout entrée 1].Columns[CODE_SECTEUR]"
+                      cachedDataType="i4"
+                      cachedName="CODE_SECTEUR"
+                      lineageId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie de source ADO NET].Columns[CODE_SECTEUR]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[CODE_SECTEUR]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Unir tout.Inputs[Unir tout entrée 1].Columns[ROTATION]"
+                      cachedDataType="i4"
+                      cachedName="ROTATION"
+                      lineageId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie de source ADO NET].Columns[ROTATION]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[ROTATION]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Unir tout.Inputs[Unir tout entrée 1].Columns[NBRE_JOURS]"
+                      cachedDataType="i4"
+                      cachedName="NBRE_JOURS"
+                      lineageId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie de source ADO NET].Columns[NBRE_JOURS]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[NBRE_JOURS]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Unir tout.Inputs[Unir tout entrée 1].Columns[ACTIF]"
+                      cachedDataType="bool"
+                      cachedName="ACTIF"
+                      lineageId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie de source ADO NET].Columns[ACTIF]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[ACTIF]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Tâche de flux de données\Unir tout.Inputs[Entrée Union All 1]"
+                  hasSideEffects="true"
+                  name="Entrée Union All 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Unir tout.Inputs[Entrée Union All 1].Columns[CODE_TOURNEE]"
+                      cachedDataType="i4"
+                      cachedName="CODE_TOURNEE"
+                      lineageId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie de source ADO NET].Columns[CODE_TOURNEE]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[CODE_TOURNEE]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Unir tout.Inputs[Entrée Union All 1].Columns[NOM_TOURNEE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOM_TOURNEE"
+                      lineageId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie de source ADO NET].Columns[NOM_TOURNEE]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[NOM_TOURNEE]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Unir tout.Inputs[Entrée Union All 1].Columns[CODE_SECTEUR]"
+                      cachedDataType="i4"
+                      cachedName="CODE_SECTEUR"
+                      lineageId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie de source ADO NET].Columns[CODE_SECTEUR]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[CODE_SECTEUR]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Unir tout.Inputs[Entrée Union All 1].Columns[ROTATION]"
+                      cachedDataType="i4"
+                      cachedName="ROTATION"
+                      lineageId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie de source ADO NET].Columns[ROTATION]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[ROTATION]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Unir tout.Inputs[Entrée Union All 1].Columns[NBRE_JOURS]"
+                      cachedDataType="i4"
+                      cachedName="NBRE_JOURS"
+                      lineageId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie de source ADO NET].Columns[NBRE_JOURS]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[NBRE_JOURS]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Unir tout.Inputs[Entrée Union All 1].Columns[ACTIF]"
+                      cachedDataType="bool"
+                      cachedName="ACTIF"
+                      lineageId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie de source ADO NET].Columns[ACTIF]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[ACTIF]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Tâche de flux de données\Unir tout.Inputs[Entrée Union All 2]"
+                  hasSideEffects="true"
+                  name="Entrée Union All 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Unir tout.Inputs[Entrée Union All 2].Columns[CODE_TOURNEE]"
+                      cachedDataType="i4"
+                      cachedName="CODE_TOURNEE"
+                      lineageId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie de source ADO NET].Columns[CODE_TOURNEE]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[CODE_TOURNEE]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Unir tout.Inputs[Entrée Union All 2].Columns[NOM_TOURNEE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOM_TOURNEE"
+                      lineageId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie de source ADO NET].Columns[NOM_TOURNEE]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[NOM_TOURNEE]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Unir tout.Inputs[Entrée Union All 2].Columns[CODE_SECTEUR]"
+                      cachedDataType="i4"
+                      cachedName="CODE_SECTEUR"
+                      lineageId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie de source ADO NET].Columns[CODE_SECTEUR]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[CODE_SECTEUR]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Unir tout.Inputs[Entrée Union All 2].Columns[ROTATION]"
+                      cachedDataType="i4"
+                      cachedName="ROTATION"
+                      lineageId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie de source ADO NET].Columns[ROTATION]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[ROTATION]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Unir tout.Inputs[Entrée Union All 2].Columns[NBRE_JOURS]"
+                      cachedDataType="i4"
+                      cachedName="NBRE_JOURS"
+                      lineageId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie de source ADO NET].Columns[NBRE_JOURS]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[NBRE_JOURS]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Unir tout.Inputs[Entrée Union All 2].Columns[ACTIF]"
+                      cachedDataType="bool"
+                      cachedName="ACTIF"
+                      lineageId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie de source ADO NET].Columns[ACTIF]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[ACTIF]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Tâche de flux de données\Unir tout.Inputs[Entrée Union All 3]"
+                  hasSideEffects="true"
+                  name="Entrée Union All 3">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Unir tout.Inputs[Entrée Union All 3].Columns[CODE_TOURNEE]"
+                      cachedDataType="i4"
+                      cachedName="CODE_TOURNEE"
+                      lineageId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie de source ADO NET].Columns[CODE_TOURNEE]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[CODE_TOURNEE]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Unir tout.Inputs[Entrée Union All 3].Columns[NOM_TOURNEE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOM_TOURNEE"
+                      lineageId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie de source ADO NET].Columns[NOM_TOURNEE]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[NOM_TOURNEE]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Unir tout.Inputs[Entrée Union All 3].Columns[CODE_SECTEUR]"
+                      cachedDataType="i4"
+                      cachedName="CODE_SECTEUR"
+                      lineageId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie de source ADO NET].Columns[CODE_SECTEUR]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[CODE_SECTEUR]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Unir tout.Inputs[Entrée Union All 3].Columns[ROTATION]"
+                      cachedDataType="i4"
+                      cachedName="ROTATION"
+                      lineageId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie de source ADO NET].Columns[ROTATION]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[ROTATION]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Unir tout.Inputs[Entrée Union All 3].Columns[NBRE_JOURS]"
+                      cachedDataType="i4"
+                      cachedName="NBRE_JOURS"
+                      lineageId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie de source ADO NET].Columns[NBRE_JOURS]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[NBRE_JOURS]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Unir tout.Inputs[Entrée Union All 3].Columns[ACTIF]"
+                      cachedDataType="bool"
+                      cachedName="ACTIF"
+                      lineageId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie de source ADO NET].Columns[ACTIF]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[ACTIF]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Tâche de flux de données\Unir tout.Inputs[Entrée Union All 4]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Entrée Union All 4">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1]"
+                  name="Unir tout sortie 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[CODE_TOURNEE]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[CODE_TOURNEE]"
+                      name="CODE_TOURNEE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[NOM_TOURNEE]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[NOM_TOURNEE]"
+                      name="NOM_TOURNEE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[CODE_SECTEUR]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[CODE_SECTEUR]"
+                      name="CODE_SECTEUR" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[ROTATION]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[ROTATION]"
+                      name="ROTATION" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[NBRE_JOURS]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[NBRE_JOURS]"
+                      name="NBRE_JOURS" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[ACTIF]"
+                      dataType="bool"
+                      lineageId="Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1].Columns[ACTIF]"
+                      name="ACTIF" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\ZAGORA TOURNEE"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server."
+              name="ZAGORA TOURNEE"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL utilisée par le composant pour extraire des données."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes externes qui ne sont pas des chaînes peuvent ou non être converties implicitement en chaînes dans les colonnes de sortie."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données source."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."ZAGORA.T_TOURNEES"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifier le mode de récupération des informations de colonne externe"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\ZAGORA TOURNEE.Connections[IDbConnection]"
+                  connectionManagerID="{C369EACD-51FC-4224-B9F0-E2C39CC0C2C2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[10.7.7.78_DATA_WAREHOUSE.STAGING_COMMERCIAL_T.STAGE1]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie de source ADO NET]"
+                  name="Sortie de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie de source ADO NET].Columns[CODE_TOURNEE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_TOURNEE]"
+                      lineageId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie de source ADO NET].Columns[CODE_TOURNEE]"
+                      name="CODE_TOURNEE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie de source ADO NET].Columns[NOM_TOURNEE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[NOM_TOURNEE]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie de source ADO NET].Columns[NOM_TOURNEE]"
+                      name="NOM_TOURNEE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie de source ADO NET].Columns[CODE_SECTEUR]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_SECTEUR]"
+                      lineageId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie de source ADO NET].Columns[CODE_SECTEUR]"
+                      name="CODE_SECTEUR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie de source ADO NET].Columns[ROTATION]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[ROTATION]"
+                      lineageId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie de source ADO NET].Columns[ROTATION]"
+                      name="ROTATION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie de source ADO NET].Columns[NBRE_JOURS]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[NBRE_JOURS]"
+                      lineageId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie de source ADO NET].Columns[NBRE_JOURS]"
+                      name="NBRE_JOURS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie de source ADO NET].Columns[ACTIF]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[ACTIF]"
+                      lineageId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie de source ADO NET].Columns[ACTIF]"
+                      name="ACTIF"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_TOURNEE]"
+                      dataType="i4"
+                      name="CODE_TOURNEE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[NOM_TOURNEE]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOM_TOURNEE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_SECTEUR]"
+                      dataType="i4"
+                      name="CODE_SECTEUR" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[ROTATION]"
+                      dataType="i4"
+                      name="ROTATION" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[NBRE_JOURS]"
+                      dataType="i4"
+                      name="NBRE_JOURS" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie de source ADO NET].ExternalColumns[ACTIF]"
+                      dataType="bool"
+                      name="ACTIF" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie d'erreur de source ADO NET]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_TOURNEE]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_TOURNEE]"
+                      name="CODE_TOURNEE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[NOM_TOURNEE]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[NOM_TOURNEE]"
+                      name="NOM_TOURNEE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_SECTEUR]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_SECTEUR]"
+                      name="CODE_SECTEUR" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[ROTATION]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[ROTATION]"
+                      name="ROTATION" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[NBRE_JOURS]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[NBRE_JOURS]"
+                      name="NBRE_JOURS" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[ACTIF]"
+                      dataType="bool"
+                      lineageId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[ACTIF]"
+                      name="ACTIF" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tâche de flux de données.Paths[Nouvelle sortie]"
+              endId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB]"
+              name="Nouvelle sortie"
+              startId="Package\Tâche de flux de données\Dimension à variation lente.Outputs[Nouvelle sortie]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de mises à jour d'attribut de validation]"
+              endId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB]"
+              name="Sortie de mises à jour d'attribut de validation"
+              startId="Package\Tâche de flux de données\Dimension à variation lente.Outputs[Sortie de mises à jour d'attribut de validation]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance]"
+              endId="Package\Tâche de flux de données\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\Tâche de flux de données\FIND THE SECTEUR KEY.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de source ADO NET]"
+              endId="Package\Tâche de flux de données\Unir tout.Inputs[Unir tout entrée 1]"
+              name="Sortie de source ADO NET"
+              startId="Package\Tâche de flux de données\TOURNEE TATA.Outputs[Sortie de source ADO NET]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de source ADO NET1]"
+              endId="Package\Tâche de flux de données\Unir tout.Inputs[Entrée Union All 1]"
+              name="Sortie de source ADO NET"
+              startId="Package\Tâche de flux de données\TANTAN TOURNEE.Outputs[Sortie de source ADO NET]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de source ADO NET2]"
+              endId="Package\Tâche de flux de données\Unir tout.Inputs[Entrée Union All 2]"
+              name="Sortie de source ADO NET"
+              startId="Package\Tâche de flux de données\TIZNIT TOURNEE.Outputs[Sortie de source ADO NET]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de source ADO NET3]"
+              endId="Package\Tâche de flux de données\Unir tout.Inputs[Entrée Union All 3]"
+              name="Sortie de source ADO NET"
+              startId="Package\Tâche de flux de données\ZAGORA TOURNEE.Outputs[Sortie de source ADO NET]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie par défaut de fractionnement conditionnel]"
+              endId="Package\Tâche de flux de données\FIND THE SECTEUR KEY.Inputs[Entrée de recherche]"
+              name="Sortie par défaut de fractionnement conditionnel"
+              startId="Package\Tâche de flux de données\Fractionnement conditionnel.Outputs[Sortie par défaut de fractionnement conditionnel]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Unir tout sortie 1]"
+              endId="Package\Tâche de flux de données\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]"
+              name="Unir tout sortie 1"
+              startId="Package\Tâche de flux de données\Unir tout.Outputs[Unir tout sortie 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="197.6,41.6"
+          Id="Package\Tâche de flux de données"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tâche de flux de données">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\Tâche de flux de données\TOURNEE TATA"
+          TopLeft="5.50000000000004,5.49999999999995" />
+        <NodeLayout
+          Size="173.6,41.6"
+          Id="Package\Tâche de flux de données\TANTAN TOURNEE"
+          TopLeft="224.9,5.49999999999995" />
+        <NodeLayout
+          Size="164,41.6"
+          Id="Package\Tâche de flux de données\TIZNIT TOURNEE"
+          TopLeft="458.7,5.49999999999995" />
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\Tâche de flux de données\ZAGORA TOURNEE"
+          TopLeft="683.7,5.49999999999995" />
+        <NodeLayout
+          Size="117.6,41.6"
+          Id="Package\Tâche de flux de données\Unir tout"
+          TopLeft="481.9,107.1" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de source ADO NET]"
+          TopLeft="84.7,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="423.12,59.9999999999999"
+              Start="0,0"
+              End="423.12,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.6430594900849" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.6430594900849"
+                    Point2="0,41.6430594900849"
+                    Point3="4,41.6430594900849" />
+                  <mssgle:LineSegment
+                    End="419.12,41.6430594900849" />
+                  <mssgle:CubicBezierSegment
+                    Point1="419.12,41.6430594900849"
+                    Point2="423.12,41.6430594900849"
+                    Point3="423.12,45.6430594900849" />
+                  <mssgle:LineSegment
+                    End="423.12,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de source ADO NET1]"
+          TopLeft="311.7,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="218.04,59.9999999999999"
+              Start="0,0"
+              End="218.04,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.0832708177044" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.0832708177044"
+                    Point2="0,33.0832708177044"
+                    Point3="4,33.0832708177044" />
+                  <mssgle:LineSegment
+                    End="214.04,33.0832708177044" />
+                  <mssgle:CubicBezierSegment
+                    Point1="214.04,33.0832708177044"
+                    Point2="218.04,33.0832708177044"
+                    Point3="218.04,37.0832708177044" />
+                  <mssgle:LineSegment
+                    End="218.04,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de source ADO NET2]"
+          TopLeft="540.7,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.96,59.9999999999999"
+              Start="0,0"
+              End="10.96,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.0832708177044" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.0832708177044"
+                    Point2="0,33.0832708177044"
+                    Point3="4,33.0832708177044" />
+                  <mssgle:LineSegment
+                    End="6.96000000000004,33.0832708177044" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.96000000000004,33.0832708177044"
+                    Point2="10.96,33.0832708177044"
+                    Point3="10.96,37.0832708177044" />
+                  <mssgle:LineSegment
+                    End="10.96,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de source ADO NET3]"
+          TopLeft="771.7,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-198.12,59.9999999999999"
+              Start="0,0"
+              End="-198.12,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.6430594900849" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.6430594900849"
+                    Point2="0,41.6430594900849"
+                    Point3="-4,41.6430594900849" />
+                  <mssgle:LineSegment
+                    End="-194.12,41.6430594900849" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-194.12,41.6430594900849"
+                    Point2="-198.12,41.6430594900849"
+                    Point3="-198.12,45.6430594900849" />
+                  <mssgle:LineSegment
+                    End="-198.12,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="208.8,41.6"
+          Id="Package\Tâche de flux de données\Fractionnement conditionnel"
+          TopLeft="436.3,208.7" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Unir tout sortie 1]"
+          TopLeft="540.7,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="202.4,41.6"
+          Id="Package\Tâche de flux de données\FIND THE SECTEUR KEY"
+          TopLeft="439.5,310.3" />
+        <NodeLayout
+          Size="204,41.6"
+          Id="Package\Tâche de flux de données\Dimension à variation lente"
+          TopLeft="438.7,411.9" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance]"
+          TopLeft="540.7,351.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-91.67701171875,20.4453125,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie par défaut de fractionnement conditionnel]"
+          TopLeft="540.7,250.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-107.64779296875,20.15234375,215.2955859375,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="180.8,41.6"
+          Id="Package\Tâche de flux de données\Destination d'insertion"
+          TopLeft="213.3,513.5" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Nouvelle sortie]"
+          TopLeft="508.033333333333,453.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-204.333333333333,60.0000000000002"
+              Start="0,0"
+              End="-204.333333333333,52.5000000000002">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2801556420234" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2801556420234"
+                    Point2="0,24.2801556420234"
+                    Point3="-4,24.2801556420234" />
+                  <mssgle:LineSegment
+                    End="-200.333333333333,24.2801556420234" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-200.333333333333,24.2801556420234"
+                    Point2="-204.333333333333,24.2801556420234"
+                    Point3="-204.333333333333,28.2801556420234" />
+                  <mssgle:LineSegment
+                    End="-204.333333333333,52.5000000000002" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-135.303014322917,29.2801556420234,66.2726953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="172.8,41.6"
+          Id="Package\Tâche de flux de données\Commande OLE DB"
+          TopLeft="454.3,513.5" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de mises à jour d'attribut de validation]"
+          TopLeft="573.366666666667,453.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-32.6666666666666,60.0000000000001"
+              Start="0,0"
+              End="-32.6666666666666,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2801556420234" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2801556420234"
+                    Point2="0,24.2801556420234"
+                    Point3="-4,24.2801556420234" />
+                  <mssgle:LineSegment
+                    End="-28.6666666666666,24.2801556420234" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-28.6666666666666,24.2801556420234"
+                    Point2="-32.6666666666666,24.2801556420234"
+                    Point3="-32.6666666666666,28.2801556420234" />
+                  <mssgle:LineSegment
+                    End="-32.6666666666666,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-116.165930989583,29.2801556420234,199.6651953125,12.2490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\TOURNEE TATA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\TANTAN TOURNEE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\TIZNIT TOURNEE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\ZAGORA TOURNEE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\FIND THE SECTEUR KEY">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DIM_SECTEUR]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\Dimension à variation lente">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{AAB8CEBE-9412-42DF-9438-6B4C7C5590E7}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[DIM_TOURNEES]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Unir tout.Sorties[Unir tout sortie 1].Colonnes[CODE_TOURNEE]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;CODE_TOURNEE&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Unir tout.Sorties[Unir tout sortie 1].Colonnes[NOM_TOURNEE]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;NOM_TOURNEE&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;FIND THE SECTEUR KEY.Sorties[Sortie de recherche avec correspondance].Colonnes[SECTEUR_KEY]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;SECTEUR_KEY&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Destination d'insertion&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Commande OLE DB&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

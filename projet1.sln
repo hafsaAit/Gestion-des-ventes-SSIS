@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34408.163
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "TESTING", "projet1\TESTING.dtproj", "{96CBE794-5D5F-4418-9400-B6D7D1DFC513}"
+EndProject
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "STAGING_COMMERCIAL_INITIAL", "STAGING_COMMERCIAL_INITIAL\STAGING_COMMERCIAL_INITIAL.dtproj", "{0DF99692-A85B-4D6E-875F-C149B81FC13C}"
+EndProject
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "DATAWAREHOUSA", "DATAWAREHOUSA\DATAWAREHOUSA.dtproj", "{AD9D8877-A4ED-4BEB-AEB3-387A49D90628}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96CBE794-5D5F-4418-9400-B6D7D1DFC513}.Development|Default.ActiveCfg = Development
+		{96CBE794-5D5F-4418-9400-B6D7D1DFC513}.Development|Default.Build.0 = Development
+		{0DF99692-A85B-4D6E-875F-C149B81FC13C}.Development|Default.ActiveCfg = Development
+		{0DF99692-A85B-4D6E-875F-C149B81FC13C}.Development|Default.Build.0 = Development
+		{AD9D8877-A4ED-4BEB-AEB3-387A49D90628}.Development|Default.ActiveCfg = Development
+		{AD9D8877-A4ED-4BEB-AEB3-387A49D90628}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EBF7F00B-05CF-43F4-BC87-25B61AD6D543}
+	EndGlobalSection
+EndGlobal

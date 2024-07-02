@@ -1,0 +1,806 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/12/2024 1:00:10 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAP-DSI10"
+  DTS:CreatorName="LAP-DSI10\DELL"
+  DTS:DTSID="{E138C4E1-CF34-4CB6-9938-3E474AE33322}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="14348"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{E037CAB8-5BD2-4774-ACA8-FB337482A3ED}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[10.7.7.78\DATA_WAREHOUSE.DATAWAREHOUSE_COMMERCIAL_T.STAGE1]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{9912F05A-1220-46FA-A8B3-C96CB0129DD1}"
+      DTS:ObjectName="10.7.7.78\DATA_WAREHOUSE.DATAWAREHOUSE_COMMERCIAL_T.STAGE1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=10.7.7.78\DATA_WAREHOUSE;User ID=STAGE;Initial Catalog=DATAWAREHOUSE_COMMERCIAL_T;Persist Security Info=True;Encrypt=False;Application Name=SSIS-Package1-{9912F05A-1220-46FA-A8B3-C96CB0129DD1}10.7.7.78\DATA_WAREHOUSE.DATAWAREHOUSE_COMMERCIAL_T.STAGE1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAsK7CncP7nkuqpYhlG2/yhgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABnectlUDLTqftjfwX3ZvOHvcKo9QTmKkb0nToQMngBNAAAAAAOgAAAAAIAACAAAABzBunVVEyZNHGR5WlMfcpKigCMQgFYMPdRq0CBOdqRKSAAAAAaeqBSgFWaMvJw0OeKUmDMPlrSb0vFwtU3ZdCwLOgal0AAAABkqV87HAaLr9m0c1/1DGVtSFRE8hFQmu5oWOHYlxTBUE4PrekXC03RvsxQcSZ5qfemlB06FPruzIpHiLICqMNV</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[10.7.7.78\DATA_WAREHOUSE.STAGING_COMMERCIAL_T.STAGE1]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{BF4B8A6A-B14C-4354-BC1F-46C3432ED9F0}"
+      DTS:ObjectName="10.7.7.78\DATA_WAREHOUSE.STAGING_COMMERCIAL_T.STAGE1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=10.7.7.78\DATA_WAREHOUSE;User ID=STAGE;Initial Catalog=STAGING_COMMERCIAL_T;Persist Security Info=True;Encrypt=False;Application Name=SSIS-Package1-{BF4B8A6A-B14C-4354-BC1F-46C3432ED9F0}10.7.7.78\DATA_WAREHOUSE.STAGING_COMMERCIAL_T.STAGE1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAsK7CncP7nkuqpYhlG2/yhgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACUYPCtkCkvmHaBCerMjzKdvzY64p22l2UobOLjndjIGAAAAAAOgAAAAAIAACAAAACLaZ7pXjO1oVfkbj1Q6rkTPbhbuz2l1UJ4m0AN3/hqcCAAAABIrof/57jSizNmOi7fAr9OXVne6v641+biZXeVf5xAbEAAAAD3XVpnnmZQIUkFsrVPqedtbFdKEJ7msMOg8J8zfY4a1sW9tMN15GJ5it8i3t3Z0Tb4TG7KFZaOqJfJUPwNHM0O</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tâche de flux de données"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{FCDE513B-38E6-4E1B-B967-19FB45551AB1}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche de flux de données">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tâche de flux de données\Destination ADO NET"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC."
+              name="Destination ADO NET"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données de destination."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"DIM_MACHINE"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifiez le nombre de lignes par lot. La taille par défaut, 0, utilise la même taille que la mémoire tampon interne SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant qu'une commande n'expire. Une valeur égale à 0 indique un délai infini. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Spécifie si l'interface SqlBulkCopy doit être utilisée pour améliorer les performances des opérations d'insertion en bloc. Cette interface n'est prise en charge que par certains fournisseurs."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Destination ADO NET.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[10.7.7.78\DATA_WAREHOUSE.DATAWAREHOUSE_COMMERCIAL_T.STAGE1]"
+                  connectionManagerRefId="Package.ConnectionManagers[10.7.7.78\DATA_WAREHOUSE.DATAWAREHOUSE_COMMERCIAL_T.STAGE1]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[CODE_MACHINE]"
+                      cachedDataType="i4"
+                      cachedName="CODE_MACHINE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[CODE_MACHINE]"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[CODE_MACHINE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[LIBELLE_MACHINE]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LIBELLE_MACHINE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[LIBELLE_MACHINE]"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[LIBELLE_MACHINE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[CODE_ATELIER]"
+                      cachedDataType="i4"
+                      cachedName="CODE_ATELIER"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[CODE_ATELIER]"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[CODE_ATELIER]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[CAPACITE]"
+                      cachedDataType="i4"
+                      cachedName="CAPACITE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[CAPACITE]"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[CAPACITE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[RANG]"
+                      cachedDataType="i4"
+                      cachedName="RANG"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[RANG]"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[RANG]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[PAS_SECONDES]"
+                      cachedDataType="i4"
+                      cachedName="PAS_SECONDES"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[PAS_SECONDES]"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[PAS_SECONDES]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[SPECIAL_MACHINE]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SPECIAL_MACHINE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[SPECIAL_MACHINE]"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[SPECIAL_MACHINE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[CODE_CLASSE]"
+                      cachedDataType="i4"
+                      cachedName="CODE_CLASSE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[CODE_CLASSE]"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[CODE_CLASSE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[EXP_PRODUITS]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EXP_PRODUITS"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[EXP_PRODUITS]"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[EXP_PRODUITS]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[LIEU]"
+                      cachedDataType="i4"
+                      cachedName="LIEU"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[LIEU]"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[LIEU]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[ID_IMPUTATION]"
+                      cachedDataType="i4"
+                      cachedName="ID_IMPUTATION"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[ID_IMPUTATION]"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[ID_IMPUTATION]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[HEURES_PROD]"
+                      cachedDataType="r8"
+                      cachedName="HEURES_PROD"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[HEURES_PROD]"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[HEURES_PROD]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[etat_machine]"
+                      cachedDataType="i4"
+                      cachedName="etat_machine"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[etat_machine]"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[etat_machine]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[CPM]"
+                      cachedDataType="r8"
+                      cachedName="CPM"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[CPM]"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[CPM]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[CPJ]"
+                      cachedDataType="r8"
+                      cachedName="CPJ"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[CPJ]"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[CPJ]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[PNU]"
+                      cachedDataType="r8"
+                      cachedName="PNU"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[PNU]"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[PNU]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[MACHINE_KEY]"
+                      dataType="i4"
+                      name="MACHINE_KEY" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[CODE_MACHINE]"
+                      dataType="i4"
+                      name="CODE_MACHINE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[LIBELLE_MACHINE]"
+                      dataType="wstr"
+                      length="50"
+                      name="LIBELLE_MACHINE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[CODE_ATELIER]"
+                      dataType="i4"
+                      name="CODE_ATELIER" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[CAPACITE]"
+                      dataType="i4"
+                      name="CAPACITE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[RANG]"
+                      dataType="i4"
+                      name="RANG" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[PAS_SECONDES]"
+                      dataType="i4"
+                      name="PAS_SECONDES" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[SPECIAL_MACHINE]"
+                      dataType="wstr"
+                      length="50"
+                      name="SPECIAL_MACHINE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[CODE_CLASSE]"
+                      dataType="i4"
+                      name="CODE_CLASSE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[EXP_PRODUITS]"
+                      dataType="wstr"
+                      length="50"
+                      name="EXP_PRODUITS" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[LIEU]"
+                      dataType="i4"
+                      name="LIEU" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[ID_IMPUTATION]"
+                      dataType="i4"
+                      name="ID_IMPUTATION" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[HEURES_PROD]"
+                      dataType="r8"
+                      name="HEURES_PROD" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[etat_machine]"
+                      dataType="i4"
+                      name="etat_machine" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[CPM]"
+                      dataType="r8"
+                      name="CPM" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[CPJ]"
+                      dataType="r8"
+                      name="CPJ" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[PNU]"
+                      dataType="r8"
+                      name="PNU" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination ADO NET"
+                  synchronousInputId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\MACHINE"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server."
+              name="MACHINE"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL utilisée par le composant pour extraire des données."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  
+      TM.[CODE_MACHINE]
+      ,TM.[LIBELLE_MACHINE]
+      ,TM.[CODE_ATELIER]
+      ,TM.[CAPACITE]
+      ,TM.[RANG]
+      ,TM.[PAS_SECONDES]
+      ,TM.[SPECIAL_MACHINE]
+      ,TM.[CODE_CLASSE]
+      ,TM.[EXP_PRODUITS]
+      ,TM.[LIEU]
+      ,TM.[ID_IMPUTATION]
+      ,TM.[HEURES_PROD]
+      ,TM.[etat_machine]
+	  ,TMI.[CPM]
+      ,TMI.[CPJ]
+      ,TMI.[PNU]
+  FROM [dbo].[T_MACHINE] as TM 
+  INNER JOIN [dbo].[T_MACHINE_INFO] AS TMI ON TM.LIBELLE_MACHINE = TMI.LIBELLE_MACHINE;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes externes qui ne sont pas des chaînes peuvent ou non être converties implicitement en chaînes dans les colonnes de sortie."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données source."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."T_MACHINE"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifier le mode de récupération des informations de colonne externe"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\MACHINE.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[10.7.7.78\DATA_WAREHOUSE.STAGING_COMMERCIAL_T.STAGE1]"
+                  connectionManagerRefId="Package.ConnectionManagers[10.7.7.78\DATA_WAREHOUSE.STAGING_COMMERCIAL_T.STAGE1]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET]"
+                  name="Sortie de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[CODE_MACHINE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_MACHINE]"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[CODE_MACHINE]"
+                      name="CODE_MACHINE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[LIBELLE_MACHINE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].ExternalColumns[LIBELLE_MACHINE]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[LIBELLE_MACHINE]"
+                      name="LIBELLE_MACHINE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[CODE_ATELIER]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_ATELIER]"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[CODE_ATELIER]"
+                      name="CODE_ATELIER"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[CAPACITE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].ExternalColumns[CAPACITE]"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[CAPACITE]"
+                      name="CAPACITE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[RANG]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].ExternalColumns[RANG]"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[RANG]"
+                      name="RANG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[PAS_SECONDES]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].ExternalColumns[PAS_SECONDES]"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[PAS_SECONDES]"
+                      name="PAS_SECONDES"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[SPECIAL_MACHINE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].ExternalColumns[SPECIAL_MACHINE]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[SPECIAL_MACHINE]"
+                      name="SPECIAL_MACHINE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[CODE_CLASSE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_CLASSE]"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[CODE_CLASSE]"
+                      name="CODE_CLASSE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[EXP_PRODUITS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].ExternalColumns[EXP_PRODUITS]"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[EXP_PRODUITS]"
+                      name="EXP_PRODUITS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[LIEU]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].ExternalColumns[LIEU]"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[LIEU]"
+                      name="LIEU"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[ID_IMPUTATION]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].ExternalColumns[ID_IMPUTATION]"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[ID_IMPUTATION]"
+                      name="ID_IMPUTATION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[HEURES_PROD]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].ExternalColumns[HEURES_PROD]"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[HEURES_PROD]"
+                      name="HEURES_PROD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[etat_machine]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].ExternalColumns[etat_machine]"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[etat_machine]"
+                      name="etat_machine"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[CPM]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].ExternalColumns[CPM]"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[CPM]"
+                      name="CPM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[CPJ]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].ExternalColumns[CPJ]"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[CPJ]"
+                      name="CPJ"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[PNU]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].ExternalColumns[PNU]"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].Columns[PNU]"
+                      name="PNU"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_MACHINE]"
+                      dataType="i4"
+                      name="CODE_MACHINE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].ExternalColumns[LIBELLE_MACHINE]"
+                      dataType="wstr"
+                      length="50"
+                      name="LIBELLE_MACHINE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_ATELIER]"
+                      dataType="i4"
+                      name="CODE_ATELIER" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].ExternalColumns[CAPACITE]"
+                      dataType="i4"
+                      name="CAPACITE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].ExternalColumns[RANG]"
+                      dataType="i4"
+                      name="RANG" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].ExternalColumns[PAS_SECONDES]"
+                      dataType="i4"
+                      name="PAS_SECONDES" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].ExternalColumns[SPECIAL_MACHINE]"
+                      dataType="wstr"
+                      length="50"
+                      name="SPECIAL_MACHINE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_CLASSE]"
+                      dataType="i4"
+                      name="CODE_CLASSE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].ExternalColumns[EXP_PRODUITS]"
+                      dataType="wstr"
+                      length="50"
+                      name="EXP_PRODUITS" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].ExternalColumns[LIEU]"
+                      dataType="i4"
+                      name="LIEU" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].ExternalColumns[ID_IMPUTATION]"
+                      dataType="i4"
+                      name="ID_IMPUTATION" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].ExternalColumns[HEURES_PROD]"
+                      dataType="r8"
+                      name="HEURES_PROD" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].ExternalColumns[etat_machine]"
+                      dataType="i4"
+                      name="etat_machine" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].ExternalColumns[CPM]"
+                      dataType="r8"
+                      name="CPM" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].ExternalColumns[CPJ]"
+                      dataType="r8"
+                      name="CPJ" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET].ExternalColumns[PNU]"
+                      dataType="r8"
+                      name="PNU" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_MACHINE]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_MACHINE]"
+                      name="CODE_MACHINE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[LIBELLE_MACHINE]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[LIBELLE_MACHINE]"
+                      name="LIBELLE_MACHINE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_ATELIER]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_ATELIER]"
+                      name="CODE_ATELIER" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[CAPACITE]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[CAPACITE]"
+                      name="CAPACITE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[RANG]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[RANG]"
+                      name="RANG" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[PAS_SECONDES]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[PAS_SECONDES]"
+                      name="PAS_SECONDES" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[SPECIAL_MACHINE]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[SPECIAL_MACHINE]"
+                      name="SPECIAL_MACHINE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_CLASSE]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_CLASSE]"
+                      name="CODE_CLASSE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[EXP_PRODUITS]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[EXP_PRODUITS]"
+                      name="EXP_PRODUITS" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[LIEU]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[LIEU]"
+                      name="LIEU" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[ID_IMPUTATION]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[ID_IMPUTATION]"
+                      name="ID_IMPUTATION" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[HEURES_PROD]"
+                      dataType="r8"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[HEURES_PROD]"
+                      name="HEURES_PROD" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[etat_machine]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[etat_machine]"
+                      name="etat_machine" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[CPM]"
+                      dataType="r8"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[CPM]"
+                      name="CPM" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[CPJ]"
+                      dataType="r8"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[CPJ]"
+                      name="CPJ" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[PNU]"
+                      dataType="r8"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[PNU]"
+                      name="PNU" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de source ADO NET]"
+              endId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET]"
+              name="Sortie de source ADO NET"
+              startId="Package\Tâche de flux de données\MACHINE.Outputs[Sortie de source ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="197.6,41.6"
+          Id="Package\Tâche de flux de données"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tâche de flux de données">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="126.4,41.6"
+          Id="Package\Tâche de flux de données\MACHINE"
+          TopLeft="381.999994307757,9.99999985098838" />
+        <NodeLayout
+          Size="179.2,41.6"
+          Id="Package\Tâche de flux de données\Destination ADO NET"
+          TopLeft="437.999993473292,220.999996706843" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de source ADO NET]"
+          TopLeft="445.199994307757,51.5999998509884">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="82.399999165535,169.399996855855"
+              Start="0,0"
+              End="82.399999165535,161.899996855855">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,80.6999984279275" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,80.6999984279275"
+                    Point2="0,84.6999984279275"
+                    Point3="4,84.6999984279275" />
+                  <mssgle:LineSegment
+                    End="78.399999165535,84.6999984279275" />
+                  <mssgle:CubicBezierSegment
+                    Point1="78.399999165535,84.6999984279275"
+                    Point2="82.399999165535,84.6999984279275"
+                    Point3="82.399999165535,88.6999984279275" />
+                  <mssgle:LineSegment
+                    End="82.399999165535,161.899996855855" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\Destination ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\MACHINE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

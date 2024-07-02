@@ -1,0 +1,825 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/26/2024 12:57:27 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAP-DSI10"
+  DTS:CreatorName="LAP-DSI10\DELL"
+  DTS:DTSID="{7497F036-FF96-42A9-80C3-18B75036FC4B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="14348"
+  DTS:ObjectName="DIMSTABLES"
+  DTS:PackageType="5"
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{75AE8932-4342-468A-8601-8E80B2EE13D5}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[10.7.7.78\DATA_WAREHOUSE.DATAWAREHOUSE_COMMERCIAL_T.STAGE]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{440719E9-6CFA-4784-BBD4-8DBF882DBF47}"
+      DTS:ObjectName="10.7.7.78\DATA_WAREHOUSE.DATAWAREHOUSE_COMMERCIAL_T.STAGE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=10.7.7.78\DATA_WAREHOUSE;User ID=STAGE;Initial Catalog=DATAWAREHOUSE_COMMERCIAL_T;Provider=SQLNCLI11.1;Persist Security Info=True;Application Name=SSIS-Package-{440719E9-6CFA-4784-BBD4-8DBF882DBF47}10.7.7.78\DATA_WAREHOUSE.DATAWAREHOUSE_COMMERCIAL_T.STAGE;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAsK7CncP7nkuqpYhlG2/yhgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAABqkCaQwRw3L1qwKytPTsUjVSJsqcZJHauY+DoUupGfgAAAAAOgAAAAAIAACAAAADUQ0IZqiS+FywFs250sz5tOoxuwFfPXQZyhDoUu8Dp8yAAAACIi7Bz8b30Z80ZdBU5FBV3Nnr6S/Qxw9zMZ43V5jSiqEAAAADgdeuc3X5wtYhHNY3fTydXsAg/0B4S0UAuk+6gk9TSd6rzvb466BF8yPOK8Te/dUk0HQRBstbiwT5+5fsRDdHZ</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[10.7.7.78\DATA_WAREHOUSE.STAGING_COMMERCIAL_T.STAGE]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D74DF793-975C-444A-9B3E-870516358D07}"
+      DTS:ObjectName="10.7.7.78\DATA_WAREHOUSE.STAGING_COMMERCIAL_T.STAGE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=10.7.7.78\DATA_WAREHOUSE;User ID=STAGE;Initial Catalog=STAGING_COMMERCIAL_T;Provider=SQLNCLI11.1;Persist Security Info=True;Application Name=SSIS-Package-{D74DF793-975C-444A-9B3E-870516358D07}10.7.7.78\DATA_WAREHOUSE.STAGING_COMMERCIAL_T.STAGE;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAsK7CncP7nkuqpYhlG2/yhgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADpoH0s0MZaojHvdeKPy+i3Ivk/63aFz/myroy26fPxEwAAAAAOgAAAAAIAACAAAAAvabAPNmHkPfMcdAMaWJB6ZczkSPFEKny0yVtEIUhycyAAAABUssyPRI6dN7MqzZfhi5ngJgfXG4qXK3/E4s71L65knEAAAAC7Zgy7vHFS+xMBx39BwmpLBykh98lVbsDjRmD9X3j30rsMFxZEdEqndjrAORc5Ckfttsb6rjx/8VJKYpfzK2mI</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[10.7.7.78\DATA_WAREHOUSE.STAGING_COMMERCIAL_T.STAGE 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{632E3DC1-64DD-4C7C-8F94-C35DA153883D}"
+      DTS:ObjectName="10.7.7.78\DATA_WAREHOUSE.STAGING_COMMERCIAL_T.STAGE 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=10.7.7.78\DATA_WAREHOUSE;User ID=STAGE;Initial Catalog=STAGING_COMMERCIAL_T;Provider=SQLNCLI11.1;Persist Security Info=True;Application Name=SSIS-DIMSTABLES-{632E3DC1-64DD-4C7C-8F94-C35DA153883D}10.7.7.78\DATA_WAREHOUSE.STAGING_COMMERCIAL_T.STAGE 1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAsK7CncP7nkuqpYhlG2/yhgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAArs8yw4oFzgZnrSr3LXNb/BeFkXWSGTRlQBCgdlia2awAAAAAOgAAAAAIAACAAAABib0AG9YmALzPGI41tapPEh1ryxCilc0EGOSVX6UaU5yAAAACNvoFj75NHQkz8Av8m50xoullnjunH42QGIGBoX0rc6UAAAADTF4IzCAwWrkzkWGBdWBiolcX9FouA4aGu9mDJ+e8Iaafxe6FXg+tZ1NneSFHERrikUwXW4uCVFFipyAoGpFvT</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[10.7.7.78\DATA_WAREHOUSE.STAGING_COMMERCIAL_T.STAGE1]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{FEB49E25-809E-4BC6-9F74-B648F443AE1B}"
+      DTS:ObjectName="10.7.7.78\DATA_WAREHOUSE.STAGING_COMMERCIAL_T.STAGE1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=10.7.7.78\DATA_WAREHOUSE;User ID=STAGE;Initial Catalog=STAGING_COMMERCIAL_T;Persist Security Info=True;Encrypt=False;Application Name=SSIS-Package-{FEB49E25-809E-4BC6-9F74-B648F443AE1B}10.7.7.78\DATA_WAREHOUSE.STAGING_COMMERCIAL_T.STAGE1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAsK7CncP7nkuqpYhlG2/yhgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAA9kDVUQcy9mov8Qbr2fuhfnRIaiCDCvG02b/jSQcWabAAAAAAOgAAAAAIAACAAAACqTxJzWkRS+e1L5TCcdL3ngB+jZTUokX/7gJWh4Jx+/SAAAAD5IhxRtbWx7DmhEVGx0Zwp60MPH4kVR2MyPrZ5nRDpF0AAAACPrEJACsxCX/A228Tfh4kPoifpwW1LpAI6ISeiMAElVNVo15Ru8vKRBGCsGDGqh8Vs7f5hgKNEmDMZ/V+80WaX</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tâche de flux de données"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{785BC30C-888E-49BA-B183-E8F4F4DFFC15}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche de flux de données">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tâche de flux de données\Commande OLE DB"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="Commande OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Exécute une instruction SQL pour chaque ligne d'un flux de données. Par exemple, appelez une procédure stockée 'nouvelle configuration d'employé' pour chaque ligne de la table 'nouveaux employés'. Remarque : l'exécution d'une instruction SQL pour chaque ligne d'un flux de données volumineux peut prendre beaucoup de temps."
+              name="Commande OLE DB"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DIM_GAMME] SET [NOM_GAMME] = ? WHERE [CODE_GAMME] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Commande OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[10.7.7.78\DATA_WAREHOUSE.DATAWAREHOUSE_COMMERCIAL_T.STAGE]"
+                  connectionManagerRefId="Package.ConnectionManagers[10.7.7.78\DATA_WAREHOUSE.DATAWAREHOUSE_COMMERCIAL_T.STAGE]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB]"
+                  errorOrTruncationOperation="Exécution de commande"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de commande OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[CODE_GAMME]"
+                      cachedDataType="i4"
+                      cachedName="CODE_GAMME"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_1]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET 1.Outputs[Sortie de source ADO NET].Columns[CODE_GAMME]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[NOM_GAMME]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOM_GAMME"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET 1.Outputs[Sortie de source ADO NET].Columns[NOM_GAMME]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Commande OLE DB.Outputs[Sortie de commande OLE DB]"
+                  exclusionGroup="1"
+                  name="Sortie de commande OLE DB"
+                  synchronousInputId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de commande OLE DB"
+                  synchronousInputId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Destination d'insertion"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination d'insertion"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[DIM_GAMME]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Destination d'insertion.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[10.7.7.78\DATA_WAREHOUSE.DATAWAREHOUSE_COMMERCIAL_T.STAGE]"
+                  connectionManagerRefId="Package.ConnectionManagers[10.7.7.78\DATA_WAREHOUSE.DATAWAREHOUSE_COMMERCIAL_T.STAGE]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].Columns[CODE_GAMME]"
+                      cachedDataType="i4"
+                      cachedName="CODE_GAMME"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[CODE_GAMME]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET 1.Outputs[Sortie de source ADO NET].Columns[CODE_GAMME]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].Columns[NOM_GAMME]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOM_GAMME"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[NOM_GAMME]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET 1.Outputs[Sortie de source ADO NET].Columns[NOM_GAMME]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[GAMME_KEY]"
+                      dataType="i4"
+                      name="GAMME_KEY" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[CODE_GAMME]"
+                      dataType="i4"
+                      name="CODE_GAMME" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[NOM_GAMME]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOM_GAMME" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Destination d'insertion.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Destination d'insertion.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Destination d'insertion.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Dimension à variation lente"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Dimension à variation lente;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;3"
+              description="Met à jour une dimension d'entrepôt de données (Data Warehouse) SQL Server Analysis Services. Mettez à jour les enregistrements de dimension qui sont déjà présents et insérez ceux qui ne le sont pas. Par exemple, mettez à jour la table DimProduct de la base de données OLAP AdventureWorksDW avec les données de la table Products dans la base de données OLTP AdventureWorks."
+              name="Dimension à variation lente"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SELECT utilisée pour créer un ensemble de lignes du schéma."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [CODE_GAMME], [NOM_GAMME] FROM [dbo].[DIM_GAMME]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la clause WHERE dans l'instruction SELECT qui sélectionne la ligne actuelle parmi les lignes comportant des clés de travail identiques."
+                  name="CurrentRowWhere"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les mises à jour d'attribut d'historique sont dirigées sur la sortie de la transformation pour les mises à jour d'attribut de validation."
+                  name="UpdateChangingAttributeHistory">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation échoue lorsque les colonnes comportant des attributs fixes contiennent des modifications."
+                  name="FailOnFixedAttributeChange">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de la colonne pour le membre déduit."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les mises à jour de membre déduit sont détectées."
+                  name="EnableInferredMember">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation échoue lorsque la recherche d'un enregistrement existant échoue."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie que toutes les lignes de l'entrée sont nouvelles ou que la transformation détecte le type de modification."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Dimension à variation lente.Connections[LookupConnection]"
+                  connectionManagerID="Package.ConnectionManagers[10.7.7.78\DATA_WAREHOUSE.DATAWAREHOUSE_COMMERCIAL_T.STAGE]"
+                  connectionManagerRefId="Package.ConnectionManagers[10.7.7.78\DATA_WAREHOUSE.DATAWAREHOUSE_COMMERCIAL_T.STAGE]"
+                  description="Définit la connexion à utiliser pour faire des recherches dans la table de dimension"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]"
+                  name="Entrée de dimension à variation lente">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].Columns[CODE_GAMME]"
+                      cachedDataType="i4"
+                      cachedName="CODE_GAMME"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[CODE_GAMME]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET 1.Outputs[Sortie de source ADO NET].Columns[CODE_GAMME]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].Columns[NOM_GAMME]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOM_GAMME"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[NOM_GAMME]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET 1.Outputs[Sortie de source ADO NET].Columns[NOM_GAMME]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[CODE_GAMME]"
+                      dataType="i4"
+                      name="CODE_GAMME" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[NOM_GAMME]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOM_GAMME" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Dimension à variation lente.Outputs[Sortie inchangée]"
+                  description="Lignes inchangées"
+                  exclusionGroup="1"
+                  name="Sortie inchangée"
+                  synchronousInputId="Package\Tâche de flux de données\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Dimension à variation lente.Outputs[Nouvelle sortie]"
+                  description="Nouvelles lignes"
+                  exclusionGroup="1"
+                  name="Nouvelle sortie"
+                  synchronousInputId="Package\Tâche de flux de données\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Dimension à variation lente.Outputs[Sortie d'attribut fixe]"
+                  description="Lignes comportant des modifications dans les colonnes marquées FixedAttribute"
+                  exclusionGroup="1"
+                  name="Sortie d'attribut fixe"
+                  synchronousInputId="Package\Tâche de flux de données\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Dimension à variation lente.Outputs[Sortie de mises à jour d'attribut de validation]"
+                  description="Ces lignes contiennent de nouvelles informations sur les modifications de colonnes ChangingAttribute (type 1)"
+                  exclusionGroup="1"
+                  name="Sortie de mises à jour d'attribut de validation"
+                  synchronousInputId="Package\Tâche de flux de données\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Dimension à variation lente.Outputs[Sortie d'insertions d'attribut d'historique]"
+                  description="Les modifications sur HistoricalAttribute (type 2) apparaissent dans ces nouvelles lignes"
+                  exclusionGroup="2"
+                  name="Sortie d'insertions d'attribut d'historique"
+                  synchronousInputId="Package\Tâche de flux de données\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Dimension à variation lente.Outputs[Sortie de mises à jour de membre déduit]"
+                  description="Information de mise à jour de ligne de dimension initiale non remplie"
+                  exclusionGroup="1"
+                  name="Sortie de mises à jour de membre déduit"
+                  synchronousInputId="Package\Tâche de flux de données\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Source ADO NET 1"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server."
+              name="Source ADO NET 1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL utilisée par le composant pour extraire des données."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes externes qui ne sont pas des chaînes peuvent ou non être converties implicitement en chaînes dans les colonnes de sortie."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données source."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."SIEGE T_GAMME"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifier le mode de récupération des informations de colonne externe"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Source ADO NET 1.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[10.7.7.78\DATA_WAREHOUSE.STAGING_COMMERCIAL_T.STAGE1]"
+                  connectionManagerRefId="Package.ConnectionManagers[10.7.7.78\DATA_WAREHOUSE.STAGING_COMMERCIAL_T.STAGE1]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Source ADO NET 1.Outputs[Sortie de source ADO NET]"
+                  name="Sortie de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET 1.Outputs[Sortie de source ADO NET].Columns[CODE_GAMME]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET 1.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_GAMME]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET 1.Outputs[Sortie de source ADO NET].Columns[CODE_GAMME]"
+                      name="CODE_GAMME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET 1.Outputs[Sortie de source ADO NET].Columns[NOM_GAMME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET 1.Outputs[Sortie de source ADO NET].ExternalColumns[NOM_GAMME]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET 1.Outputs[Sortie de source ADO NET].Columns[NOM_GAMME]"
+                      name="NOM_GAMME"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET 1.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_GAMME]"
+                      dataType="i4"
+                      name="CODE_GAMME" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET 1.Outputs[Sortie de source ADO NET].ExternalColumns[NOM_GAMME]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOM_GAMME" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Source ADO NET 1.Outputs[Sortie d'erreur de source ADO NET]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET 1.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_GAMME]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET 1.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_GAMME]"
+                      name="CODE_GAMME" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET 1.Outputs[Sortie d'erreur de source ADO NET].Columns[NOM_GAMME]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET 1.Outputs[Sortie d'erreur de source ADO NET].Columns[NOM_GAMME]"
+                      name="NOM_GAMME" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET 1.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET 1.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET 1.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET 1.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tâche de flux de données.Paths[Nouvelle sortie]"
+              endId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB]"
+              name="Nouvelle sortie"
+              startId="Package\Tâche de flux de données\Dimension à variation lente.Outputs[Nouvelle sortie]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de mises à jour d'attribut de validation]"
+              endId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB]"
+              name="Sortie de mises à jour d'attribut de validation"
+              startId="Package\Tâche de flux de données\Dimension à variation lente.Outputs[Sortie de mises à jour d'attribut de validation]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de source ADO NET]"
+              endId="Package\Tâche de flux de données\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]"
+              name="Sortie de source ADO NET"
+              startId="Package\Tâche de flux de données\Source ADO NET 1.Outputs[Sortie de source ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="197.6,41.6"
+          Id="Package\Tâche de flux de données"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tâche de flux de données">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="168.8,41.6"
+          Id="Package\Tâche de flux de données\Source ADO NET 1"
+          TopLeft="248.5,5.49999999999995" />
+        <NodeLayout
+          Size="204,41.6"
+          Id="Package\Tâche de flux de données\Dimension à variation lente"
+          TopLeft="230.9,107.1" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de source ADO NET]"
+          TopLeft="332.9,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="180.8,41.6"
+          Id="Package\Tâche de flux de données\Destination d'insertion"
+          TopLeft="5.50000000000003,208.7" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Nouvelle sortie]"
+          TopLeft="300.233333333333,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-204.333333333333,60"
+              Start="0,0"
+              End="-204.333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2801556420233" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2801556420233"
+                    Point2="0,24.2801556420233"
+                    Point3="-4,24.2801556420233" />
+                  <mssgle:LineSegment
+                    End="-200.333333333333,24.2801556420233" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-200.333333333333,24.2801556420233"
+                    Point2="-204.333333333333,24.2801556420233"
+                    Point3="-204.333333333333,28.2801556420233" />
+                  <mssgle:LineSegment
+                    End="-204.333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-135.303014322917,29.2801556420233,66.2726953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="172.8,41.6"
+          Id="Package\Tâche de flux de données\Commande OLE DB"
+          TopLeft="246.5,208.7" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de mises à jour d'attribut de validation]"
+          TopLeft="365.566666666667,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-32.6666666666667,60"
+              Start="0,0"
+              End="-32.6666666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2801556420233" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2801556420233"
+                    Point2="0,24.2801556420233"
+                    Point3="-4,24.2801556420233" />
+                  <mssgle:LineSegment
+                    End="-28.6666666666667,24.2801556420233" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-28.6666666666667,24.2801556420233"
+                    Point2="-32.6666666666667,24.2801556420233"
+                    Point3="-32.6666666666667,28.2801556420233" />
+                  <mssgle:LineSegment
+                    End="-32.6666666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-116.165930989583,29.2801556420233,199.6651953125,12.2490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\Source ADO NET 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\Dimension à variation lente">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{440719E9-6CFA-4784-BBD4-8DBF882DBF47}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[DIM_GAMME]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source ADO NET 1.Sorties[Sortie de source ADO NET].Colonnes[CODE_GAMME]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;CODE_GAMME&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source ADO NET 1.Sorties[Sortie de source ADO NET].Colonnes[NOM_GAMME]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;NOM_GAMME&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Destination d'insertion&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Commande OLE DB&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

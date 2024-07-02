@@ -1,0 +1,1891 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/25/2024 1:15:02 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAP-DSI10"
+  DTS:CreatorName="LAP-DSI10\DELL"
+  DTS:DTSID="{0D6025D1-5128-40CF-9DA3-F3D45454337E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="14348"
+  DTS:ObjectName="EXCEL_BUDGET_LOAD"
+  DTS:PackageType="5"
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{A49D7CD3-B033-448B-BF75-17CC130A277E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[10.7.7.78\DATA_WAREHOUSE.STAGING_COMMERCIAL_T.STAGE1]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{2AA787B3-C1CE-4BF7-871F-EFED76587752}"
+      DTS:ObjectName="10.7.7.78\DATA_WAREHOUSE.STAGING_COMMERCIAL_T.STAGE1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=10.7.7.78\DATA_WAREHOUSE;User ID=STAGE;Initial Catalog=STAGING_COMMERCIAL_T;Persist Security Info=True;Encrypt=False;Application Name=SSIS-EXCEL_BUDGET_LOAD-{2AA787B3-C1CE-4BF7-871F-EFED76587752}10.7.7.78\DATA_WAREHOUSE.STAGING_COMMERCIAL_T.STAGE1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAsK7CncP7nkuqpYhlG2/yhgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAyrCW+A7SwuI0LB/4dzc83T7xSQsHImzGOFJ0REbPvkwAAAAAOgAAAAAIAACAAAABu58jjoWx1mVzs+QNHcgvmfocMLlM5c3JabN13qVEplyAAAABc7rN5c0A68z+PvXyyYDNB8RLXWMxPd5jkBCkIpxweEUAAAAAdLBDOtu2qr+TFeKVWAOx7xDMrw8vUbwRC9gR8jwb1Y3QwsaysWXq4p5q0s8J/N/mQZxrIXAS54D+MJ+4VcSwz</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{AFB9EFD1-2218-47C8-9787-65C056F5B8C6}"
+      DTS:ObjectName="Gestionnaire de connexions Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\DELL\Downloads\Budget_COM_en Tonne PAR POLE.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{F862970F-67AA-418B-8E8E-2ABD8E08E18E}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\DELL\Downloads\Budget_COM_en Tonne PAR POLE.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 2]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{26776EF3-01E1-496E-B40C-0227FBBA3C6A}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\DELL\Downloads\Budget_COM_en Tonne PAR POLE.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 3]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{DA1ECE40-97C4-4529-BEDF-6923F72D2947}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 3">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\DELL\Downloads\Budget_COM_en Tonne PAR POLE.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 4]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{75A5C5D2-0599-41BB-A9BC-EC476F774460}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 4">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\DELL\Downloads\Budget_COM_en Tonne PAR POLE.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 5]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{A7BE2508-1357-4783-A739-D2E78B7EB17F}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 5">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\DELL\Downloads\Budget_COM_en Tonne PAR POLE.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 6]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{B78FF97D-1088-41DF-A520-04D8AE5DBACB}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 6">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\DELL\Downloads\Budget_COM_en Tonne PAR POLE.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 7]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{F82B749F-4FE3-4230-9C2B-354B01EF960D}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 7">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\DELL\Downloads\Budget_COM_en Tonne PAR POLE.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tâche de flux de données"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{F13C133B-0072-4004-A024-D9CAC276C413}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche de flux de données"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tâche de flux de données\Destination ADO NET"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC."
+              name="Destination ADO NET"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données de destination."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"BUDGET_ZAGORA"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifiez le nombre de lignes par lot. La taille par défaut, 0, utilise la même taille que la mémoire tampon interne SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant qu'une commande n'expire. Une valeur égale à 0 indique un délai infini. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Spécifie si l'interface SqlBulkCopy doit être utilisée pour améliorer les performances des opérations d'insertion en bloc. Cette interface n'est prise en charge que par certains fournisseurs."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Destination ADO NET.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[10.7.7.78\DATA_WAREHOUSE.STAGING_COMMERCIAL_T.STAGE1]"
+                  connectionManagerRefId="Package.ConnectionManagers[10.7.7.78\DATA_WAREHOUSE.STAGING_COMMERCIAL_T.STAGE1]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[NOM_AGENCE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOM_AGENCE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[NOM_AGENCE]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[NOM_AGENCE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[MOIS]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="MOIS"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[MOIS]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[MOIS]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[POIDS]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="POIDS"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[POIDS]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[POIDS]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[PRIX]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="PRIX"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[PRIX]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[PRIX]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[CODE_ARTICLE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CODE_ARTICLE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[CODE_ARTICLE]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CODE_ARTICLE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[ARTICLE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ARTICLE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[ARTICLE]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[ARTICLE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[TON_TRADITIONNEL]"
+                      cachedDataType="r8"
+                      cachedName="TON_TRADITIONNEL"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_TRADITIONNEL]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[TON_TRADITIONNEL]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[TON_DEPO]"
+                      cachedDataType="r8"
+                      cachedName="TON_DEPO"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_DEPO]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[TON_DEPO]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[TON_GMS]"
+                      cachedDataType="r8"
+                      cachedName="TON_GMS"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_GMS]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[TON_GMS]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[TON_COLLECTIVITE]"
+                      cachedDataType="r8"
+                      cachedName="TON_COLLECTIVITE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_COLLECTIVITE]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[TON_COLLECTIVITE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[TON_AUTRE]"
+                      cachedDataType="r8"
+                      cachedName="TON_AUTRE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_AUTRE]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[TON_AUTRE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].Columns[POLE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="POLE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[POLE]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[POLE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[NOM_AGENCE]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOM_AGENCE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[MOIS]"
+                      dataType="wstr"
+                      length="255"
+                      name="MOIS" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[POIDS]"
+                      dataType="wstr"
+                      length="255"
+                      name="POIDS" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[PRIX]"
+                      dataType="wstr"
+                      length="255"
+                      name="PRIX" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[CODE_ARTICLE]"
+                      dataType="wstr"
+                      length="255"
+                      name="CODE_ARTICLE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[ARTICLE]"
+                      dataType="wstr"
+                      length="255"
+                      name="ARTICLE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_TRADITIONNEL]"
+                      dataType="r8"
+                      name="TON_TRADITIONNEL" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_DEPO]"
+                      dataType="r8"
+                      name="TON_DEPO" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_GMS]"
+                      dataType="r8"
+                      name="TON_GMS" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_COLLECTIVITE]"
+                      dataType="r8"
+                      name="TON_COLLECTIVITE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_AUTRE]"
+                      dataType="r8"
+                      name="TON_AUTRE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET].ExternalColumns[POLE]"
+                      dataType="wstr"
+                      length="255"
+                      name="POLE" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination ADO NET"
+                  synchronousInputId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Destination ADO NET.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Destination ADO NET 1"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC."
+              name="Destination ADO NET 1"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données de destination."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"BUDGET_TATA"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifiez le nombre de lignes par lot. La taille par défaut, 0, utilise la même taille que la mémoire tampon interne SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant qu'une commande n'expire. Une valeur égale à 0 indique un délai infini. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Spécifie si l'interface SqlBulkCopy doit être utilisée pour améliorer les performances des opérations d'insertion en bloc. Cette interface n'est prise en charge que par certains fournisseurs."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Destination ADO NET 1.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[10.7.7.78\DATA_WAREHOUSE.STAGING_COMMERCIAL_T.STAGE1]"
+                  connectionManagerRefId="Package.ConnectionManagers[10.7.7.78\DATA_WAREHOUSE.STAGING_COMMERCIAL_T.STAGE1]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].Columns[NOM_AGENCE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOM_AGENCE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].ExternalColumns[NOM_AGENCE]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[NOM_AGENCE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].Columns[MOIS]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="MOIS"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].ExternalColumns[MOIS]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[MOIS]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].Columns[POIDS]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="POIDS"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].ExternalColumns[POIDS]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[POIDS]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].Columns[PRIX]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="PRIX"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].ExternalColumns[PRIX]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[PRIX]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].Columns[CODE_ARTICLE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CODE_ARTICLE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].ExternalColumns[CODE_ARTICLE]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CODE_ARTICLE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].Columns[ARTICLE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ARTICLE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].ExternalColumns[ARTICLE]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[ARTICLE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].Columns[TON_TRADITIONNEL]"
+                      cachedDataType="r8"
+                      cachedName="TON_TRADITIONNEL"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_TRADITIONNEL]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[TON_TRADITIONNEL]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].Columns[TON_DEPO]"
+                      cachedDataType="r8"
+                      cachedName="TON_DEPO"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_DEPO]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[TON_DEPO]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].Columns[TON_GMS]"
+                      cachedDataType="r8"
+                      cachedName="TON_GMS"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_GMS]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[TON_GMS]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].Columns[TON_COLLECTIVITE]"
+                      cachedDataType="r8"
+                      cachedName="TON_COLLECTIVITE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_COLLECTIVITE]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[TON_COLLECTIVITE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].Columns[TON_AUTRE]"
+                      cachedDataType="r8"
+                      cachedName="TON_AUTRE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_AUTRE]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[TON_AUTRE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].Columns[POLE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="POLE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].ExternalColumns[POLE]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[POLE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].ExternalColumns[NOM_AGENCE]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOM_AGENCE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].ExternalColumns[MOIS]"
+                      dataType="wstr"
+                      length="255"
+                      name="MOIS" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].ExternalColumns[POIDS]"
+                      dataType="wstr"
+                      length="255"
+                      name="POIDS" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].ExternalColumns[PRIX]"
+                      dataType="wstr"
+                      length="255"
+                      name="PRIX" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].ExternalColumns[CODE_ARTICLE]"
+                      dataType="wstr"
+                      length="255"
+                      name="CODE_ARTICLE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].ExternalColumns[ARTICLE]"
+                      dataType="wstr"
+                      length="255"
+                      name="ARTICLE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_TRADITIONNEL]"
+                      dataType="r8"
+                      name="TON_TRADITIONNEL" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_DEPO]"
+                      dataType="r8"
+                      name="TON_DEPO" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_GMS]"
+                      dataType="r8"
+                      name="TON_GMS" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_COLLECTIVITE]"
+                      dataType="r8"
+                      name="TON_COLLECTIVITE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_AUTRE]"
+                      dataType="r8"
+                      name="TON_AUTRE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET].ExternalColumns[POLE]"
+                      dataType="wstr"
+                      length="255"
+                      name="POLE" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Destination ADO NET 1.Outputs[Sortie d'erreur de destination ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination ADO NET"
+                  synchronousInputId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 1.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Destination ADO NET 1.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 1.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Destination ADO NET 1.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Destination ADO NET 2"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC."
+              name="Destination ADO NET 2"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données de destination."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"BUDGET_TANTAN"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifiez le nombre de lignes par lot. La taille par défaut, 0, utilise la même taille que la mémoire tampon interne SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant qu'une commande n'expire. Une valeur égale à 0 indique un délai infini. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Spécifie si l'interface SqlBulkCopy doit être utilisée pour améliorer les performances des opérations d'insertion en bloc. Cette interface n'est prise en charge que par certains fournisseurs."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Destination ADO NET 2.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[10.7.7.78\DATA_WAREHOUSE.STAGING_COMMERCIAL_T.STAGE1]"
+                  connectionManagerRefId="Package.ConnectionManagers[10.7.7.78\DATA_WAREHOUSE.STAGING_COMMERCIAL_T.STAGE1]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].Columns[NOM_AGENCE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOM_AGENCE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].ExternalColumns[NOM_AGENCE]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[NOM_AGENCE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].Columns[MOIS]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="MOIS"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].ExternalColumns[MOIS]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[MOIS]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].Columns[POIDS]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="POIDS"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].ExternalColumns[POIDS]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[POIDS]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].Columns[PRIX]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="PRIX"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].ExternalColumns[PRIX]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[PRIX]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].Columns[CODE_ARTICLE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CODE_ARTICLE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].ExternalColumns[CODE_ARTICLE]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CODE_ARTICLE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].Columns[ARTICLE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ARTICLE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].ExternalColumns[ARTICLE]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[ARTICLE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].Columns[TON_TRADITIONNEL]"
+                      cachedDataType="r8"
+                      cachedName="TON_TRADITIONNEL"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_TRADITIONNEL]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[TON_TRADITIONNEL]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].Columns[TON_DEPO]"
+                      cachedDataType="r8"
+                      cachedName="TON_DEPO"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_DEPO]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[TON_DEPO]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].Columns[TON_GMS]"
+                      cachedDataType="r8"
+                      cachedName="TON_GMS"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_GMS]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[TON_GMS]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].Columns[TON_COLLECTIVITE]"
+                      cachedDataType="r8"
+                      cachedName="TON_COLLECTIVITE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_COLLECTIVITE]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[TON_COLLECTIVITE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].Columns[TON_AUTRE]"
+                      cachedDataType="r8"
+                      cachedName="TON_AUTRE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_AUTRE]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[TON_AUTRE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].Columns[POLE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="POLE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].ExternalColumns[POLE]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[POLE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].ExternalColumns[NOM_AGENCE]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOM_AGENCE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].ExternalColumns[MOIS]"
+                      dataType="wstr"
+                      length="255"
+                      name="MOIS" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].ExternalColumns[POIDS]"
+                      dataType="wstr"
+                      length="255"
+                      name="POIDS" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].ExternalColumns[PRIX]"
+                      dataType="wstr"
+                      length="255"
+                      name="PRIX" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].ExternalColumns[CODE_ARTICLE]"
+                      dataType="wstr"
+                      length="255"
+                      name="CODE_ARTICLE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].ExternalColumns[ARTICLE]"
+                      dataType="wstr"
+                      length="255"
+                      name="ARTICLE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_TRADITIONNEL]"
+                      dataType="r8"
+                      name="TON_TRADITIONNEL" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_DEPO]"
+                      dataType="r8"
+                      name="TON_DEPO" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_GMS]"
+                      dataType="r8"
+                      name="TON_GMS" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_COLLECTIVITE]"
+                      dataType="r8"
+                      name="TON_COLLECTIVITE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_AUTRE]"
+                      dataType="r8"
+                      name="TON_AUTRE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET].ExternalColumns[POLE]"
+                      dataType="wstr"
+                      length="255"
+                      name="POLE" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Destination ADO NET 2.Outputs[Sortie d'erreur de destination ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination ADO NET"
+                  synchronousInputId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 2.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Destination ADO NET 2.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 2.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Destination ADO NET 2.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Destination ADO NET 3"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Charge des données dans une base de données compatible ADO.NET qui utilise une vue ou une table de base de données. Chargez les données dans une table nouvelle ou existante. Par exemple, utilisez un fournisseur ADO.NET pour ODBC pour charger des données dans une destination ODBC."
+              name="Destination ADO NET 3"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données de destination."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"BUDGET_TIZNIT"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifiez le nombre de lignes par lot. La taille par défaut, 0, utilise la même taille que la mémoire tampon interne SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant qu'une commande n'expire. Une valeur égale à 0 indique un délai infini. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Spécifie si l'interface SqlBulkCopy doit être utilisée pour améliorer les performances des opérations d'insertion en bloc. Cette interface n'est prise en charge que par certains fournisseurs."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Destination ADO NET 3.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[10.7.7.78\DATA_WAREHOUSE.STAGING_COMMERCIAL_T.STAGE1]"
+                  connectionManagerRefId="Package.ConnectionManagers[10.7.7.78\DATA_WAREHOUSE.STAGING_COMMERCIAL_T.STAGE1]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].Columns[NOM_AGENCE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOM_AGENCE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].ExternalColumns[NOM_AGENCE]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[NOM_AGENCE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].Columns[MOIS]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="MOIS"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].ExternalColumns[MOIS]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[MOIS]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].Columns[POIDS]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="POIDS"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].ExternalColumns[POIDS]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[POIDS]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].Columns[PRIX]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="PRIX"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].ExternalColumns[PRIX]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[PRIX]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].Columns[CODE_ARTICLE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CODE_ARTICLE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].ExternalColumns[CODE_ARTICLE]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CODE_ARTICLE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].Columns[ARTICLE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ARTICLE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].ExternalColumns[ARTICLE]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[ARTICLE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].Columns[TON_TRADITIONNEL]"
+                      cachedDataType="r8"
+                      cachedName="TON_TRADITIONNEL"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_TRADITIONNEL]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[TON_TRADITIONNEL]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].Columns[TON_DEPO]"
+                      cachedDataType="r8"
+                      cachedName="TON_DEPO"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_DEPO]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[TON_DEPO]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].Columns[TON_GMS]"
+                      cachedDataType="r8"
+                      cachedName="TON_GMS"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_GMS]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[TON_GMS]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].Columns[TON_COLLECTIVITE]"
+                      cachedDataType="r8"
+                      cachedName="TON_COLLECTIVITE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_COLLECTIVITE]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[TON_COLLECTIVITE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].Columns[TON_AUTRE]"
+                      cachedDataType="r8"
+                      cachedName="TON_AUTRE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_AUTRE]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[TON_AUTRE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].Columns[POLE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="POLE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].ExternalColumns[POLE]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[POLE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].ExternalColumns[NOM_AGENCE]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOM_AGENCE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].ExternalColumns[MOIS]"
+                      dataType="wstr"
+                      length="255"
+                      name="MOIS" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].ExternalColumns[POIDS]"
+                      dataType="wstr"
+                      length="255"
+                      name="POIDS" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].ExternalColumns[PRIX]"
+                      dataType="wstr"
+                      length="255"
+                      name="PRIX" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].ExternalColumns[CODE_ARTICLE]"
+                      dataType="wstr"
+                      length="255"
+                      name="CODE_ARTICLE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].ExternalColumns[ARTICLE]"
+                      dataType="wstr"
+                      length="255"
+                      name="ARTICLE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_TRADITIONNEL]"
+                      dataType="r8"
+                      name="TON_TRADITIONNEL" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_DEPO]"
+                      dataType="r8"
+                      name="TON_DEPO" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_GMS]"
+                      dataType="r8"
+                      name="TON_GMS" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_COLLECTIVITE]"
+                      dataType="r8"
+                      name="TON_COLLECTIVITE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].ExternalColumns[TON_AUTRE]"
+                      dataType="r8"
+                      name="TON_AUTRE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET].ExternalColumns[POLE]"
+                      dataType="wstr"
+                      length="255"
+                      name="POLE" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Destination ADO NET 3.Outputs[Sortie d'erreur de destination ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination ADO NET"
+                  synchronousInputId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 3.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Destination ADO NET 3.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Destination ADO NET 3.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Destination ADO NET 3.Outputs[Sortie d'erreur de destination ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Fractionnement conditionnel"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Fractionnement conditionnel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Achemine des lignes de données vers différentes sorties, selon le contexte des données. Utilisez des conditions (expressions SSIS) pour spécifier les lignes qui seront acheminées. Par exemple, séparez les enregistrements qui doivent être nettoyés de ceux qui sont prêts à être chargés ou acheminez uniquement un sous-ensemble d'enregistrements."
+              name="Fractionnement conditionnel"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]"
+                  description="Entrée vers la transformation de fractionnement conditionnel"
+                  name="Entrée de fractionnement conditionnel">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel].Columns[NOM_AGENCE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOM_AGENCE"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[NOM_AGENCE]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Fractionnement conditionnel.Outputs[ZAGORA]"
+                  description="Sortie 1 de la transformation de fractionnement conditionnel"
+                  errorOrTruncationOperation="Calcul"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="ZAGORA"
+                  synchronousInputId="Package\Tâche de flux de données\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie l'expression. Cette version d'expression utilise les identificateurs de traçabilité à la place des noms de colonnes."
+                      name="Expression">#{Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[NOM_AGENCE]} == "ZAGORA"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie la version claire de l'expression. Cette version d'expression utilise les noms de colonnes."
+                      expressionType="Notify"
+                      name="FriendlyExpression">NOM_AGENCE == "ZAGORA"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie la position de la condition dans la liste des conditions que la transformation évalue. L'ordre d'évaluation se fait par ordre croissant de valeur."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Fractionnement conditionnel.Outputs[TIZNIT]"
+                  description="Sortie 2 de la transformation de fractionnement conditionnel"
+                  errorOrTruncationOperation="Calcul"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="TIZNIT"
+                  synchronousInputId="Package\Tâche de flux de données\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie l'expression. Cette version d'expression utilise les identificateurs de traçabilité à la place des noms de colonnes."
+                      name="Expression">#{Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[NOM_AGENCE]} == "TIZNIT"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie la version claire de l'expression. Cette version d'expression utilise les noms de colonnes."
+                      expressionType="Notify"
+                      name="FriendlyExpression">NOM_AGENCE == "TIZNIT"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie la position de la condition dans la liste des conditions que la transformation évalue. L'ordre d'évaluation se fait par ordre croissant de valeur."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Fractionnement conditionnel.Outputs[TATA]"
+                  description="Sortie 3 de la transformation de fractionnement conditionnel"
+                  errorOrTruncationOperation="Calcul"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="TATA"
+                  synchronousInputId="Package\Tâche de flux de données\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie l'expression. Cette version d'expression utilise les identificateurs de traçabilité à la place des noms de colonnes."
+                      name="Expression">#{Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[NOM_AGENCE]} == "TATA"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie la version claire de l'expression. Cette version d'expression utilise les noms de colonnes."
+                      expressionType="Notify"
+                      name="FriendlyExpression">NOM_AGENCE == "TATA"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie la position de la condition dans la liste des conditions que la transformation évalue. L'ordre d'évaluation se fait par ordre croissant de valeur."
+                      name="EvaluationOrder">2</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Fractionnement conditionnel.Outputs[TANTAN]"
+                  description="Sortie 4 de la transformation de fractionnement conditionnel"
+                  errorOrTruncationOperation="Calcul"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="TANTAN"
+                  synchronousInputId="Package\Tâche de flux de données\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie l'expression. Cette version d'expression utilise les identificateurs de traçabilité à la place des noms de colonnes."
+                      name="Expression">#{Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[NOM_AGENCE]} == "TANTAN"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie la version claire de l'expression. Cette version d'expression utilise les noms de colonnes."
+                      expressionType="Notify"
+                      name="FriendlyExpression">NOM_AGENCE == "TANTAN"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie la position de la condition dans la liste des conditions que la transformation évalue. L'ordre d'évaluation se fait par ordre croissant de valeur."
+                      name="EvaluationOrder">3</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Fractionnement conditionnel.Outputs[Sortie par défaut de fractionnement conditionnel]"
+                  description="Sortie par défaut de la transformation de fractionnement conditionnel"
+                  exclusionGroup="1"
+                  name="Sortie par défaut de fractionnement conditionnel"
+                  synchronousInputId="Package\Tâche de flux de données\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Fractionnement conditionnel.Outputs[Sortie d'erreur de fractionnement conditionnel]"
+                  description="Sortie d'erreur de la transformation de fractionnement conditionnel"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de fractionnement conditionnel"
+                  synchronousInputId="Package\Tâche de flux de données\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Fractionnement conditionnel.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Fractionnement conditionnel.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Fractionnement conditionnel.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Fractionnement conditionnel.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Source Excel"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Source Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Source Excel"
+              name="Source Excel"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">BUDGET$</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappage des paramètres de la commande SQL en variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Source Excel.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Gestionnaire de connexions Excel 7]"
+                  connectionManagerRefId="Package.ConnectionManagers[Gestionnaire de connexions Excel 7]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel]"
+                  name="Sortie de source Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[NOM_AGENCE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[NOM_AGENCE]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[NOM_AGENCE]"
+                      name="NOM_AGENCE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[MOIS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[MOIS]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[MOIS]"
+                      name="MOIS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[NOM_GAMME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[NOM_GAMME]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[NOM_GAMME]"
+                      name="NOM_GAMME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[NOM_FAMILLE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[NOM_FAMILLE]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[NOM_FAMILLE]"
+                      name="NOM_FAMILLE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[POIDS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[POIDS]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[POIDS]"
+                      name="POIDS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[PRIX]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[PRIX]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[PRIX]"
+                      name="PRIX"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CODE_ARTICLE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[CODE_ARTICLE]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CODE_ARTICLE]"
+                      name="CODE_ARTICLE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[ARTICLE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[ARTICLE]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[ARTICLE]"
+                      name="ARTICLE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[ARTICLE_Pdt]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[ARTICLE_Pdt]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[ARTICLE_Pdt]"
+                      name="ARTICLE_Pdt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[PRODUIT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[PRODUIT]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[PRODUIT]"
+                      name="PRODUIT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[TON_TRADITIONNEL]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[TON_TRADITIONNEL]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[TON_TRADITIONNEL]"
+                      name="TON_TRADITIONNEL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[TON_DEPO]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[TON_DEPO]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[TON_DEPO]"
+                      name="TON_DEPO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[TON_GMS]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[TON_GMS]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[TON_GMS]"
+                      name="TON_GMS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[TON_COLLECTIVITE]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[TON_COLLECTIVITE]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[TON_COLLECTIVITE]"
+                      name="TON_COLLECTIVITE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[TON_AUTRE]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[TON_AUTRE]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[TON_AUTRE]"
+                      name="TON_AUTRE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[Somme de TONNE]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[Somme de TONNE]"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[Somme de TONNE]"
+                      name="Somme de TONNE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[POLE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[POLE]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[POLE]"
+                      name="POLE"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[NOM_AGENCE]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOM_AGENCE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[MOIS]"
+                      dataType="wstr"
+                      length="255"
+                      name="MOIS" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[NOM_GAMME]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOM_GAMME" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[NOM_FAMILLE]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOM_FAMILLE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[POIDS]"
+                      dataType="wstr"
+                      length="255"
+                      name="POIDS" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[PRIX]"
+                      dataType="wstr"
+                      length="255"
+                      name="PRIX" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[CODE_ARTICLE]"
+                      dataType="wstr"
+                      length="255"
+                      name="CODE_ARTICLE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[ARTICLE]"
+                      dataType="wstr"
+                      length="255"
+                      name="ARTICLE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[ARTICLE_Pdt]"
+                      dataType="wstr"
+                      length="255"
+                      name="ARTICLE_Pdt" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[PRODUIT]"
+                      dataType="wstr"
+                      length="255"
+                      name="PRODUIT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[TON_TRADITIONNEL]"
+                      dataType="r8"
+                      name="TON_TRADITIONNEL" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[TON_DEPO]"
+                      dataType="r8"
+                      name="TON_DEPO" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[TON_GMS]"
+                      dataType="r8"
+                      name="TON_GMS" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[TON_COLLECTIVITE]"
+                      dataType="r8"
+                      name="TON_COLLECTIVITE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[TON_AUTRE]"
+                      dataType="r8"
+                      name="TON_AUTRE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[Somme de TONNE]"
+                      dataType="r8"
+                      name="Somme de TONNE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[POLE]"
+                      dataType="wstr"
+                      length="255"
+                      name="POLE" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[NOM_AGENCE]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[NOM_AGENCE]"
+                      name="NOM_AGENCE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[MOIS]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[MOIS]"
+                      name="MOIS" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[NOM_GAMME]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[NOM_GAMME]"
+                      name="NOM_GAMME" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[NOM_FAMILLE]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[NOM_FAMILLE]"
+                      name="NOM_FAMILLE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[POIDS]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[POIDS]"
+                      name="POIDS" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[PRIX]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[PRIX]"
+                      name="PRIX" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[CODE_ARTICLE]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[CODE_ARTICLE]"
+                      name="CODE_ARTICLE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[ARTICLE]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[ARTICLE]"
+                      name="ARTICLE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[ARTICLE_Pdt]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[ARTICLE_Pdt]"
+                      name="ARTICLE_Pdt" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[PRODUIT]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[PRODUIT]"
+                      name="PRODUIT" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[TON_TRADITIONNEL]"
+                      dataType="r8"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[TON_TRADITIONNEL]"
+                      name="TON_TRADITIONNEL" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[TON_DEPO]"
+                      dataType="r8"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[TON_DEPO]"
+                      name="TON_DEPO" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[TON_GMS]"
+                      dataType="r8"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[TON_GMS]"
+                      name="TON_GMS" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[TON_COLLECTIVITE]"
+                      dataType="r8"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[TON_COLLECTIVITE]"
+                      name="TON_COLLECTIVITE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[TON_AUTRE]"
+                      dataType="r8"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[TON_AUTRE]"
+                      name="TON_AUTRE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[Somme de TONNE]"
+                      dataType="r8"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[Somme de TONNE]"
+                      name="Somme de TONNE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[POLE]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[POLE]"
+                      name="POLE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de source Excel]"
+              endId="Package\Tâche de flux de données\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]"
+              name="Sortie de source Excel"
+              startId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[TANTAN]"
+              endId="Package\Tâche de flux de données\Destination ADO NET 2.Inputs[Entrée de destination ADO NET]"
+              name="TANTAN"
+              startId="Package\Tâche de flux de données\Fractionnement conditionnel.Outputs[TANTAN]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[TATA]"
+              endId="Package\Tâche de flux de données\Destination ADO NET 1.Inputs[Entrée de destination ADO NET]"
+              name="TATA"
+              startId="Package\Tâche de flux de données\Fractionnement conditionnel.Outputs[TATA]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[TIZNIT]"
+              endId="Package\Tâche de flux de données\Destination ADO NET 3.Inputs[Entrée de destination ADO NET]"
+              name="TIZNIT"
+              startId="Package\Tâche de flux de données\Fractionnement conditionnel.Outputs[TIZNIT]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[ZAGORA]"
+              endId="Package\Tâche de flux de données\Destination ADO NET.Inputs[Entrée de destination ADO NET]"
+              name="ZAGORA"
+              startId="Package\Tâche de flux de données\Fractionnement conditionnel.Outputs[ZAGORA]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="197.6,41.6"
+          Id="Package\Tâche de flux de données"
+          TopLeft="272.499985111258,163.799998860955" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tâche de flux de données">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="188,41.6"
+          Id="Package\Tâche de flux de données\Destination ADO NET 1"
+          TopLeft="245.1,208.7" />
+        <NodeLayout
+          Size="208.8,41.6"
+          Id="Package\Tâche de flux de données\Fractionnement conditionnel"
+          TopLeft="483.7,107.1" />
+        <NodeLayout
+          Size="140,41.6"
+          Id="Package\Tâche de flux de données\Source Excel"
+          TopLeft="518.1,5.49999999999984" />
+        <NodeLayout
+          Size="188,41.6"
+          Id="Package\Tâche de flux de données\Destination ADO NET 2"
+          TopLeft="494.1,208.7" />
+        <NodeLayout
+          Size="179.2,41.6"
+          Id="Package\Tâche de flux de données\Destination ADO NET"
+          TopLeft="5.50000000000003,208.7" />
+        <NodeLayout
+          Size="188,41.6"
+          Id="Package\Tâche de flux de données\Destination ADO NET 3"
+          TopLeft="743.1,208.7" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[TANTAN]"
+          TopLeft="608.18,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-20.0799999999999,60"
+              Start="0,0"
+              End="-20.0799999999999,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.8079694785926" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.8079694785926"
+                    Point2="0,26.8079694785926"
+                    Point3="-4,26.8079694785926" />
+                  <mssgle:LineSegment
+                    End="-16.0799999999999,26.8079694785926" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-16.0799999999999,26.8079694785926"
+                    Point2="-20.0799999999999,26.8079694785926"
+                    Point3="-20.0799999999999,30.8079694785926" />
+                  <mssgle:LineSegment
+                    End="-20.0799999999999,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-29.18619140625,31.8079694785926,38.2923828125,9.2705078125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de source Excel]"
+          TopLeft="588.1,47.0999999999998">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[ZAGORA]"
+          TopLeft="527.86,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-432.76,60.0000000000001"
+              Start="0,0"
+              End="-432.76,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.8352180936995" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.8352180936995"
+                    Point2="0,17.8352180936995"
+                    Point3="-4,17.8352180936995" />
+                  <mssgle:LineSegment
+                    End="-428.76,17.8352180936995" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-428.76,17.8352180936995"
+                    Point2="-432.76,17.8352180936995"
+                    Point3="-432.76,21.8352180936995" />
+                  <mssgle:LineSegment
+                    End="-432.76,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-236.0309765625,22.8352180936995,39.301953125,9.5732421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[TIZNIT]"
+          TopLeft="648.34,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="188.76,60"
+              Start="0,0"
+              End="188.76,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.8352180936995" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.8352180936995"
+                    Point2="0,17.8352180936995"
+                    Point3="4,17.8352180936995" />
+                  <mssgle:LineSegment
+                    End="184.76,17.8352180936995" />
+                  <mssgle:CubicBezierSegment
+                    Point1="184.76,17.8352180936995"
+                    Point2="188.76,17.8352180936995"
+                    Point3="188.76,21.8352180936995" />
+                  <mssgle:LineSegment
+                    End="188.76,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="77.6751953125,22.8352180936995,33.409609375,9.2705078125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[TATA]"
+          TopLeft="568.02,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-228.92,60.0000000000001"
+              Start="0,0"
+              End="-228.92,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.8079694785927" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.8079694785927"
+                    Point2="0,26.8079694785927"
+                    Point3="-4,26.8079694785927" />
+                  <mssgle:LineSegment
+                    End="-224.92,26.8079694785927" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-224.92,26.8079694785927"
+                    Point2="-228.92,26.8079694785927"
+                    Point3="-228.92,30.8079694785927" />
+                  <mssgle:LineSegment
+                    End="-228.92,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-127.32490234375,31.8079694785927,25.7298046875,9.2705078125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\Destination ADO NET 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\Source Excel">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\Destination ADO NET 2">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\Destination ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\Destination ADO NET 3">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

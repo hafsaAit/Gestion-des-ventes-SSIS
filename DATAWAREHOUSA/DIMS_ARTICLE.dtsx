@@ -1,0 +1,2319 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/29/2024 1:39:38 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAP-DSI10"
+  DTS:CreatorName="LAP-DSI10\DELL"
+  DTS:DTSID="{F1C0C064-32C2-4064-92A8-EDE6B2A9ED67}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="14348"
+  DTS:ObjectName="DIMS_ARTICLE"
+  DTS:PackageType="5"
+  DTS:VersionBuild="26"
+  DTS:VersionGUID="{37EAC2DF-7D9C-4857-B6FA-F4C73C306485}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tâche de flux de données"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{C039D6FA-226E-48F9-8FAA-7C4009AB0819}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche de flux de données">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tâche de flux de données\Colonne dérivée"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="Colonne dérivée"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Colonne dérivée.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée.Inputs[Entrée de colonne dérivée].Columns[LIBELLE_COURT]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="LIBELLE_COURT"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[LIBELLE_COURT]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[UPPER](#{Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[LIBELLE_COURT]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">UPPER(LIBELLE_COURT)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée.Inputs[Entrée de colonne dérivée].Columns[LIBELLE]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="LIBELLE"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[LIBELLE]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[UPPER](#{Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[LIBELLE]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">UPPER(LIBELLE)</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\Tâche de flux de données\Colonne dérivée.Inputs[Entrée de colonne dérivée]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\Tâche de flux de données\Colonne dérivée.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Commande OLE DB"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="Commande OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Exécute une instruction SQL pour chaque ligne d'un flux de données. Par exemple, appelez une procédure stockée 'nouvelle configuration d'employé' pour chaque ligne de la table 'nouveaux employés'. Remarque : l'exécution d'une instruction SQL pour chaque ligne d'un flux de données volumineux peut prendre beaucoup de temps."
+              name="Commande OLE DB"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DIM_ARTICLE] SET [ACTIF] = ?,[CODE_PRODUIT] = ?,[LIBELLE] = ?,[LIBELLE_COURT] = ?,[LIBELLE_GMS] = ?,[POIDS] = ?,[PRODUIT_KEY] = ?,[QTE_PACK] = ?,[TVA] = ? WHERE [CODE_ARTICLE] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Commande OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{AAB8CEBE-9412-42DF-9438-6B4C7C5590E7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[10.7.7.78_DATA_WAREHOUSE.DATAWAREHOUSE_COMMERCIAL_T.STAGE]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB]"
+                  errorOrTruncationOperation="Exécution de commande"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de commande OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[ACTIF]"
+                      cachedDataType="bool"
+                      cachedName="ACTIF"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[ACTIF]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[CODE_ARTICLE]"
+                      cachedDataType="i4"
+                      cachedName="CODE_ARTICLE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_9]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CODE_ARTICLE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[CODE_PRODUIT]"
+                      cachedDataType="i4"
+                      cachedName="CODE_PRODUIT"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_1]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CODE_PRODUIT]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[LIBELLE]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="LIBELLE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_2]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[LIBELLE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[LIBELLE_COURT]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="LIBELLE_COURT"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_3]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[LIBELLE_COURT]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[LIBELLE_GMS]"
+                      cachedDataType="nText"
+                      cachedName="LIBELLE_GMS"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_4]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[LIBELLE_GMS]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[POIDS]"
+                      cachedDataType="i4"
+                      cachedName="POIDS"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_5]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[POIDS]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[PRODUIT_KEY]"
+                      cachedDataType="i4"
+                      cachedName="PRODUIT_KEY"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_6]"
+                      lineageId="Package\Tâche de flux de données\FIND PRODUIT_KEY.Outputs[Sortie de recherche avec correspondance].Columns[PRODUIT_KEY]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[QTE_PACK]"
+                      cachedDataType="i4"
+                      cachedName="QTE_PACK"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_7]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[QTE_PACK]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[TVA]"
+                      cachedDataType="numeric"
+                      cachedName="TVA"
+                      cachedPrecision="19"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_8]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[TVA]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                      dataType="bool"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_2]"
+                      dataType="wstr"
+                      length="500"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_3]"
+                      dataType="wstr"
+                      length="500"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_4]"
+                      dataType="nText"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">193</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_5]"
+                      dataType="i4"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_6]"
+                      dataType="i4"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_7]"
+                      dataType="i4"
+                      name="Param_7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_8]"
+                      dataType="numeric"
+                      name="Param_8"
+                      precision="19">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_9]"
+                      dataType="i4"
+                      name="Param_9">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Commande OLE DB.Outputs[Sortie de commande OLE DB]"
+                  exclusionGroup="1"
+                  name="Sortie de commande OLE DB"
+                  synchronousInputId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de commande OLE DB"
+                  synchronousInputId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Destination d'insertion"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination d'insertion"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[DIM_ARTICLE]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Destination d'insertion.Connections[OleDbConnection]"
+                  connectionManagerID="{AAB8CEBE-9412-42DF-9438-6B4C7C5590E7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[10.7.7.78_DATA_WAREHOUSE.DATAWAREHOUSE_COMMERCIAL_T.STAGE]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].Columns[PRODUIT_KEY]"
+                      cachedDataType="i4"
+                      cachedName="PRODUIT_KEY"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[PRODUIT_KEY]"
+                      lineageId="Package\Tâche de flux de données\FIND PRODUIT_KEY.Outputs[Sortie de recherche avec correspondance].Columns[PRODUIT_KEY]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].Columns[CODE_ARTICLE]"
+                      cachedDataType="i4"
+                      cachedName="CODE_ARTICLE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[CODE_ARTICLE]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CODE_ARTICLE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].Columns[LIBELLE_COURT]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="LIBELLE_COURT"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[LIBELLE_COURT]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[LIBELLE_COURT]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].Columns[LIBELLE]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="LIBELLE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[LIBELLE]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[LIBELLE]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].Columns[CODE_PRODUIT]"
+                      cachedDataType="i4"
+                      cachedName="CODE_PRODUIT"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[CODE_PRODUIT]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CODE_PRODUIT]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].Columns[TVA]"
+                      cachedDataType="numeric"
+                      cachedName="TVA"
+                      cachedPrecision="19"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[TVA]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[TVA]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].Columns[QTE_PACK]"
+                      cachedDataType="i4"
+                      cachedName="QTE_PACK"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[QTE_PACK]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[QTE_PACK]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].Columns[POIDS]"
+                      cachedDataType="i4"
+                      cachedName="POIDS"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[POIDS]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[POIDS]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].Columns[ACTIF]"
+                      cachedDataType="bool"
+                      cachedName="ACTIF"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[ACTIF]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[ACTIF]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].Columns[LIBELLE_GMS]"
+                      cachedDataType="nText"
+                      cachedName="LIBELLE_GMS"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[LIBELLE_GMS]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[LIBELLE_GMS]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[ARTICLE_KEY]"
+                      dataType="i4"
+                      name="ARTICLE_KEY" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[PRODUIT_KEY]"
+                      dataType="i4"
+                      name="PRODUIT_KEY" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[CODE_ARTICLE]"
+                      dataType="i4"
+                      name="CODE_ARTICLE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[LIBELLE_COURT]"
+                      dataType="wstr"
+                      length="500"
+                      name="LIBELLE_COURT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[LIBELLE]"
+                      dataType="wstr"
+                      length="500"
+                      name="LIBELLE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[CODE_PRODUIT]"
+                      dataType="i4"
+                      name="CODE_PRODUIT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[TVA]"
+                      dataType="numeric"
+                      name="TVA"
+                      precision="19" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[QTE_PACK]"
+                      dataType="i4"
+                      name="QTE_PACK" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[POIDS]"
+                      dataType="i4"
+                      name="POIDS" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[ACTIF]"
+                      dataType="bool"
+                      name="ACTIF" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB].ExternalColumns[LIBELLE_GMS]"
+                      dataType="nText"
+                      name="LIBELLE_GMS" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Destination d'insertion.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Destination d'insertion.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Destination d'insertion.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Destination d'insertion.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Dimension à variation lente 1"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Dimension à variation lente;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;3"
+              description="Met à jour une dimension d'entrepôt de données (Data Warehouse) SQL Server Analysis Services. Mettez à jour les enregistrements de dimension qui sont déjà présents et insérez ceux qui ne le sont pas. Par exemple, mettez à jour la table DimProduct de la base de données OLAP AdventureWorksDW avec les données de la table Products dans la base de données OLTP AdventureWorks."
+              name="Dimension à variation lente 1"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SELECT utilisée pour créer un ensemble de lignes du schéma."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [ACTIF], [CODE_ARTICLE], [CODE_PRODUIT], [LIBELLE], [LIBELLE_COURT], [LIBELLE_GMS], [POIDS], [PRODUIT_KEY], [QTE_PACK], [TVA] FROM [dbo].[DIM_ARTICLE]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la clause WHERE dans l'instruction SELECT qui sélectionne la ligne actuelle parmi les lignes comportant des clés de travail identiques."
+                  name="CurrentRowWhere"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les mises à jour d'attribut d'historique sont dirigées sur la sortie de la transformation pour les mises à jour d'attribut de validation."
+                  name="UpdateChangingAttributeHistory">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation échoue lorsque les colonnes comportant des attributs fixes contiennent des modifications."
+                  name="FailOnFixedAttributeChange">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de la colonne pour le membre déduit."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les mises à jour de membre déduit sont détectées."
+                  name="EnableInferredMember">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation échoue lorsque la recherche d'un enregistrement existant échoue."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie que toutes les lignes de l'entrée sont nouvelles ou que la transformation détecte le type de modification."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Dimension à variation lente 1.Connections[LookupConnection]"
+                  connectionManagerID="{AAB8CEBE-9412-42DF-9438-6B4C7C5590E7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[10.7.7.78_DATA_WAREHOUSE.DATAWAREHOUSE_COMMERCIAL_T.STAGE]"
+                  description="Définit la connexion à utiliser pour faire des recherches dans la table de dimension"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente]"
+                  name="Entrée de dimension à variation lente">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente].Columns[ACTIF]"
+                      cachedDataType="bool"
+                      cachedName="ACTIF"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente].ExternalColumns[ACTIF]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[ACTIF]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente].Columns[CODE_ARTICLE]"
+                      cachedDataType="i4"
+                      cachedName="CODE_ARTICLE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente].ExternalColumns[CODE_ARTICLE]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CODE_ARTICLE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente].Columns[CODE_PRODUIT]"
+                      cachedDataType="i4"
+                      cachedName="CODE_PRODUIT"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente].ExternalColumns[CODE_PRODUIT]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CODE_PRODUIT]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente].Columns[LIBELLE]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="LIBELLE"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente].ExternalColumns[LIBELLE]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[LIBELLE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente].Columns[LIBELLE_COURT]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="LIBELLE_COURT"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente].ExternalColumns[LIBELLE_COURT]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[LIBELLE_COURT]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente].Columns[LIBELLE_GMS]"
+                      cachedDataType="nText"
+                      cachedName="LIBELLE_GMS"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente].ExternalColumns[LIBELLE_GMS]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[LIBELLE_GMS]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente].Columns[POIDS]"
+                      cachedDataType="i4"
+                      cachedName="POIDS"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente].ExternalColumns[POIDS]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[POIDS]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente].Columns[PRODUIT_KEY]"
+                      cachedDataType="i4"
+                      cachedName="PRODUIT_KEY"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente].ExternalColumns[PRODUIT_KEY]"
+                      lineageId="Package\Tâche de flux de données\FIND PRODUIT_KEY.Outputs[Sortie de recherche avec correspondance].Columns[PRODUIT_KEY]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente].Columns[QTE_PACK]"
+                      cachedDataType="i4"
+                      cachedName="QTE_PACK"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente].ExternalColumns[QTE_PACK]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[QTE_PACK]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente].Columns[TVA]"
+                      cachedDataType="numeric"
+                      cachedName="TVA"
+                      cachedPrecision="19"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente].ExternalColumns[TVA]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[TVA]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente].ExternalColumns[ACTIF]"
+                      dataType="bool"
+                      name="ACTIF" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente].ExternalColumns[CODE_ARTICLE]"
+                      dataType="i4"
+                      name="CODE_ARTICLE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente].ExternalColumns[CODE_PRODUIT]"
+                      dataType="i4"
+                      name="CODE_PRODUIT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente].ExternalColumns[LIBELLE]"
+                      dataType="wstr"
+                      length="500"
+                      name="LIBELLE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente].ExternalColumns[LIBELLE_COURT]"
+                      dataType="wstr"
+                      length="500"
+                      name="LIBELLE_COURT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente].ExternalColumns[LIBELLE_GMS]"
+                      dataType="nText"
+                      name="LIBELLE_GMS" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente].ExternalColumns[POIDS]"
+                      dataType="i4"
+                      name="POIDS" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente].ExternalColumns[PRODUIT_KEY]"
+                      dataType="i4"
+                      name="PRODUIT_KEY" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente].ExternalColumns[QTE_PACK]"
+                      dataType="i4"
+                      name="QTE_PACK" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente].ExternalColumns[TVA]"
+                      dataType="numeric"
+                      name="TVA"
+                      precision="19" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Dimension à variation lente 1.Outputs[Sortie inchangée]"
+                  description="Lignes inchangées"
+                  exclusionGroup="1"
+                  name="Sortie inchangée"
+                  synchronousInputId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Dimension à variation lente 1.Outputs[Nouvelle sortie]"
+                  description="Nouvelles lignes"
+                  exclusionGroup="1"
+                  name="Nouvelle sortie"
+                  synchronousInputId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Dimension à variation lente 1.Outputs[Sortie d'attribut fixe]"
+                  description="Lignes comportant des modifications dans les colonnes marquées FixedAttribute"
+                  exclusionGroup="1"
+                  name="Sortie d'attribut fixe"
+                  synchronousInputId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Dimension à variation lente 1.Outputs[Sortie de mises à jour d'attribut de validation]"
+                  description="Ces lignes contiennent de nouvelles informations sur les modifications de colonnes ChangingAttribute (type 1)"
+                  exclusionGroup="1"
+                  name="Sortie de mises à jour d'attribut de validation"
+                  synchronousInputId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Dimension à variation lente 1.Outputs[Sortie d'insertions d'attribut d'historique]"
+                  description="Les modifications sur HistoricalAttribute (type 2) apparaissent dans ces nouvelles lignes"
+                  exclusionGroup="2"
+                  name="Sortie d'insertions d'attribut d'historique"
+                  synchronousInputId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Dimension à variation lente 1.Outputs[Sortie de mises à jour de membre déduit]"
+                  description="Information de mise à jour de ligne de dimension initiale non remplie"
+                  exclusionGroup="1"
+                  name="Sortie de mises à jour de membre déduit"
+                  synchronousInputId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\FIND PRODUIT_KEY"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="FIND PRODUIT_KEY"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DIM_PRODUIT]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DIM_PRODUIT]) [refTable]
+where [refTable].[CODE_PRODUIT] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="PRODUIT_KEY" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FAMILLE_KEY" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CODE_PRODUIT" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NOM_PRODUIT" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CODE_PRODUIT]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\FIND PRODUIT_KEY.Connections[OleDbConnection]"
+                  connectionManagerID="{AAB8CEBE-9412-42DF-9438-6B4C7C5590E7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[10.7.7.78_DATA_WAREHOUSE.DATAWAREHOUSE_COMMERCIAL_T.STAGE]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\FIND PRODUIT_KEY.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\FIND PRODUIT_KEY.Inputs[Entrée de recherche].Columns[CODE_PRODUIT]"
+                      cachedDataType="i4"
+                      cachedName="CODE_PRODUIT"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CODE_PRODUIT]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">CODE_PRODUIT</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\FIND PRODUIT_KEY.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\Tâche de flux de données\FIND PRODUIT_KEY.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\FIND PRODUIT_KEY.Outputs[Sortie de recherche avec correspondance].Columns[PRODUIT_KEY]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\Tâche de flux de données\FIND PRODUIT_KEY.Outputs[Sortie de recherche avec correspondance].Columns[PRODUIT_KEY]"
+                      name="PRODUIT_KEY"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">PRODUIT_KEY</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\FIND PRODUIT_KEY.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\Tâche de flux de données\FIND PRODUIT_KEY.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\FIND PRODUIT_KEY.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\Tâche de flux de données\FIND PRODUIT_KEY.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\FIND PRODUIT_KEY.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\FIND PRODUIT_KEY.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\FIND PRODUIT_KEY.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\FIND PRODUIT_KEY.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Source ADO NET"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server."
+              name="Source ADO NET"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL utilisée par le composant pour extraire des données."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes externes qui ne sont pas des chaînes peuvent ou non être converties implicitement en chaînes dans les colonnes de sortie."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données source."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."SIEGE.T_ARTICLE"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifier le mode de récupération des informations de colonne externe"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Source ADO NET.Connections[IDbConnection]"
+                  connectionManagerID="{C369EACD-51FC-4224-B9F0-E2C39CC0C2C2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[10.7.7.78_DATA_WAREHOUSE.STAGING_COMMERCIAL_T.STAGE1]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET]"
+                  name="Sortie de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CODE_ARTICLE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_ARTICLE]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CODE_ARTICLE]"
+                      name="CODE_ARTICLE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CODE_BARRE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_BARRE]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CODE_BARRE]"
+                      name="CODE_BARRE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[RANG]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[RANG]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[RANG]"
+                      name="RANG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[LIBELLE_COURT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[LIBELLE_COURT]"
+                      length="500"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[LIBELLE_COURT]"
+                      name="LIBELLE_COURT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[LIBELLE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[LIBELLE]"
+                      length="500"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[LIBELLE]"
+                      name="LIBELLE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[ABREVIATION]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[ABREVIATION]"
+                      length="500"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[ABREVIATION]"
+                      name="ABREVIATION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[GP_ARTICLE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[GP_ARTICLE]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[GP_ARTICLE]"
+                      name="GP_ARTICLE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CODE_PRODUIT]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_PRODUIT]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CODE_PRODUIT]"
+                      name="CODE_PRODUIT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CODE_AROME]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_AROME]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CODE_AROME]"
+                      name="CODE_AROME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[TYPE_CAISSE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[TYPE_CAISSE]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[TYPE_CAISSE]"
+                      name="TYPE_CAISSE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[TYPE_PALETTE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[TYPE_PALETTE]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[TYPE_PALETTE]"
+                      name="TYPE_PALETTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[TVA]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[TVA]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[TVA]"
+                      name="TVA"
+                      precision="19"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[AFF_REPARTITION]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[AFF_REPARTITION]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[AFF_REPARTITION]"
+                      name="AFF_REPARTITION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[AFF_COMMANDE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[AFF_COMMANDE]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[AFF_COMMANDE]"
+                      name="AFF_COMMANDE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[QTE_PACK]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[QTE_PACK]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[QTE_PACK]"
+                      name="QTE_PACK"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[QTE_PALETTE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[QTE_PALETTE]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[QTE_PALETTE]"
+                      name="QTE_PALETTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[POIDS]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[POIDS]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[POIDS]"
+                      name="POIDS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CONDITIONNEMENT]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CONDITIONNEMENT]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CONDITIONNEMENT]"
+                      name="CONDITIONNEMENT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[ACTIF]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[ACTIF]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[ACTIF]"
+                      name="ACTIF"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[DLC]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[DLC]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[DLC]"
+                      name="DLC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CONDITIONNEMENT_pr]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CONDITIONNEMENT_pr]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CONDITIONNEMENT_pr]"
+                      name="CONDITIONNEMENT_pr"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[QTE_PALETTE_PR]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[QTE_PALETTE_PR]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[QTE_PALETTE_PR]"
+                      name="QTE_PALETTE_PR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CONDITIONNEMENT_AG]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CONDITIONNEMENT_AG]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CONDITIONNEMENT_AG]"
+                      name="CONDITIONNEMENT_AG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[QTE_PALETTE_AG]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[QTE_PALETTE_AG]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[QTE_PALETTE_AG]"
+                      name="QTE_PALETTE_AG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[TX_FRUITS]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[TX_FRUITS]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[TX_FRUITS]"
+                      name="TX_FRUITS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[QTE_PAL_SANS_CS]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[QTE_PAL_SANS_CS]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[QTE_PAL_SANS_CS]"
+                      name="QTE_PAL_SANS_CS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[ACTIF_GLOBALE]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[ACTIF_GLOBALE]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[ACTIF_GLOBALE]"
+                      name="ACTIF_GLOBALE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CAT_COMPTABILITE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CAT_COMPTABILITE]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CAT_COMPTABILITE]"
+                      name="CAT_COMPTABILITE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CHARGE_ANNEXE]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CHARGE_ANNEXE]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CHARGE_ANNEXE]"
+                      name="CHARGE_ANNEXE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CATEGORIE_CONTRAT]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CATEGORIE_CONTRAT]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CATEGORIE_CONTRAT]"
+                      name="CATEGORIE_CONTRAT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[RANG2]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[RANG2]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[RANG2]"
+                      name="RANG2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Id_Article]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Id_Article]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Id_Article]"
+                      name="Id_Article"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CODIFICATION_REPARTITION]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CODIFICATION_REPARTITION]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CODIFICATION_REPARTITION]"
+                      name="CODIFICATION_REPARTITION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CODIFICATION_DISTRIBUTION]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CODIFICATION_DISTRIBUTION]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CODIFICATION_DISTRIBUTION]"
+                      name="CODIFICATION_DISTRIBUTION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[COMMANDE_MIN]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[COMMANDE_MIN]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[COMMANDE_MIN]"
+                      name="COMMANDE_MIN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CLE_GESCO]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CLE_GESCO]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CLE_GESCO]"
+                      name="CLE_GESCO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[ID_PROG_FAB_PROFIL]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[ID_PROG_FAB_PROFIL]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[ID_PROG_FAB_PROFIL]"
+                      name="ID_PROG_FAB_PROFIL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[TYPE_CAISSE_USINORD]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[TYPE_CAISSE_USINORD]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[TYPE_CAISSE_USINORD]"
+                      name="TYPE_CAISSE_USINORD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CLE_DAX]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CLE_DAX]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CLE_DAX]"
+                      name="CLE_DAX"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[DISPO]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[DISPO]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[DISPO]"
+                      name="DISPO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[TX_COUVERTURE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[TX_COUVERTURE]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[TX_COUVERTURE]"
+                      name="TX_COUVERTURE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CONDITIONNEMENT_NV_STD]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CONDITIONNEMENT_NV_STD]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CONDITIONNEMENT_NV_STD]"
+                      name="CONDITIONNEMENT_NV_STD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[QTE_PALETTE_NV_STD]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[QTE_PALETTE_NV_STD]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[QTE_PALETTE_NV_STD]"
+                      name="QTE_PALETTE_NV_STD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[LIBELLE_GMS]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[LIBELLE_GMS]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[LIBELLE_GMS]"
+                      name="LIBELLE_GMS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[COUT_REVIENT]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[COUT_REVIENT]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[COUT_REVIENT]"
+                      name="COUT_REVIENT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CODE_SOUS_FAMILLE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_SOUS_FAMILLE]"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[CODE_SOUS_FAMILLE]"
+                      name="CODE_SOUS_FAMILLE"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_ARTICLE]"
+                      dataType="i4"
+                      name="CODE_ARTICLE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_BARRE]"
+                      dataType="wstr"
+                      length="255"
+                      name="CODE_BARRE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[RANG]"
+                      dataType="i4"
+                      name="RANG" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[LIBELLE_COURT]"
+                      dataType="wstr"
+                      length="500"
+                      name="LIBELLE_COURT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[LIBELLE]"
+                      dataType="wstr"
+                      length="500"
+                      name="LIBELLE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[ABREVIATION]"
+                      dataType="wstr"
+                      length="500"
+                      name="ABREVIATION" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[GP_ARTICLE]"
+                      dataType="i4"
+                      name="GP_ARTICLE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_PRODUIT]"
+                      dataType="i4"
+                      name="CODE_PRODUIT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_AROME]"
+                      dataType="i4"
+                      name="CODE_AROME" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[TYPE_CAISSE]"
+                      dataType="i4"
+                      name="TYPE_CAISSE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[TYPE_PALETTE]"
+                      dataType="i4"
+                      name="TYPE_PALETTE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[TVA]"
+                      dataType="numeric"
+                      name="TVA"
+                      precision="19" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[AFF_REPARTITION]"
+                      dataType="i4"
+                      name="AFF_REPARTITION" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[AFF_COMMANDE]"
+                      dataType="i4"
+                      name="AFF_COMMANDE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[QTE_PACK]"
+                      dataType="i4"
+                      name="QTE_PACK" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[QTE_PALETTE]"
+                      dataType="i4"
+                      name="QTE_PALETTE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[POIDS]"
+                      dataType="i4"
+                      name="POIDS" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CONDITIONNEMENT]"
+                      dataType="i4"
+                      name="CONDITIONNEMENT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[ACTIF]"
+                      dataType="bool"
+                      name="ACTIF" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[DLC]"
+                      dataType="i4"
+                      name="DLC" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CONDITIONNEMENT_pr]"
+                      dataType="i4"
+                      name="CONDITIONNEMENT_pr" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[QTE_PALETTE_PR]"
+                      dataType="i4"
+                      name="QTE_PALETTE_PR" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CONDITIONNEMENT_AG]"
+                      dataType="i4"
+                      name="CONDITIONNEMENT_AG" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[QTE_PALETTE_AG]"
+                      dataType="i4"
+                      name="QTE_PALETTE_AG" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[TX_FRUITS]"
+                      dataType="i2"
+                      name="TX_FRUITS" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[QTE_PAL_SANS_CS]"
+                      dataType="i4"
+                      name="QTE_PAL_SANS_CS" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[ACTIF_GLOBALE]"
+                      dataType="bool"
+                      name="ACTIF_GLOBALE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CAT_COMPTABILITE]"
+                      dataType="i4"
+                      name="CAT_COMPTABILITE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CHARGE_ANNEXE]"
+                      dataType="r4"
+                      name="CHARGE_ANNEXE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CATEGORIE_CONTRAT]"
+                      dataType="i2"
+                      name="CATEGORIE_CONTRAT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[RANG2]"
+                      dataType="i4"
+                      name="RANG2" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Id_Article]"
+                      dataType="i4"
+                      name="Id_Article" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CODIFICATION_REPARTITION]"
+                      dataType="i4"
+                      name="CODIFICATION_REPARTITION" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CODIFICATION_DISTRIBUTION]"
+                      dataType="i4"
+                      name="CODIFICATION_DISTRIBUTION" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[COMMANDE_MIN]"
+                      dataType="i4"
+                      name="COMMANDE_MIN" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CLE_GESCO]"
+                      dataType="i4"
+                      name="CLE_GESCO" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[ID_PROG_FAB_PROFIL]"
+                      dataType="i4"
+                      name="ID_PROG_FAB_PROFIL" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[TYPE_CAISSE_USINORD]"
+                      dataType="i4"
+                      name="TYPE_CAISSE_USINORD" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CLE_DAX]"
+                      dataType="wstr"
+                      length="255"
+                      name="CLE_DAX" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[DISPO]"
+                      dataType="bool"
+                      name="DISPO" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[TX_COUVERTURE]"
+                      dataType="i4"
+                      name="TX_COUVERTURE" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CONDITIONNEMENT_NV_STD]"
+                      dataType="i4"
+                      name="CONDITIONNEMENT_NV_STD" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[QTE_PALETTE_NV_STD]"
+                      dataType="i4"
+                      name="QTE_PALETTE_NV_STD" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[LIBELLE_GMS]"
+                      dataType="nText"
+                      name="LIBELLE_GMS" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[COUT_REVIENT]"
+                      dataType="r8"
+                      name="COUT_REVIENT" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[CODE_SOUS_FAMILLE]"
+                      dataType="i4"
+                      name="CODE_SOUS_FAMILLE" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_ARTICLE]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_ARTICLE]"
+                      name="CODE_ARTICLE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_BARRE]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_BARRE]"
+                      name="CODE_BARRE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[RANG]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[RANG]"
+                      name="RANG" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[LIBELLE_COURT]"
+                      dataType="wstr"
+                      length="500"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[LIBELLE_COURT]"
+                      name="LIBELLE_COURT" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[LIBELLE]"
+                      dataType="wstr"
+                      length="500"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[LIBELLE]"
+                      name="LIBELLE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[ABREVIATION]"
+                      dataType="wstr"
+                      length="500"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[ABREVIATION]"
+                      name="ABREVIATION" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[GP_ARTICLE]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[GP_ARTICLE]"
+                      name="GP_ARTICLE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_PRODUIT]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_PRODUIT]"
+                      name="CODE_PRODUIT" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_AROME]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_AROME]"
+                      name="CODE_AROME" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[TYPE_CAISSE]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[TYPE_CAISSE]"
+                      name="TYPE_CAISSE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[TYPE_PALETTE]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[TYPE_PALETTE]"
+                      name="TYPE_PALETTE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[TVA]"
+                      dataType="numeric"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[TVA]"
+                      name="TVA"
+                      precision="19" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[AFF_REPARTITION]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[AFF_REPARTITION]"
+                      name="AFF_REPARTITION" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[AFF_COMMANDE]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[AFF_COMMANDE]"
+                      name="AFF_COMMANDE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[QTE_PACK]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[QTE_PACK]"
+                      name="QTE_PACK" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[QTE_PALETTE]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[QTE_PALETTE]"
+                      name="QTE_PALETTE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[POIDS]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[POIDS]"
+                      name="POIDS" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CONDITIONNEMENT]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CONDITIONNEMENT]"
+                      name="CONDITIONNEMENT" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[ACTIF]"
+                      dataType="bool"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[ACTIF]"
+                      name="ACTIF" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[DLC]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[DLC]"
+                      name="DLC" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CONDITIONNEMENT_pr]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CONDITIONNEMENT_pr]"
+                      name="CONDITIONNEMENT_pr" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[QTE_PALETTE_PR]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[QTE_PALETTE_PR]"
+                      name="QTE_PALETTE_PR" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CONDITIONNEMENT_AG]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CONDITIONNEMENT_AG]"
+                      name="CONDITIONNEMENT_AG" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[QTE_PALETTE_AG]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[QTE_PALETTE_AG]"
+                      name="QTE_PALETTE_AG" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[TX_FRUITS]"
+                      dataType="i2"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[TX_FRUITS]"
+                      name="TX_FRUITS" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[QTE_PAL_SANS_CS]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[QTE_PAL_SANS_CS]"
+                      name="QTE_PAL_SANS_CS" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[ACTIF_GLOBALE]"
+                      dataType="bool"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[ACTIF_GLOBALE]"
+                      name="ACTIF_GLOBALE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CAT_COMPTABILITE]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CAT_COMPTABILITE]"
+                      name="CAT_COMPTABILITE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CHARGE_ANNEXE]"
+                      dataType="r4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CHARGE_ANNEXE]"
+                      name="CHARGE_ANNEXE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CATEGORIE_CONTRAT]"
+                      dataType="i2"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CATEGORIE_CONTRAT]"
+                      name="CATEGORIE_CONTRAT" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[RANG2]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[RANG2]"
+                      name="RANG2" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Id_Article]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Id_Article]"
+                      name="Id_Article" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CODIFICATION_REPARTITION]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CODIFICATION_REPARTITION]"
+                      name="CODIFICATION_REPARTITION" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CODIFICATION_DISTRIBUTION]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CODIFICATION_DISTRIBUTION]"
+                      name="CODIFICATION_DISTRIBUTION" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[COMMANDE_MIN]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[COMMANDE_MIN]"
+                      name="COMMANDE_MIN" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CLE_GESCO]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CLE_GESCO]"
+                      name="CLE_GESCO" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[ID_PROG_FAB_PROFIL]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[ID_PROG_FAB_PROFIL]"
+                      name="ID_PROG_FAB_PROFIL" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[TYPE_CAISSE_USINORD]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[TYPE_CAISSE_USINORD]"
+                      name="TYPE_CAISSE_USINORD" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CLE_DAX]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CLE_DAX]"
+                      name="CLE_DAX" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[DISPO]"
+                      dataType="bool"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[DISPO]"
+                      name="DISPO" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[TX_COUVERTURE]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[TX_COUVERTURE]"
+                      name="TX_COUVERTURE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CONDITIONNEMENT_NV_STD]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CONDITIONNEMENT_NV_STD]"
+                      name="CONDITIONNEMENT_NV_STD" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[QTE_PALETTE_NV_STD]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[QTE_PALETTE_NV_STD]"
+                      name="QTE_PALETTE_NV_STD" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[LIBELLE_GMS]"
+                      dataType="nText"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[LIBELLE_GMS]"
+                      name="LIBELLE_GMS" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[COUT_REVIENT]"
+                      dataType="r8"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[COUT_REVIENT]"
+                      name="COUT_REVIENT" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_SOUS_FAMILLE]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[CODE_SOUS_FAMILLE]"
+                      name="CODE_SOUS_FAMILLE" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tâche de flux de données.Paths[Nouvelle sortie]"
+              endId="Package\Tâche de flux de données\Destination d'insertion.Inputs[Entrée de destination OLE DB]"
+              name="Nouvelle sortie"
+              startId="Package\Tâche de flux de données\Dimension à variation lente 1.Outputs[Nouvelle sortie]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de colonne dérivée]"
+              endId="Package\Tâche de flux de données\FIND PRODUIT_KEY.Inputs[Entrée de recherche]"
+              name="Sortie de colonne dérivée"
+              startId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de mises à jour d'attribut de validation]"
+              endId="Package\Tâche de flux de données\Commande OLE DB.Inputs[Entrée de commande OLE DB]"
+              name="Sortie de mises à jour d'attribut de validation"
+              startId="Package\Tâche de flux de données\Dimension à variation lente 1.Outputs[Sortie de mises à jour d'attribut de validation]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance]"
+              endId="Package\Tâche de flux de données\Dimension à variation lente 1.Inputs[Entrée de dimension à variation lente]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\Tâche de flux de données\FIND PRODUIT_KEY.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de source ADO NET]"
+              endId="Package\Tâche de flux de données\Colonne dérivée.Inputs[Entrée de colonne dérivée]"
+              name="Sortie de source ADO NET"
+              startId="Package\Tâche de flux de données\Source ADO NET.Outputs[Sortie de source ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="197.6,41.6"
+          Id="Package\Tâche de flux de données"
+          TopLeft="117.999993853271,41.033333086239" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tâche de flux de données">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="172.8,41.6"
+          Id="Package\Tâche de flux de données\Commande OLE DB"
+          TopLeft="246.5,411.9" />
+        <NodeLayout
+          Size="160,41.6"
+          Id="Package\Tâche de flux de données\Source ADO NET"
+          TopLeft="252.9,5.49999999999984" />
+        <NodeLayout
+          Size="212,41.6"
+          Id="Package\Tâche de flux de données\Dimension à variation lente 1"
+          TopLeft="226.9,310.3" />
+        <NodeLayout
+          Size="178.4,41.6"
+          Id="Package\Tâche de flux de données\FIND PRODUIT_KEY"
+          TopLeft="243.7,208.7" />
+        <NodeLayout
+          Size="180.8,41.6"
+          Id="Package\Tâche de flux de données\Destination d'insertion"
+          TopLeft="5.50000000000003,411.9" />
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\Tâche de flux de données\Colonne dérivée"
+          TopLeft="255.7,107.1" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de source ADO NET]"
+          TopLeft="332.9,47.0999999999998">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de recherche avec correspondance]"
+          TopLeft="332.9,250.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-91.67701171875,20.4453125,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de mises à jour d'attribut de validation]"
+          TopLeft="366.9,351.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-33.9999999999999,60.0000000000001"
+              Start="0,0"
+              End="-33.9999999999999,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2696629213484" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2696629213484"
+                    Point2="0,24.2696629213484"
+                    Point3="-4,24.2696629213484" />
+                  <mssgle:LineSegment
+                    End="-29.9999999999999,24.2696629213484" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-29.9999999999999,24.2696629213484"
+                    Point2="-33.9999999999999,24.2696629213484"
+                    Point3="-33.9999999999999,28.2696629213484" />
+                  <mssgle:LineSegment
+                    End="-33.9999999999999,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-116.83259765625,29.2696629213484,199.6651953125,12.2490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de colonne dérivée]"
+          TopLeft="332.9,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Nouvelle sortie]"
+          TopLeft="298.9,351.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-203,60.0000000000002"
+              Start="0,0"
+              End="-203,52.5000000000002">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2696629213484" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2696629213484"
+                    Point2="0,24.2696629213484"
+                    Point3="-4,24.2696629213484" />
+                  <mssgle:LineSegment
+                    End="-199,24.2696629213484" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-199,24.2696629213484"
+                    Point2="-203,24.2696629213484"
+                    Point3="-203,28.2696629213484" />
+                  <mssgle:LineSegment
+                    End="-203,52.5000000000002" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-134.63634765625,29.2696629213484,66.2726953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\Source ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\Dimension à variation lente 1">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{AAB8CEBE-9412-42DF-9438-6B4C7C5590E7}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[DIM_ARTICLE]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source ADO NET.Sorties[Sortie de source ADO NET].Colonnes[ACTIF]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ACTIF&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source ADO NET.Sorties[Sortie de source ADO NET].Colonnes[CODE_ARTICLE]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;CODE_ARTICLE&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source ADO NET.Sorties[Sortie de source ADO NET].Colonnes[CODE_PRODUIT]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;CODE_PRODUIT&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source ADO NET.Sorties[Sortie de source ADO NET].Colonnes[LIBELLE]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;LIBELLE&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source ADO NET.Sorties[Sortie de source ADO NET].Colonnes[LIBELLE_COURT]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;LIBELLE_COURT&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source ADO NET.Sorties[Sortie de source ADO NET].Colonnes[LIBELLE_GMS]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;LIBELLE_GMS&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source ADO NET.Sorties[Sortie de source ADO NET].Colonnes[POIDS]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;POIDS&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;FIND PRODUIT_KEY.Sorties[Sortie de recherche avec correspondance].Colonnes[PRODUIT_KEY]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;PRODUIT_KEY&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source ADO NET.Sorties[Sortie de source ADO NET].Colonnes[QTE_PACK]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;QTE_PACK&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source ADO NET.Sorties[Sortie de source ADO NET].Colonnes[TVA]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;TVA&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Destination d'insertion&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Commande OLE DB&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\FIND PRODUIT_KEY">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DIM_PRODUIT]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

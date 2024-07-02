@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="10 7 7 78_Source_COM_OLEDB"
+  DTS:DTSID="{46F57F89-55F3-4C30-BD8D-8CBDB4AB33B7}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=10.7.7.78\TESTING;User ID=STAGE;Initial Catalog=OLTP_INTERN_COMMERCIAL_CP;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-projet1-{46F57F89-55F3-4C30-BD8D-8CBDB4AB33B7}10.7.7.78\TESTING.OLTP_INTERN_COMMERCIAL_CP.STAGE;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAsK7CncP7nkuqpYhlG2/yhgAAAAACAAAAAAAQZgAAAAEAACAAAACpSQ5hDaEJQfFzx0e/6xxeaeJiEaE8MQbCHI6cQj7/eQAAAAAOgAAAAAIAACAAAAB3tEl76GyXU61cOp648yKNhEJXYNwkvON8gtONdVDwpIAAAAAwC2HJ+WkxhgrXhycunW+tXANCmyFvrL7hUBNrXo9hfUNU/8RGlB7rXTJUgN9DgnxSA5SqMhjnTm9CgMaLbpIe1q118t54V8TsE1rnM/eib2t/SaSRx0qaRGdNCCDNcufDT8ChwYuf5PJcb1YSFdblXwuHohmoJhRnRun+F9EbGUAAAABQiQfhJ1/ZCFtA/gTmm1284a5pkJvZBQ9Axei7oYnoxaOh1Pw4J628o1GXcf+DZZLBsFGfJMwgMpcp57vO9P/A</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
